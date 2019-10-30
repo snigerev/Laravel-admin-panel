@@ -34,6 +34,13 @@
         </a>
     </li>
     <li class="nav-item">
+        <a href="{{route('admin.roles.index')}}" class="nav-link collapsed">
+            <i class="fas fa-universal-access "></i>
+            <span>Roles</span>
+        </a>
+    </li>
+
+    <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
            aria-controls="collapseTwo">
             <i class="fas fa-fw fa-cog"></i>

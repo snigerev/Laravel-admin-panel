@@ -22,9 +22,11 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
-    Route::resource('/', 'IndexController')->names('admin');
+    Route::get('/', 'IndexController@index')->name('admin.index');
     Route::resource('users', 'UsersController')->names('admin.users');
+    Route::resource('roles', 'RolesController')->names('admin.roles');
+    Route::get('roles/{role}/delete', 'RolesController@delete')->name('admin.roles.delete');
 });
