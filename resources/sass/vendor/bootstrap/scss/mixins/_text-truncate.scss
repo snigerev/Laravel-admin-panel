@@ -1,0 +1,14 @@
+/*!
+ * Copyright (c) 30.10.2019.
+ * File - _text-truncate.scss
+ * Author - tor
+ */
+
+// Text truncate
+// Requires inline-block or block for proper styling
+
+@mixin text-truncate() {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

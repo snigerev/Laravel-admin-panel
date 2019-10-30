@@ -1,0 +1,17 @@
+/*!
+ * Copyright (c) 30.10.2019.
+ * File - _screenreaders.scss
+ * Author - tor
+ */
+
+//
+// Screenreaders
+//
+
+.sr-only {
+    @include sr-only();
+}
+
+.sr-only-focusable {
+    @include sr-only-focusable();
+}

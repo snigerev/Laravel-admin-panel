@@ -1,0 +1,19 @@
+/*!
+ * Copyright (c) 30.10.2019.
+ * File - _alert.scss
+ * Author - tor
+ */
+
+@mixin alert-variant($background, $border, $color) {
+    color: $color;
+    @include gradient-bg($background);
+    border-color: $border;
+
+    hr {
+        border-top-color: darken($border, 5%);
+    }
+
+    .alert-link {
+        color: darken($color, 10%);
+    }
+}

@@ -1,0 +1,12 @@
+/*!
+ * Copyright (c) 30.10.2019.
+ * File - _fixed-width.scss
+ * Author - tor
+ */
+
+// Fixed Width Icons
+// -------------------------
+.#{$fa-css-prefix}-fw {
+    text-align: center;
+    width: $fa-fw-width;
+}

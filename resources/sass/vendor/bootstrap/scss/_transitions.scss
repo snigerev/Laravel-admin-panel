@@ -1,0 +1,26 @@
+/*!
+ * Copyright (c) 30.10.2019.
+ * File - _transitions.scss
+ * Author - tor
+ */
+
+.fade {
+    @include transition($transition-fade);
+
+    &:not(.show) {
+        opacity: 0;
+    }
+}
+
+.collapse {
+    &:not(.show) {
+        display: none;
+    }
+}
+
+.collapsing {
+    position: relative;
+    height: 0;
+    overflow: hidden;
+    @include transition($transition-collapse);
+}

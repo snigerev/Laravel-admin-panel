@@ -1,0 +1,13 @@
+/*!
+ * Copyright (c) 30.10.2019.
+ * File - _lists.scss
+ * Author - tor
+ */
+
+// Lists
+
+// Unstyled keeps list items block level, just removes default browser padding and list-style
+@mixin list-unstyled {
+    padding-left: 0;
+    list-style: none;
+}

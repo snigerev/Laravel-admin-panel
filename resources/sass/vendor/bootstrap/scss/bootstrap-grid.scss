@@ -1,0 +1,28 @@
+/*!
+ * Copyright (c) 30.10.2019.
+ * File - bootstrap-grid.scss
+ * Author - tor
+ */
+
+html {
+    box-sizing: border-box;
+    -ms-overflow-style: scrollbar;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+@import "functions";
+@import "variables";
+
+@import "mixins/breakpoints";
+@import "mixins/grid-framework";
+@import "mixins/grid";
+
+@import "grid";
+@import "utilities/display";
+@import "utilities/flex";
+@import "utilities/spacing";

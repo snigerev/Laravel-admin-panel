@@ -1,0 +1,27 @@
+/*!
+ * Copyright (c) 30.10.2019.
+ * File - _list-group.scss
+ * Author - tor
+ */
+
+// List Groups
+
+@mixin list-group-item-variant($state, $background, $color) {
+    .list-group-item-#{$state} {
+        color: $color;
+        background-color: $background;
+
+        &.list-group-item-action {
+            @include hover-focus {
+                color: $color;
+                background-color: darken($background, 5%);
+            }
+
+            &.active {
+                color: $white;
+                background-color: $color;
+                border-color: $color;
+            }
+        }
+    }
+}
