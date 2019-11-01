@@ -1,16 +1,15 @@
 <?php
 /**
- * Copyright (c) 30.10.2019.
+ * Copyright (c) 1.11.2019.
  * File - UsersController.php
  * Author - tor
  */
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class UsersController extends Controller
+class UsersController extends BaseAdminController
 {
     /**
      * Display a listing of the resource.

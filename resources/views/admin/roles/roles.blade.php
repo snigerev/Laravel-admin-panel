@@ -38,7 +38,7 @@
                                     <i class="fas fa-edit"></i>
                                 </a>
                                 <a href="{{route('admin.roles.delete', $role->id)}}">
-                                    <i class="fas fa-trash-alt"></i>
+                                    <i class="fas fa-times-circle"></i>
                                 </a>
                             </td>
                         </tr>

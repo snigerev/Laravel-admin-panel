@@ -1,17 +1,16 @@
 <?php
 /**
- * Copyright (c) 30.10.2019.
+ * Copyright (c) 1.11.2019.
  * File - RolesController.php
  * Author - tor
  */
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use App\Models\Role;
 use Illuminate\Http\Request;
 
-class RolesController extends Controller
+class RolesController extends BaseAdminController
 {
     /**
      * Display a listing of the resource.

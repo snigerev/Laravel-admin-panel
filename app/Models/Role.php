@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 30.10.2019.
+ * Copyright (c) 1.11.2019.
  * File - Role.php
  * Author - tor
  */
@@ -33,6 +33,6 @@ class Role extends Model
 
     public function users()
     {
-        return $this->belongsToMany('App\Models\User', 'user_roles');
+        return $this->belongsToMany('App\User', 'user_roles');
     }
 }

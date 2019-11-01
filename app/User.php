@@ -1,11 +1,11 @@
 <?php
 /**
- * Copyright (c) 30.10.2019.
+ * Copyright (c) 1.11.2019.
  * File - User.php
  * Author - tor
  */
 
-namespace App\Models;
+namespace App;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;

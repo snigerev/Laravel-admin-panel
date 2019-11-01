@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 30.10.2019.
+ * Copyright (c) 1.11.2019.
  * File - BaseAdminController.php
  * Author - tor
  */
@@ -15,5 +15,12 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 
 class BaseAdminController extends Controller
 {
+
+
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+    public function __construct()
+    {
+        $this->middleware(['auth', 'UserRole']);
+    }
 }
