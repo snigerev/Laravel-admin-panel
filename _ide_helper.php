@@ -1,15 +1,15 @@
 <?php
 /**
- * Copyright (c) 30.10.2019.
+ * Copyright (c) 9.11.2019.
  * File - _ide_helper.php
- * Author - tor
+ * Author - admin
  */
 
 // @formatter:off
 
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 6.4.0 on 2019-10-29 13:36:56.
+ * Generated for Laravel 6.5.0 on 2019-11-08 15:08:25.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -2552,7 +2552,7 @@ namespace Illuminate\Support\Facades {
     /**
      *
      *
-     * @method static \Illuminate\Broadcasting\Broadcasters\Broadcaster channel(string $channel, callable|string $callback)
+     * @method static \Illuminate\Broadcasting\Broadcasters\Broadcaster channel(string $channel, callable|string $callback, array $options = [])
      * @method static mixed auth(\Illuminate\Http\Request $request)
      * @see \Illuminate\Contracts\Broadcasting\Factory
      */
@@ -5202,6 +5202,19 @@ namespace Illuminate\Support\Facades {
         }
 
         /**
+         * Determine if a file or directory is missing.
+         *
+         * @param string $path
+         * @return bool
+         * @static
+         */
+        public static function missing($path)
+        {
+            /** @var \Illuminate\Filesystem\Filesystem $instance */
+            return $instance->missing($path);
+        }
+
+        /**
          * Get the contents of a file.
          *
          * @param string $path
@@ -7499,8 +7512,6 @@ namespace Illuminate\Support\Facades {
      *
      * @method static string sendResetLink(array $credentials)
      * @method static mixed reset(array $credentials, \Closure $callback)
-     * @method static void validator(\Closure $callback)
-     * @method static bool validateNewPassword(array $credentials)
      * @see \Illuminate\Auth\Passwords\PasswordBroker
      */
     class Password
@@ -9659,7 +9670,6 @@ namespace Illuminate\Support\Facades {
          * Checks whether or not the method is safe.
          *
          * @see https://tools.ietf.org/html/rfc7231#section-4.2.1
-         * @param bool $andCacheable Adds the additional condition that the method should be cacheable. True by default.
          * @return bool
          * @static
          */
@@ -12726,6 +12736,19 @@ namespace Illuminate\Support\Facades {
         }
 
         /**
+         * Determine if a file or directory is missing.
+         *
+         * @param string $path
+         * @return bool
+         * @static
+         */
+        public static function missing($path)
+        {
+            /** @var \Illuminate\Filesystem\FilesystemAdapter $instance */
+            return $instance->missing($path);
+        }
+
+        /**
          * Get the full path for the file at the given "short" path.
          *
          * @param string $path
@@ -13286,6 +13309,7 @@ namespace Illuminate\Support\Facades {
          * @param \DateTimeInterface|\DateInterval|int|null $expiration
          * @param bool $absolute
          * @return string
+         * @throws \InvalidArgumentException
          * @static
          */
         public static function signedRoute($name, $parameters = array(), $expiration = null, $absolute = true)
@@ -14771,9 +14795,9 @@ namespace Barryvdh\Debugbar {
          * Adds a data collector
          *
          * @param \Barryvdh\Debugbar\DataCollectorInterface $collector
+         * @throws DebugBarException
          * @return \Barryvdh\Debugbar\LaravelDebugbar
          * @static
-         * @throws DebugBarException
          */
         public static function addCollector($collector)
         {
@@ -17615,7 +17639,7 @@ namespace {
         /**
          * Add a "group by" clause to the query.
          *
-         * @param array $groups
+         * @param array|string $groups
          * @return \Illuminate\Database\Query\Builder
          * @static
          */
@@ -17977,6 +18001,32 @@ namespace {
         {
             /** @var \Illuminate\Database\Query\Builder $instance */
             return $instance->doesntExist();
+        }
+
+        /**
+         * Execute the given callback if no rows exist for the current query.
+         *
+         * @param \Closure $callback
+         * @return mixed
+         * @static
+         */
+        public static function existsOr($callback)
+        {
+            /** @var \Illuminate\Database\Query\Builder $instance */
+            return $instance->existsOr($callback);
+        }
+
+        /**
+         * Execute the given callback if rows exist for the current query.
+         *
+         * @param \Closure $callback
+         * @return mixed
+         * @static
+         */
+        public static function doesntExistOr($callback)
+        {
+            /** @var \Illuminate\Database\Query\Builder $instance */
+            return $instance->doesntExistOr($callback);
         }
 
         /**

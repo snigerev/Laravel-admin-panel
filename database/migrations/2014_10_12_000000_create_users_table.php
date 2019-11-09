@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright (c) 30.10.2019.
+ * Copyright (c) 9.11.2019.
  * File - 2014_10_12_000000_create_users_table.php
- * Author - tor
+ * Author - admin
  */
 
 use Illuminate\Database\Migrations\Migration;
@@ -21,11 +21,17 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
+            $table->bigInteger('role_id')->unique()->unsigned()->nullable();
+            $table->foreign('role_id')
+                ->references('id')
+                ->on('roles')
+                ->onDelete('cascade');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

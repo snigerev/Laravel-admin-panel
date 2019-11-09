@@ -1,14 +1,14 @@
 <?php
 /**
- * Copyright (c) 30.10.2019.
+ * Copyright (c) 9.11.2019.
  * File - RegisterController.php
- * Author - tor
+ * Author - admin
  */
 
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
+use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;

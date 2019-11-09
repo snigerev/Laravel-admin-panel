@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright (c) 30.10.2019.
- * File - 2019_10_30_122349_create_roles_table.php
- * Author - tor
+ * Copyright (c) 9.11.2019.
+ * File - 2013_11_08_133053_create_roles_table.php
+ * Author - admin
  */
 
 use Illuminate\Database\Migrations\Migration;
@@ -22,6 +22,7 @@ class CreateRolesTable extends Migration
             $table->bigIncrements('id');
             $table->string('role_name');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

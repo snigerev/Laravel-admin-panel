@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright (c) 1.11.2019.
+ * Copyright (c) 9.11.2019.
  * File - Kernel.php
- * Author - tor
+ * Author - admin
  */
 
 namespace App\Http;
@@ -24,7 +24,6 @@ class Kernel extends HttpKernel
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
-        //  \App\Http\Middleware\UserRole::class,
     ];
 
     /**
@@ -67,7 +66,6 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
-        'UserRole' => \App\Http\Middleware\UserRole::class,
     ];
 
     /**
@@ -85,6 +83,5 @@ class Kernel extends HttpKernel
         \Illuminate\Session\Middleware\AuthenticateSession::class,
         \Illuminate\Routing\Middleware\SubstituteBindings::class,
         \Illuminate\Auth\Middleware\Authorize::class,
-        // \App\Http\Middleware\UserRole::class,
     ];
 }

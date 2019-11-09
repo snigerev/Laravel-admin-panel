@@ -16,7 +16,7 @@
                 <table class="table table-bordered" id="dataTable">
                     <thead>
                     <tr>
-                        <th>ID</th>
+                        <th>#</th>
                         <th>{{trans('admin/roles.role_name')}}</th>
                         <th>{{trans('admin/roles.actions')}}</th>
                     </tr>

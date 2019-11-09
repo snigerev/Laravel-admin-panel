@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright (c) 1.11.2019.
+ * Copyright (c) 9.11.2019.
  * File - BaseAdminController.php
- * Author - tor
+ * Author - admin
  */
 
 namespace App\Http\Controllers\Admin;
@@ -21,6 +21,6 @@ class BaseAdminController extends Controller
 
     public function __construct()
     {
-        $this->middleware(['auth', 'UserRole']);
+        $this->middleware(['auth']);
     }
 }

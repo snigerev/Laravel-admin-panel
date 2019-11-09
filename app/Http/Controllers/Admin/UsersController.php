@@ -1,12 +1,14 @@
 <?php
 /**
- * Copyright (c) 1.11.2019.
+ * Copyright (c) 9.11.2019.
  * File - UsersController.php
- * Author - tor
+ * Author - admin
  */
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Role;
+use App\User;
 use Illuminate\Http\Request;
 
 class UsersController extends BaseAdminController
@@ -18,7 +20,9 @@ class UsersController extends BaseAdminController
      */
     public function index()
     {
-        return view('admin.users');
+        $users = User::all('id', 'role_id', 'name', 'email');
+
+        return view('admin.users.users', compact('users'));
     }
 
     /**
@@ -28,7 +32,8 @@ class UsersController extends BaseAdminController
      */
     public function create()
     {
-        //
+        $roles = Role::all();
+        return view('admin.users.add_user', compact('roles'));
     }
 
     /**
@@ -61,7 +66,13 @@ class UsersController extends BaseAdminController
      */
     public function edit($id)
     {
-        //
+        $user = User::findOrFail($id);
+        $roles = Role::all();
+
+        return view('admin.users.edit_user', compact([
+            'user',
+            'roles'
+        ]));
     }
 
     /**
@@ -73,7 +84,12 @@ class UsersController extends BaseAdminController
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::findOrFail($id);
+        if (!empty($user)) {
+            $result = $user->update(array_filter($request->all()));
+        }
+
+        return redirect(route('admin.users.index'));
     }
 
     /**
