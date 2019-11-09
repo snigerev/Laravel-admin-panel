@@ -33,6 +33,7 @@ class UsersController extends BaseAdminController
     public function create()
     {
         $roles = Role::all();
+
         return view('admin.users.add_user', compact('roles'));
     }
 
@@ -44,7 +45,8 @@ class UsersController extends BaseAdminController
      */
     public function store(Request $request)
     {
-        //
+
+        return redirect(route('admin.users.index'));
     }
 
     /**
