@@ -9,7 +9,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Role;
 use App\User;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class UsersController extends BaseAdminController
 {
@@ -42,9 +45,13 @@ class UsersController extends BaseAdminController
      *
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Validation\ValidationException
      */
     public function store(Request $request)
     {
+        $this->validator($request->all())->validate();
+
+        event(new Registered($user = $this->createUser($request->all())));
 
         return redirect(route('admin.users.index'));
     }
@@ -103,5 +110,29 @@ class UsersController extends BaseAdminController
     public function destroy($id)
     {
         //
+    }
+
+    public function delete($id)
+    {
+        dd(__METHOD__, $id);
+    }
+
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
+    }
+
+    protected function createUser(array $data)
+    {
+        return User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'role_id' => $data['role_id'],
+            'password' => Hash::make($data['password']),
+        ]);
     }
 }
