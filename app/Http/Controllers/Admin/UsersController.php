@@ -114,7 +114,9 @@ class UsersController extends BaseAdminController
 
     public function delete($id)
     {
-        dd(__METHOD__, $id);
+        $user = User::findOrFail($id);
+
+        return view('admin.users.delete_user', compact('user'));
     }
 
     protected function validator(array $data)
