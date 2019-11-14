@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 9.11.2019.
+ * Copyright (c) 14.11.2019.
  * File - .phpstorm.meta.php
  * Author - admin
  */
@@ -11,7 +11,7 @@ namespace PHPSTORM_META {
 
     /**
      * PhpStorm Meta file, to provide autocomplete information for PhpStorm
-     * Generated on 2019-11-08 15:08:27.
+     * Generated on 2019-11-11 14:27:08.
      *
      * @author Barry vd. Heuvel <barryvdh@gmail.com>
      * @see https://github.com/barryvdh/laravel-ide-helper
@@ -31,7 +31,7 @@ namespace PHPSTORM_META {
         'Illuminate\Console\Scheduling\ScheduleFinishCommand' => \Illuminate\Console\Scheduling\ScheduleFinishCommand::class,
         'Illuminate\Console\Scheduling\ScheduleRunCommand' => \Illuminate\Console\Scheduling\ScheduleRunCommand::class,
         'Illuminate\Contracts\Auth\Access\Gate' => \Illuminate\Auth\Access\Gate::class,
-        'Illuminate\Contracts\Broadcasting\Broadcaster' => \Illuminate\Broadcasting\Broadcasters\LogBroadcaster::class,
+        'Illuminate\Contracts\Broadcasting\Broadcaster' => \Illuminate\Broadcasting\Broadcasters\NullBroadcaster::class,
         'Illuminate\Contracts\Console\Kernel' => \App\Console\Kernel::class,
         'Illuminate\Contracts\Debug\ExceptionHandler' => \NunoMaduro\Collision\Adapters\Laravel\ExceptionHandler::class,
         'Illuminate\Contracts\Http\Kernel' => \App\Http\Kernel::class,
@@ -134,7 +134,6 @@ namespace PHPSTORM_META {
         'db' => \Illuminate\Database\DatabaseManager::class,
         'db.connection' => \Illuminate\Database\MySqlConnection::class,
         'db.factory' => \Illuminate\Database\Connectors\ConnectionFactory::class,
-        'encrypter' => \Illuminate\Encryption\Encrypter::class,
         'events' => \Illuminate\Events\Dispatcher::class,
         'files' => \Illuminate\Filesystem\Filesystem::class,
         'filesystem' => \Illuminate\Filesystem\FilesystemManager::class,
@@ -186,7 +185,7 @@ namespace PHPSTORM_META {
         'Illuminate\Console\Scheduling\ScheduleFinishCommand' => \Illuminate\Console\Scheduling\ScheduleFinishCommand::class,
         'Illuminate\Console\Scheduling\ScheduleRunCommand' => \Illuminate\Console\Scheduling\ScheduleRunCommand::class,
         'Illuminate\Contracts\Auth\Access\Gate' => \Illuminate\Auth\Access\Gate::class,
-        'Illuminate\Contracts\Broadcasting\Broadcaster' => \Illuminate\Broadcasting\Broadcasters\LogBroadcaster::class,
+        'Illuminate\Contracts\Broadcasting\Broadcaster' => \Illuminate\Broadcasting\Broadcasters\NullBroadcaster::class,
         'Illuminate\Contracts\Console\Kernel' => \App\Console\Kernel::class,
         'Illuminate\Contracts\Debug\ExceptionHandler' => \NunoMaduro\Collision\Adapters\Laravel\ExceptionHandler::class,
         'Illuminate\Contracts\Http\Kernel' => \App\Http\Kernel::class,
@@ -289,7 +288,6 @@ namespace PHPSTORM_META {
         'db' => \Illuminate\Database\DatabaseManager::class,
         'db.connection' => \Illuminate\Database\MySqlConnection::class,
         'db.factory' => \Illuminate\Database\Connectors\ConnectionFactory::class,
-        'encrypter' => \Illuminate\Encryption\Encrypter::class,
         'events' => \Illuminate\Events\Dispatcher::class,
         'files' => \Illuminate\Filesystem\Filesystem::class,
         'filesystem' => \Illuminate\Filesystem\FilesystemManager::class,
@@ -341,7 +339,7 @@ namespace PHPSTORM_META {
         'Illuminate\Console\Scheduling\ScheduleFinishCommand' => \Illuminate\Console\Scheduling\ScheduleFinishCommand::class,
         'Illuminate\Console\Scheduling\ScheduleRunCommand' => \Illuminate\Console\Scheduling\ScheduleRunCommand::class,
         'Illuminate\Contracts\Auth\Access\Gate' => \Illuminate\Auth\Access\Gate::class,
-        'Illuminate\Contracts\Broadcasting\Broadcaster' => \Illuminate\Broadcasting\Broadcasters\LogBroadcaster::class,
+        'Illuminate\Contracts\Broadcasting\Broadcaster' => \Illuminate\Broadcasting\Broadcasters\NullBroadcaster::class,
         'Illuminate\Contracts\Console\Kernel' => \App\Console\Kernel::class,
         'Illuminate\Contracts\Debug\ExceptionHandler' => \NunoMaduro\Collision\Adapters\Laravel\ExceptionHandler::class,
         'Illuminate\Contracts\Http\Kernel' => \App\Http\Kernel::class,
@@ -444,7 +442,6 @@ namespace PHPSTORM_META {
         'db' => \Illuminate\Database\DatabaseManager::class,
         'db.connection' => \Illuminate\Database\MySqlConnection::class,
         'db.factory' => \Illuminate\Database\Connectors\ConnectionFactory::class,
-        'encrypter' => \Illuminate\Encryption\Encrypter::class,
         'events' => \Illuminate\Events\Dispatcher::class,
         'files' => \Illuminate\Filesystem\Filesystem::class,
         'filesystem' => \Illuminate\Filesystem\FilesystemManager::class,
@@ -496,7 +493,7 @@ namespace PHPSTORM_META {
         'Illuminate\Console\Scheduling\ScheduleFinishCommand' => \Illuminate\Console\Scheduling\ScheduleFinishCommand::class,
         'Illuminate\Console\Scheduling\ScheduleRunCommand' => \Illuminate\Console\Scheduling\ScheduleRunCommand::class,
         'Illuminate\Contracts\Auth\Access\Gate' => \Illuminate\Auth\Access\Gate::class,
-        'Illuminate\Contracts\Broadcasting\Broadcaster' => \Illuminate\Broadcasting\Broadcasters\LogBroadcaster::class,
+        'Illuminate\Contracts\Broadcasting\Broadcaster' => \Illuminate\Broadcasting\Broadcasters\NullBroadcaster::class,
         'Illuminate\Contracts\Console\Kernel' => \App\Console\Kernel::class,
         'Illuminate\Contracts\Debug\ExceptionHandler' => \NunoMaduro\Collision\Adapters\Laravel\ExceptionHandler::class,
         'Illuminate\Contracts\Http\Kernel' => \App\Http\Kernel::class,
@@ -599,7 +596,6 @@ namespace PHPSTORM_META {
         'db' => \Illuminate\Database\DatabaseManager::class,
         'db.connection' => \Illuminate\Database\MySqlConnection::class,
         'db.factory' => \Illuminate\Database\Connectors\ConnectionFactory::class,
-        'encrypter' => \Illuminate\Encryption\Encrypter::class,
         'events' => \Illuminate\Events\Dispatcher::class,
         'files' => \Illuminate\Filesystem\Filesystem::class,
         'filesystem' => \Illuminate\Filesystem\FilesystemManager::class,
@@ -651,7 +647,7 @@ namespace PHPSTORM_META {
         'Illuminate\Console\Scheduling\ScheduleFinishCommand' => \Illuminate\Console\Scheduling\ScheduleFinishCommand::class,
         'Illuminate\Console\Scheduling\ScheduleRunCommand' => \Illuminate\Console\Scheduling\ScheduleRunCommand::class,
         'Illuminate\Contracts\Auth\Access\Gate' => \Illuminate\Auth\Access\Gate::class,
-        'Illuminate\Contracts\Broadcasting\Broadcaster' => \Illuminate\Broadcasting\Broadcasters\LogBroadcaster::class,
+        'Illuminate\Contracts\Broadcasting\Broadcaster' => \Illuminate\Broadcasting\Broadcasters\NullBroadcaster::class,
         'Illuminate\Contracts\Console\Kernel' => \App\Console\Kernel::class,
         'Illuminate\Contracts\Debug\ExceptionHandler' => \NunoMaduro\Collision\Adapters\Laravel\ExceptionHandler::class,
         'Illuminate\Contracts\Http\Kernel' => \App\Http\Kernel::class,
@@ -754,7 +750,6 @@ namespace PHPSTORM_META {
         'db' => \Illuminate\Database\DatabaseManager::class,
         'db.connection' => \Illuminate\Database\MySqlConnection::class,
         'db.factory' => \Illuminate\Database\Connectors\ConnectionFactory::class,
-        'encrypter' => \Illuminate\Encryption\Encrypter::class,
         'events' => \Illuminate\Events\Dispatcher::class,
         'files' => \Illuminate\Filesystem\Filesystem::class,
         'filesystem' => \Illuminate\Filesystem\FilesystemManager::class,
@@ -806,7 +801,7 @@ namespace PHPSTORM_META {
         'Illuminate\Console\Scheduling\ScheduleFinishCommand' => \Illuminate\Console\Scheduling\ScheduleFinishCommand::class,
         'Illuminate\Console\Scheduling\ScheduleRunCommand' => \Illuminate\Console\Scheduling\ScheduleRunCommand::class,
         'Illuminate\Contracts\Auth\Access\Gate' => \Illuminate\Auth\Access\Gate::class,
-        'Illuminate\Contracts\Broadcasting\Broadcaster' => \Illuminate\Broadcasting\Broadcasters\LogBroadcaster::class,
+        'Illuminate\Contracts\Broadcasting\Broadcaster' => \Illuminate\Broadcasting\Broadcasters\NullBroadcaster::class,
         'Illuminate\Contracts\Console\Kernel' => \App\Console\Kernel::class,
         'Illuminate\Contracts\Debug\ExceptionHandler' => \NunoMaduro\Collision\Adapters\Laravel\ExceptionHandler::class,
         'Illuminate\Contracts\Http\Kernel' => \App\Http\Kernel::class,
@@ -909,7 +904,6 @@ namespace PHPSTORM_META {
         'db' => \Illuminate\Database\DatabaseManager::class,
         'db.connection' => \Illuminate\Database\MySqlConnection::class,
         'db.factory' => \Illuminate\Database\Connectors\ConnectionFactory::class,
-        'encrypter' => \Illuminate\Encryption\Encrypter::class,
         'events' => \Illuminate\Events\Dispatcher::class,
         'files' => \Illuminate\Filesystem\Filesystem::class,
         'filesystem' => \Illuminate\Filesystem\FilesystemManager::class,
@@ -961,7 +955,7 @@ namespace PHPSTORM_META {
         'Illuminate\Console\Scheduling\ScheduleFinishCommand' => \Illuminate\Console\Scheduling\ScheduleFinishCommand::class,
         'Illuminate\Console\Scheduling\ScheduleRunCommand' => \Illuminate\Console\Scheduling\ScheduleRunCommand::class,
         'Illuminate\Contracts\Auth\Access\Gate' => \Illuminate\Auth\Access\Gate::class,
-        'Illuminate\Contracts\Broadcasting\Broadcaster' => \Illuminate\Broadcasting\Broadcasters\LogBroadcaster::class,
+        'Illuminate\Contracts\Broadcasting\Broadcaster' => \Illuminate\Broadcasting\Broadcasters\NullBroadcaster::class,
         'Illuminate\Contracts\Console\Kernel' => \App\Console\Kernel::class,
         'Illuminate\Contracts\Debug\ExceptionHandler' => \NunoMaduro\Collision\Adapters\Laravel\ExceptionHandler::class,
         'Illuminate\Contracts\Http\Kernel' => \App\Http\Kernel::class,
@@ -1064,7 +1058,6 @@ namespace PHPSTORM_META {
         'db' => \Illuminate\Database\DatabaseManager::class,
         'db.connection' => \Illuminate\Database\MySqlConnection::class,
         'db.factory' => \Illuminate\Database\Connectors\ConnectionFactory::class,
-        'encrypter' => \Illuminate\Encryption\Encrypter::class,
         'events' => \Illuminate\Events\Dispatcher::class,
         'files' => \Illuminate\Filesystem\Filesystem::class,
         'filesystem' => \Illuminate\Filesystem\FilesystemManager::class,
@@ -1116,7 +1109,7 @@ namespace PHPSTORM_META {
         'Illuminate\Console\Scheduling\ScheduleFinishCommand' => \Illuminate\Console\Scheduling\ScheduleFinishCommand::class,
         'Illuminate\Console\Scheduling\ScheduleRunCommand' => \Illuminate\Console\Scheduling\ScheduleRunCommand::class,
         'Illuminate\Contracts\Auth\Access\Gate' => \Illuminate\Auth\Access\Gate::class,
-        'Illuminate\Contracts\Broadcasting\Broadcaster' => \Illuminate\Broadcasting\Broadcasters\LogBroadcaster::class,
+        'Illuminate\Contracts\Broadcasting\Broadcaster' => \Illuminate\Broadcasting\Broadcasters\NullBroadcaster::class,
         'Illuminate\Contracts\Console\Kernel' => \App\Console\Kernel::class,
         'Illuminate\Contracts\Debug\ExceptionHandler' => \NunoMaduro\Collision\Adapters\Laravel\ExceptionHandler::class,
         'Illuminate\Contracts\Http\Kernel' => \App\Http\Kernel::class,
@@ -1219,7 +1212,6 @@ namespace PHPSTORM_META {
         'db' => \Illuminate\Database\DatabaseManager::class,
         'db.connection' => \Illuminate\Database\MySqlConnection::class,
         'db.factory' => \Illuminate\Database\Connectors\ConnectionFactory::class,
-        'encrypter' => \Illuminate\Encryption\Encrypter::class,
         'events' => \Illuminate\Events\Dispatcher::class,
         'files' => \Illuminate\Filesystem\Filesystem::class,
         'filesystem' => \Illuminate\Filesystem\FilesystemManager::class,

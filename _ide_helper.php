@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 9.11.2019.
+ * Copyright (c) 14.11.2019.
  * File - _ide_helper.php
  * Author - admin
  */
@@ -9,7 +9,7 @@
 
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 6.5.0 on 2019-11-08 15:08:25.
+ * Generated for Laravel 6.5.0 on 2019-11-11 14:27:05.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -3822,111 +3822,6 @@ namespace Illuminate\Support\Facades {
         public static function hasMacro($name)
         {
             return \Illuminate\Cookie\CookieJar::hasMacro($name);
-        }
-
-    }
-
-    /**
-     *
-     *
-     * @see \Illuminate\Encryption\Encrypter
-     */
-    class Crypt
-    {
-
-        /**
-         * Determine if the given key and cipher combination is valid.
-         *
-         * @param string $key
-         * @param string $cipher
-         * @return bool
-         * @static
-         */
-        public static function supported($key, $cipher)
-        {
-            return \Illuminate\Encryption\Encrypter::supported($key, $cipher);
-        }
-
-        /**
-         * Create a new encryption key for the given cipher.
-         *
-         * @param string $cipher
-         * @return string
-         * @static
-         */
-        public static function generateKey($cipher)
-        {
-            return \Illuminate\Encryption\Encrypter::generateKey($cipher);
-        }
-
-        /**
-         * Encrypt the given value.
-         *
-         * @param mixed $value
-         * @param bool $serialize
-         * @return string
-         * @throws \Illuminate\Contracts\Encryption\EncryptException
-         * @static
-         */
-        public static function encrypt($value, $serialize = true)
-        {
-            /** @var \Illuminate\Encryption\Encrypter $instance */
-            return $instance->encrypt($value, $serialize);
-        }
-
-        /**
-         * Encrypt a string without serialization.
-         *
-         * @param string $value
-         * @return string
-         * @throws \Illuminate\Contracts\Encryption\EncryptException
-         * @static
-         */
-        public static function encryptString($value)
-        {
-            /** @var \Illuminate\Encryption\Encrypter $instance */
-            return $instance->encryptString($value);
-        }
-
-        /**
-         * Decrypt the given value.
-         *
-         * @param string $payload
-         * @param bool $unserialize
-         * @return mixed
-         * @throws \Illuminate\Contracts\Encryption\DecryptException
-         * @static
-         */
-        public static function decrypt($payload, $unserialize = true)
-        {
-            /** @var \Illuminate\Encryption\Encrypter $instance */
-            return $instance->decrypt($payload, $unserialize);
-        }
-
-        /**
-         * Decrypt the given string without unserialization.
-         *
-         * @param string $payload
-         * @return string
-         * @throws \Illuminate\Contracts\Encryption\DecryptException
-         * @static
-         */
-        public static function decryptString($payload)
-        {
-            /** @var \Illuminate\Encryption\Encrypter $instance */
-            return $instance->decryptString($payload);
-        }
-
-        /**
-         * Get the encryption key.
-         *
-         * @return string
-         * @static
-         */
-        public static function getKey()
-        {
-            /** @var \Illuminate\Encryption\Encrypter $instance */
-            return $instance->getKey();
         }
 
     }
@@ -15619,10 +15514,6 @@ namespace {
     }
 
     class Cookie extends \Illuminate\Support\Facades\Cookie
-    {
-    }
-
-    class Crypt extends \Illuminate\Support\Facades\Crypt
     {
     }
 
