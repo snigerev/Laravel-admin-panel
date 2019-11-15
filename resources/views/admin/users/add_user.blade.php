@@ -19,19 +19,31 @@
                     </div>
                     <div class="col-6 form-row align-content-center">
                         <label for="email" class="col-form-label mb-2">{{trans('admin/users.email')}} : </label>
-                        <input type="email" id="email" name="email" class="form-control">
+                        <input type="email" id="email" name="email"
+                               class="form-control @error('email') is-invalid @enderror">
+                        @error('email')
+                        <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                        @enderror
                     </div>
                 </div>
                 <div class="form-group d-flex">
                     <div class="col-6 form-row align-content-center">
                         <label for="password" class="col-form-label mb-2">{{trans('admin/users.password')}} : </label>
-                        <input type="password" id="password" name="password" class="form-control">
+                        <input type="password" id="password" name="password"
+                               class="form-control  @error('password') is-invalid @enderror">
+                        @error('password')
+                        <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                        @enderror
                     </div>
                     <div class="col-6 form-row align-content-center">
                         <label for="password-confirm"
                                class="col-form-label mb-2">{{trans('admin/users.password_confirm')}}
                             : </label>
-                        <input type="password" id="password-confirm" name="password-confirm" class="form-control">
+                        <input type="password" id="password-confirm" name="password_confirmation" class="form-control">
                     </div>
                 </div>
                 <div class="col-auto form-row align-content-center">
