@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright (c) 9.11.2019.
+ * Copyright (c) 18.11.2019.
  * File - users.php
- * Author - admin
+ * Author - tor
  */
 
 
@@ -16,9 +16,10 @@ return [
     'edit_user' => 'Редактирование пользователя',
     'save_user' => 'Сохранить',
     'select_role' => 'Выберите группу',
-    'administrators' => 'Администраторы',
-    'moderators' => 'Модераторы',
-    'users' => 'Игроки',
+    '2' => 'Администраторы',
+    '1' => 'Модераторы',
+    '0' => 'Игроки',
+    'nickname' => 'Ник',
     'add_user' => 'Добавить пользователя',
     'password' => 'Пароль',
     'password_confirm' => 'Повторите пароль',

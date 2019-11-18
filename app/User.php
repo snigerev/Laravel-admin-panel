@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright (c) 9.11.2019.
+ * Copyright (c) 18.11.2019.
  * File - User.php
- * Author - admin
+ * Author - tor
  */
 
 namespace App;
@@ -39,9 +39,13 @@ use Illuminate\Notifications\Notifiable;
  * @mixin \Eloquent
  * @property int|null $role_id
  * @property string|null $deleted_at
- * @property-read \App\Models\Role|null $role
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereDeletedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereRoleId($value)
+ * @property-read \App\Models\UserData $userData
+ * @method static bool|null forceDelete()
+ * @method static \Illuminate\Database\Query\Builder|\App\User onlyTrashed()
+ * @method static bool|null restore()
+ * @method static \Illuminate\Database\Query\Builder|\App\User withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|\App\User withoutTrashed()
  */
 class User extends Authenticatable
 {
@@ -54,7 +58,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'role_id', 'email', 'password',
+        'name', 'email', 'password',
     ];
 
     /**
@@ -75,8 +79,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function role()
+
+    public function userData()
     {
-        return $this->belongsTo('App\Models\Role');
+        return $this->hasOne('App\Models\UserData');
     }
+
 }

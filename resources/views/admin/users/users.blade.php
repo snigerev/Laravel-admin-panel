@@ -18,6 +18,7 @@
                     <tr>
                         <th>#</th>
                         <th>{{ trans('admin/users.username') }}</th>
+                        <th>{{ trans('admin/users.nickname') }}</th>
                         <th>{{ trans('admin/users.email') }}</th>
                         <th>{{ trans('admin/users.group') }}</th>
                         <th>{{ trans('admin/users.actions') }}</th>
@@ -27,6 +28,7 @@
                     <tr>
                         <th>#</th>
                         <th>{{ trans('admin/users.username') }}</th>
+                        <th>{{ trans('admin/users.nickname') }}</th>
                         <th>{{ trans('admin/users.email') }}</th>
                         <th>{{ trans('admin/users.group') }}</th>
                         <th>{{ trans('admin/users.actions') }}</th>
@@ -37,13 +39,11 @@
                         <tr>
                             <td>{{ $user->id }}</td>
                             <td>{{ $user->name }}</td>
+                            <td>{{ $user->userData->nickname }}</td>
                             <td>{{ $user->email }}</td>
-
-                            <td>@if (isset($user->role->role_name))
-                                    {{ trans('admin/users.' . $user->role->role_name) }}
-                                @else
-                                    {{ trans('admin/users.no_group') }}
-                                @endif</td>
+                            <td>
+                                {{ trans('admin/users.' . $user->userData->role_id) }}
+                            </td>
                             <td>
                                 <a href="{{ route('admin.users.edit', $user->id) }}">
                                     <i class="fas fa-edit"></i>
@@ -64,6 +64,5 @@
 @endsection
 
 @section('scripts')
-    {{--    <script type="text/javascript"> $(document).ready(function(){ alert(jQuery.fn.jquery); }); </script>--}}
     <script src="{{asset('js/admin/users.js')}}"></script>
 @endsection

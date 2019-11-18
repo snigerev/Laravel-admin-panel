@@ -50,9 +50,9 @@
                     <label for="roles">{{ trans('admin/users.group') }}</label>
                     <select class="form-control" name="role_id" id="roles">
                         <option selected disabled>{{ trans('admin/users.select_role') }}</option>
-                        @foreach ($roles as $role)
-                            <option value="{{$role->id}}">{{ $role->role_name }}</option>
-                        @endforeach
+                        <option value="0">{{ trans('admin/users.0') }}</option>
+                        <option value="1">{{ trans('admin/users.1') }}</option>
+                        <option value="2">{{ trans('admin/users.2') }}</option>
                     </select>
                 </div>
                 <div class="form-row col-auto d-flex">

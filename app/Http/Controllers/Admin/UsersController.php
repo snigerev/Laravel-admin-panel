@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright (c) 9.11.2019.
+ * Copyright (c) 18.11.2019.
  * File - UsersController.php
- * Author - admin
+ * Author - tor
  */
 
 namespace App\Http\Controllers\Admin;
@@ -23,7 +23,7 @@ class UsersController extends BaseAdminController
      */
     public function index()
     {
-        $users = User::all('id', 'role_id', 'name', 'email');
+        $users = User::all('id', 'name', 'email');
 
         return view('admin.users.users', compact('users'));
     }
@@ -35,9 +35,8 @@ class UsersController extends BaseAdminController
      */
     public function create()
     {
-        $roles = Role::all();
 
-        return view('admin.users.add_user', compact('roles'));
+        return view('admin.users.add_user');
     }
 
     /**
@@ -76,12 +75,8 @@ class UsersController extends BaseAdminController
     public function edit($id)
     {
         $user = User::findOrFail($id);
-        $roles = Role::all();
 
-        return view('admin.users.edit_user', compact([
-            'user',
-            'roles'
-        ]));
+        return view('admin.users.edit_user', compact('user'));
     }
 
     /**
@@ -95,7 +90,8 @@ class UsersController extends BaseAdminController
     {
         $user = User::findOrFail($id);
         if (!empty($user)) {
-            $result = $user->update(array_filter($request->all()));
+            $user->update(array_filter($request->all()));
+            $user->userData()->update(['role_id' => $request['role_id']]);
         }
 
         return redirect(route('admin.users.index'));
@@ -130,11 +126,13 @@ class UsersController extends BaseAdminController
 
     protected function createUser(array $data)
     {
-        return User::create([
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'role_id' => $data['role_id'],
             'password' => Hash::make($data['password']),
         ]);
+        $user->userData()->create(['role_id' => $data['role_id']]);
+
+        return $user;
     }
 }

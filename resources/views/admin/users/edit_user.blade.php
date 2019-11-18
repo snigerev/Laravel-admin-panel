@@ -18,6 +18,10 @@
                     <input type="text" id="name" name="name" class="form-control" placeholder="{{$user->name}}">
                 </div>
                 <div class="col-auto form-row align-content-center">
+                    <label for="email" class="col-form-label mb-2">{{trans('admin/users.nickname')}} : </label>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="{{$user->email}}">
+                </div>
+                <div class="col-auto form-row align-content-center">
                     <label for="email" class="col-form-label mb-2">{{trans('admin/users.email')}} : </label>
                     <input type="email" id="email" name="email" class="form-control" placeholder="{{$user->email}}">
                 </div>
@@ -25,13 +29,14 @@
                     <label for="roles">{{ trans('admin/users.group') }}</label>
                     <select class="form-control" name="role_id" id="roles">
                         <option selected disabled>{{ trans('admin/users.select_role') }}</option>
-                        @foreach ($roles as $role)
+                        @for ($i = 0; $i < 3; $i++)
                             <option
-                                @if ($role->id === $user->role_id)
+                                @if ($i === $user->userData->role_id)
                                 selected
                                 @endif
-                                value="{{$role->id}}">{{ $role->role_name }}</option>
-                        @endforeach
+                                value="{{$i}}">{{ trans('admin/users.'. $i) }}</option>
+                        @endfor
+
                     </select>
                 </div>
                 <div class="form-row col-auto d-flex">

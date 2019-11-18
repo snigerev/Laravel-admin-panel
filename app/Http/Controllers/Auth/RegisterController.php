@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright (c) 9.11.2019.
+ * Copyright (c) 18.11.2019.
  * File - RegisterController.php
- * Author - admin
+ * Author - tor
  */
 
 namespace App\Http\Controllers\Auth;
@@ -68,10 +68,14 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $createUser = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+
+        $createUser->userData()->create();
+
+        return $createUser;
     }
 }
