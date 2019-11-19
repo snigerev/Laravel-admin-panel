@@ -48,7 +48,7 @@
                                 <a href="{{ route('admin.users.edit', $user->id) }}">
                                     <i class="fas fa-edit"></i>
                                 </a>
-                                <a href="{{ route('admin.users.delete', $user->id) }}">
+                                <a href="{{ route('admin.users.show', $user->id) }}">
                                     <i class="fas fa-times-circle"></i>
                                 </a>
                             </td>

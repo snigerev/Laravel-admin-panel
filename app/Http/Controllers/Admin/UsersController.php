@@ -7,22 +7,41 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Repositories\UserRepository;
 use App\User;
 use Illuminate\Auth\Events\Registered;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\ValidationException;
 
 class UsersController extends BaseAdminController
 {
     /**
+     * @var UserRepository|Application|mixed
+     */
+    private $userRepository;
+
+    /**
+     * UsersController constructor.
+     */
+    public function __construct()
+    {
+        parent::__construct();
+        $this->userRepository = app(UserRepository::class);
+    }
+
+    /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function index()
     {
-        $users = User::all('id', 'name', 'email');
+        $users = $this->userRepository->getAllUsers();
 
         return view('admin.users.users', compact('users'));
     }
@@ -30,7 +49,7 @@ class UsersController extends BaseAdminController
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function create()
     {
@@ -41,9 +60,9 @@ class UsersController extends BaseAdminController
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     * @throws \Illuminate\Validation\ValidationException
+     * @param Request $request
+     * @return Response
+     * @throws ValidationException
      */
     public function store(Request $request)
     {
@@ -58,22 +77,31 @@ class UsersController extends BaseAdminController
      * Display the specified resource.
      *
      * @param int $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
-    public function show($id)
+    public function show(int $id)
     {
-        //
+        $user = $this->userRepository->getUserById($id);
+        if (empty($user)) {
+            abort(404);
+        }
+
+        return view('admin.users.show_user', compact('user'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
      * @param int $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
-    public function edit($id)
+    public function edit(int $id)
     {
-        $user = User::findOrFail($id);
+        $user = $this->userRepository->getEdit($id);
+
+        if (empty($user)) {
+            abort(404);
+        }
 
         return view('admin.users.edit_user', compact('user'));
     }
@@ -81,20 +109,28 @@ class UsersController extends BaseAdminController
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param Request $request
      * @param int $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, int $id)
     {
-        $user = User::findOrFail($id);
-        if (!empty($user)) {
-            $user->update(array_filter($request->all()));
-            $user->DataUser()->update([
-                'role_id' => $request['role_id'],
-                'nickname' => $request['nickname']
-            ]);
+        $user = $this->userRepository->getUserById($id);
+
+        if (empty($user)) {
+            abort(404);
         }
+
+        $user->update(array_filter($request->all()));
+        $data = [];
+        if ($request['role_id']) {
+            $data = ['role_id' => $request['role_id']];
+        }
+        if ($request['nickname']) {
+            $data = ['nickname' => $request['nickname']];
+        }
+        $user->DataUser()->update($data);
+
 
         return redirect(route('admin.users.index'));
     }
@@ -103,20 +139,30 @@ class UsersController extends BaseAdminController
      * Remove the specified resource from storage.
      *
      * @param int $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
-    public function destroy($id)
+    public function destroy(int $id)
     {
-        //
+        $user = $this->userRepository->getUserById($id);
+        if (empty($user)) {
+            abort(404);
+        }
+        $adminUser = $this->userRepository->getAdminUsers();
+
+        if ($user->DataUser->role_id === 2 AND count($adminUser) <= 1) {
+            return redirect(route('admin.users.index'));
+        }
+        $user->delete();
+        $user->DataUser()->delete();
+
+        return redirect(route('admin.users.index'));
+
     }
 
-    public function delete($id)
-    {
-        $user = User::findOrFail($id);
-
-        return view('admin.users.delete_user', compact('user'));
-    }
-
+    /**
+     * @param array $data
+     * @return \Illuminate\Contracts\Validation\Validator|\Illuminate\Validation\Validator
+     */
     protected function validator(array $data)
     {
         return Validator::make($data, [
@@ -126,6 +172,10 @@ class UsersController extends BaseAdminController
         ]);
     }
 
+    /**
+     * @param array $data
+     * @return User|Model
+     */
     protected function createUser(array $data)
     {
         $user = User::create([

@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 18.11.2019.
+ * Copyright (c) 19.11.2019.
  * File - users.php
  * Author - tor
  */
@@ -24,4 +24,7 @@ return [
     'password' => 'Пароль',
     'password_confirm' => 'Повторите пароль',
     'delete_user' => 'Удаление пользователя',
+    'back' => 'Назад',
+    'delete' => 'Удалить',
+
 ];

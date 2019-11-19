@@ -46,6 +46,7 @@ use Illuminate\Notifications\Notifiable;
  * @method static bool|null restore()
  * @method static \Illuminate\Database\Query\Builder|\App\User withTrashed()
  * @method static \Illuminate\Database\Query\Builder|\App\User withoutTrashed()
+ * @property-read \App\Models\DataUser $DataUser
  */
 class User extends Authenticatable
 {
