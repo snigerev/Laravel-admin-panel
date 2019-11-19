@@ -1,13 +1,12 @@
 <?php
 /**
- * Copyright (c) 18.11.2019.
+ * Copyright (c) 19.11.2019.
  * File - UsersController.php
  * Author - tor
  */
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Role;
 use App\User;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
@@ -91,7 +90,10 @@ class UsersController extends BaseAdminController
         $user = User::findOrFail($id);
         if (!empty($user)) {
             $user->update(array_filter($request->all()));
-            $user->userData()->update(['role_id' => $request['role_id']]);
+            $user->DataUser()->update([
+                'role_id' => $request['role_id'],
+                'nickname' => $request['nickname']
+            ]);
         }
 
         return redirect(route('admin.users.index'));
@@ -131,7 +133,7 @@ class UsersController extends BaseAdminController
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
-        $user->userData()->create(['role_id' => $data['role_id']]);
+        $user->DataUser()->create(['role_id' => $data['role_id']]);
 
         return $user;
     }

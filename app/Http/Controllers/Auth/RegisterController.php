@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 18.11.2019.
+ * Copyright (c) 19.11.2019.
  * File - RegisterController.php
  * Author - tor
  */
@@ -74,7 +74,7 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
 
-        $createUser->userData()->create();
+        $createUser->DataUser()->create();
 
         return $createUser;
     }

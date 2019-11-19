@@ -18,8 +18,9 @@
                     <input type="text" id="name" name="name" class="form-control" placeholder="{{$user->name}}">
                 </div>
                 <div class="col-auto form-row align-content-center">
-                    <label for="email" class="col-form-label mb-2">{{trans('admin/users.nickname')}} : </label>
-                    <input type="email" id="email" name="email" class="form-control" placeholder="{{$user->email}}">
+                    <label for="nickname" class="col-form-label mb-2">{{trans('admin/users.nickname')}} : </label>
+                    <input type="text" id="nickname" name="nickname" class="form-control"
+                           placeholder="{{$user->DataUser->nickname}}">
                 </div>
                 <div class="col-auto form-row align-content-center">
                     <label for="email" class="col-form-label mb-2">{{trans('admin/users.email')}} : </label>
@@ -31,7 +32,7 @@
                         <option selected disabled>{{ trans('admin/users.select_role') }}</option>
                         @for ($i = 0; $i < 3; $i++)
                             <option
-                                @if ($i === $user->userData->role_id)
+                                @if ($i === $user->DataUser->role_id)
                                 selected
                                 @endif
                                 value="{{$i}}">{{ trans('admin/users.'. $i) }}</option>

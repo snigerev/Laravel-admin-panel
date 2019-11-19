@@ -39,10 +39,10 @@
                         <tr>
                             <td>{{ $user->id }}</td>
                             <td>{{ $user->name }}</td>
-                            <td>{{ $user->userData->nickname }}</td>
+                            <td>{{ $user->DataUser->nickname }}</td>
                             <td>{{ $user->email }}</td>
                             <td>
-                                {{ trans('admin/users.' . $user->userData->role_id) }}
+                                {{ trans('admin/users.' . $user->DataUser->role_id) }}
                             </td>
                             <td>
                                 <a href="{{ route('admin.users.edit', $user->id) }}">

@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 18.11.2019.
+ * Copyright (c) 19.11.2019.
  * File - User.php
  * Author - tor
  */
@@ -80,9 +80,9 @@ class User extends Authenticatable
     ];
 
 
-    public function userData()
+    public function DataUser()
     {
-        return $this->hasOne('App\Models\UserData');
+        return $this->hasOne('App\Models\DataUser');
     }
 
 }

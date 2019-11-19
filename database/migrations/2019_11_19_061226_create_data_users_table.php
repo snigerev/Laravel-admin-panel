@@ -1,7 +1,7 @@
 <?php
 /**
- * Copyright (c) 18.11.2019.
- * File - 2019_11_18_113724_create_user_datas_table.php
+ * Copyright (c) 19.11.2019.
+ * File - 2019_11_19_061226_create_data_users_table.php
  * Author - tor
  */
 
@@ -9,7 +9,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUserDatasTable extends Migration
+class CreateDataUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -18,7 +18,7 @@ class CreateUserDatasTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_datas', function (Blueprint $table) {
+        Schema::create('data_users', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('user_id')->unsigned()->unique();
             $table->integer('role_id')->default('0');
@@ -41,6 +41,6 @@ class CreateUserDatasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_dates');
+        Schema::dropIfExists('data_users');
     }
 }
