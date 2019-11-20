@@ -21,6 +21,10 @@ class GlobalAdminMiddleware
      */
     public function handle($request, Closure $next)
     {
+        $user = Auth::user();
+        if ($user->DataUser->role_id < 1) {
+            return redirect(route('index'));
+        }
         \View::share('authUser', Auth::user());
         return $next($request);
     }
