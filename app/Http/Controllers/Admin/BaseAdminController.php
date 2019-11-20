@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright (c) 9.11.2019.
+ * Copyright (c) 20.11.2019.
  * File - BaseAdminController.php
- * Author - admin
+ * Author - tor
  */
 
 namespace App\Http\Controllers\Admin;
@@ -16,11 +16,13 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 class BaseAdminController extends Controller
 {
 
-
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     public function __construct()
     {
-        $this->middleware(['auth']);
+        $this->middleware(['auth', 'globalAdmin']);
+
     }
+
+
 }

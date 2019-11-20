@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 19.11.2019.
+ * Copyright (c) 20.11.2019.
  * File - UsersController.php
  * Author - tor
  */
@@ -43,7 +43,9 @@ class UsersController extends BaseAdminController
     {
         $users = $this->userRepository->getAllUsers();
 
-        return view('admin.users.users', compact('users'));
+        return view('admin.users.users', [
+            'users' => $users
+        ]);
     }
 
     /**

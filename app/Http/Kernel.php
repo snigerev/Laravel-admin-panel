@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright (c) 9.11.2019.
+ * Copyright (c) 20.11.2019.
  * File - Kernel.php
- * Author - admin
+ * Author - tor
  */
 
 namespace App\Http;
@@ -66,6 +66,7 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'globalAdmin' => \App\Http\Middleware\GlobalAdminMiddleware::class,
     ];
 
     /**
