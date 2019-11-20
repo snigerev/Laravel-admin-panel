@@ -1,15 +1,15 @@
 <?php
 /**
- * Copyright (c) 14.11.2019.
+ * Copyright (c) 20.11.2019.
  * File - _ide_helper.php
- * Author - admin
+ * Author - tor
  */
 
 // @formatter:off
 
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 6.5.0 on 2019-11-11 14:27:05.
+ * Generated for Laravel 6.5.2 on 2019-11-19 19:09:03.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -3276,7 +3276,7 @@ namespace Illuminate\Support\Facades {
         /**
          * Get the default cache time.
          *
-         * @return int
+         * @return int|null
          * @static
          */
         public static function getDefaultCacheTime()
@@ -8600,7 +8600,7 @@ namespace Illuminate\Support\Facades {
          *
          * @param string|null $param
          * @param mixed $default
-         * @return \Illuminate\Routing\Route|object|string
+         * @return \Illuminate\Routing\Route|object|string|null
          * @static
          */
         public static function route($param = null, $default = null)
@@ -15277,10 +15277,32 @@ namespace Facade\Ignition\Facades {
          *
          * @static
          */
+        public static function registerFlareHandlers()
+        {
+            /** @var \Facade\FlareClient\Flare $instance */
+            return $instance->registerFlareHandlers();
+        }
+
+        /**
+         *
+         *
+         * @static
+         */
         public static function registerExceptionHandler()
         {
             /** @var \Facade\FlareClient\Flare $instance */
             return $instance->registerExceptionHandler();
+        }
+
+        /**
+         *
+         *
+         * @static
+         */
+        public static function registerErrorHandler()
+        {
+            /** @var \Facade\FlareClient\Flare $instance */
+            return $instance->registerErrorHandler();
         }
 
         /**
@@ -15325,6 +15347,17 @@ namespace Facade\Ignition\Facades {
         {
             /** @var \Facade\FlareClient\Flare $instance */
             return $instance->handleException($throwable);
+        }
+
+        /**
+         *
+         *
+         * @static
+         */
+        public static function handleError($code, $message, $file = '', $line = 0)
+        {
+            /** @var \Facade\FlareClient\Flare $instance */
+            return $instance->handleError($code, $message, $file, $line);
         }
 
         /**

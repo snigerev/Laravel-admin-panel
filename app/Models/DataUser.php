@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 19.11.2019.
+ * Copyright (c) 20.11.2019.
  * File - DataUser.php
  * Author - tor
  */
@@ -41,6 +41,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class DataUser extends Model
 {
     use SoftDeletes;
+
+    protected $fillable = [
+        'role_id'
+    ];
 
     public function user()
     {
