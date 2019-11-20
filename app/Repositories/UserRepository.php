@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 19.11.2019.
+ * Copyright (c) 20.11.2019.
  * File - UserRepository.php
  * Author - tor
  */
@@ -11,6 +11,7 @@ namespace App\Repositories;
 use App\User as Model;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Facades\DB;
 
 class UserRepository extends CoreRepository
 {
@@ -53,7 +54,11 @@ class UserRepository extends CoreRepository
 
     public function getAllUsers()
     {
-        return $this->startConditions()->all('id', 'name', 'email');
+        return DB::table('users')
+            ->join('data_users as data', 'users.id', '=', 'data.user_id')
+            ->select('users.id', 'users.name', 'users.email', 'data.role_id', 'data.nickname')
+            ->get();
+        //joiningTable('data_users', '')->all('id', 'name', 'email');
     }
 
     /**

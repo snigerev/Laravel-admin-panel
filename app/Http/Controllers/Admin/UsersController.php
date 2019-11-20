@@ -42,6 +42,7 @@ class UsersController extends BaseAdminController
     public function index()
     {
         $users = $this->userRepository->getAllUsers();
+//        dd($users);
 
         return view('admin.users.users', [
             'users' => $users

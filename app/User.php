@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 19.11.2019.
+ * Copyright (c) 20.11.2019.
  * File - User.php
  * Author - tor
  */
@@ -84,6 +84,16 @@ class User extends Authenticatable
     public function DataUser()
     {
         return $this->hasOne('App\Models\DataUser');
+    }
+
+    public function isAdmin()
+    {
+        $role_id = $this->DataUser->role_id;
+
+        if ($role_id < 1) {
+            return false;
+        }
+        return $role_id;
     }
 
 }
