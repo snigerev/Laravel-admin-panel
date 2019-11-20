@@ -9,6 +9,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class GlobalAdminMiddleware
 {
@@ -22,12 +23,19 @@ class GlobalAdminMiddleware
     public function handle($request, Closure $next)
     {
         $user = Auth::user();
+        $isAdmin = Session::get('isAdmin');
 
-        if (!$user->isAdmin()) {
-            return redirect(route('index'));
+        if ($isAdmin) {
+            \View::share('authUser', $user);
+            return $next($request);
+        } else {
+            if (!$user->isAdmin()) {
+                return redirect(route('index'));
+            }
+            Session::put('isAdmin', '1');
+            \View::share('authUser', $user);
+            return $next($request);
         }
-        \View::share('authUser', $user);
 
-        return $next($request);
     }
 }

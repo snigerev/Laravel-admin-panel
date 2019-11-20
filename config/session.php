@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 30.10.2019.
+ * Copyright (c) 20.11.2019.
  * File - session.php
  * Author - tor
  */
@@ -51,7 +51,7 @@ return [
     |
     */
 
-    'encrypt' => false,
+    'encrypt' => true,
 
     /*
     |--------------------------------------------------------------------------

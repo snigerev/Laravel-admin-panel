@@ -49,7 +49,7 @@ class UserRepository extends CoreRepository
     }
 
     /**
-     * @return Application[]|Collection|\Illuminate\Database\Eloquent\Model[]|mixed[]
+     * @return \Illuminate\Support\Collection
      */
 
     public function getAllUsers()
@@ -58,7 +58,6 @@ class UserRepository extends CoreRepository
             ->join('data_users as data', 'users.id', '=', 'data.user_id')
             ->select('users.id', 'users.name', 'users.email', 'data.role_id', 'data.nickname')
             ->get();
-        //joiningTable('data_users', '')->all('id', 'name', 'email');
     }
 
     /**
