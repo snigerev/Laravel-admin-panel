@@ -2,7 +2,7 @@
 <project version="4">
   <component name="dataSourceStorageLocal">
     <data-source name="laravel-admin" uuid="8a5a0afb-a673-4717-ae6b-5b8979810e47">
-      <database-info product="MariaDB" version="10.4.10-MariaDB-1:10.4.10+maria~bionic-log" jdbc-version="4.2" driver-name="MariaDB Connector/J" driver-version="2.4.1" dbms="MARIADB" exact-version="10.4.10" exact-driver-version="2.4">
+      <database-info product="MariaDB" version="10.4.8-MariaDB-1:10.4.8+maria~bionic-log" jdbc-version="4.2" driver-name="MariaDB Connector/J" driver-version="2.4.1" dbms="MARIADB" exact-version="10.4.8" exact-driver-version="2.4">
         <extra-name-characters>#@</extra-name-characters>
         <identifier-quote-string>`</identifier-quote-string>
       </database-info>

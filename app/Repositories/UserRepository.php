@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 20.11.2019.
+ * Copyright (c) 21.11.2019.
  * File - UserRepository.php
  * Author - tor
  */
@@ -54,10 +54,9 @@ class UserRepository extends CoreRepository
 
     public function getAllUsers()
     {
-        return DB::table('users')
-            ->join('data_users as data', 'users.id', '=', 'data.user_id')
-            ->select('users.id', 'users.name', 'users.email', 'data.role_id', 'data.nickname')
-            ->get();
+        return $this->startConditions()//DB::table('users')
+        ->leftJoin('data_users as data', 'users.id', '=', 'data.user_id')
+            ->get(['users.id', 'users.name', 'users.email', 'data.role_id', 'data.nickname']);
     }
 
     /**
