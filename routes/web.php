@@ -24,8 +24,6 @@ Auth::routes(['verify' => true]);
 
 //Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/verify/{token}', 'Auth\RegisterController@verify')->name('register.verify');
-
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     Route::get('/', 'IndexController@index')->name('admin.index');
     Route::resource('users', 'UsersController')->names('admin.users');
