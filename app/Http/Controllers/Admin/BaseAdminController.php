@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 20.11.2019.
+ * Copyright (c) 21.11.2019.
  * File - BaseAdminController.php
  * Author - tor
  */
@@ -20,7 +20,7 @@ class BaseAdminController extends Controller
 
     public function __construct()
     {
-        $this->middleware(['auth', 'globalAdmin']);
+        $this->middleware(['auth', 'verified', 'globalAdmin']);
 
     }
 
