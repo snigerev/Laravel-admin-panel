@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 20.11.2019.
+ * Copyright (c) 21.11.2019.
  * File - User.php
  * Author - tor
  */
@@ -53,13 +53,16 @@ class User extends Authenticatable
     use Notifiable;
     use SoftDeletes;
 
+    const STATUS_DELETED = 0;
+    const STATUS_INACTIVE = 9;
+    const STATUS_ACTIVE = 10;
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'verify_token', 'status'
     ];
 
     /**
