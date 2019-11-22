@@ -1,7 +1,7 @@
 <?php
 /**
- * Copyright (c) 21.11.2019.
- * File - ru.php
+ * Copyright (c) 22.11.2019.
+ * File - verify.php
  * Author - tor
  */
 
