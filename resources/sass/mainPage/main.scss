@@ -1,0 +1,117 @@
+/*!
+ * Copyright (c) 23.11.2019.
+ * File - main.scss
+ * Author - tor
+ */
+@import "../app";
+
+body {
+    background: url("../../img/mainPage/panel_down2.png") no-repeat fixed,
+    url("../../img/mainPage/bg.jpg") no-repeat fixed;
+    background-size: auto, auto, contain;
+    background-position: bottom, center center;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.top-button {
+    font-size: 30px;
+}
+
+.main-text {
+    font-size: 3rem;
+    color: whitesmoke;
+    text-align: center;
+    width: 85%;
+}
+
+.modal {
+    padding-top: 20%;
+}
+
+#star-text {
+    margin-top: 5%;
+    color: whitesmoke;
+    width: 100%;
+    height: 20em;
+    background: rgba(0, 0, 0, 0.4);
+    font-size: 100%;
+    text-align: justify;
+    overflow: hidden;
+    -webkit-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+    -webkit-transform: perspective(301px) rotateX(20deg);
+    transform: perspective(25px) rotateX(0deg);
+}
+
+#star-text:after {
+    position: absolute;
+    content: ' ';
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 60%;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, transparent 100%);
+    pointer-events: none;
+}
+
+#star-content {
+    position: absolute;
+    top: 100%;
+    padding: 0 25px 0 25px;
+    animation: scroll 80s linear infinite;
+}
+
+@keyframes scroll {
+    0% {
+        top: 100%;
+    }
+    100% {
+        top: -170%;
+    }
+}
+
+.card {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 20%, rgba(0, 0, 0, 0.3) 80%);
+    color: whitesmoke;
+}
+
+.card-header {
+    font-size: 26px;
+    border-bottom: 2px solid navajowhite;
+}
+
+.top-login {
+    position: fixed;
+    width: 100%;
+    text-align: right;
+    font-size: 20px;
+    right: 1%;
+    top: -2%;
+}
+
+.top-left {
+    width: 100%;
+    padding-top: 2%;
+}
+
+.text-top-left {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 2%;
+}
+
+.text-top-right {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 2%;
+}
+
+.a-top {
+    position: relative;
+    text-align: center;
+}

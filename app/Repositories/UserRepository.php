@@ -59,6 +59,10 @@ class UserRepository extends CoreRepository
             ->get(['users.id', 'users.name', 'users.email', 'data.role_id', 'data.nickname']);
     }
 
+    /**
+     * @param $id
+     * @return mixed
+     */
     public function getUserStatus($id)
     {
         return $this->startConditions()
@@ -70,6 +74,14 @@ class UserRepository extends CoreRepository
     /**
      * @return string
      */
+
+    public function getUserNick($id)
+    {
+        return $this->startConditions()
+            ->where('users.id', $id)
+            ->leftJoin('data_users as data', 'users.id', '=', 'data.user_id')
+            ->get(['data.nickname'])->first();
+    }
 
     protected function getModelClass()
     {

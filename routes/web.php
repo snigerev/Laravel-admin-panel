@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 21.11.2019.
+ * Copyright (c) 23.11.2019.
  * File - web.php
  * Author - tor
  */
@@ -16,9 +16,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('index');
+Route::get('/', 'MainPage\IndexController@index')->name('index');
 
 Auth::routes(['verify' => true]);
 

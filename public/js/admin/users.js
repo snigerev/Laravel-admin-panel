@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 1.11.2019.
+ * Copyright (c) 23.11.2019.
  * File - users.js
  * Author - tor
  */
@@ -25521,7 +25521,7 @@
     /***/ (function (module, exports) {
 
         /*
- * Copyright (c) 30.10.2019.
+ * Copyright (c) 1.11.2019.
  * File - datatables-demo.js
  * Author - tor
  */
@@ -25596,7 +25596,7 @@
     /*! no static exports found */
     /***/ (function (module, exports, __webpack_require__) {
 
-        module.exports = __webpack_require__(/*! /home/vagrant/laravel/resources/js/admin/users.js */"./resources/js/admin/users.js");
+        module.exports = __webpack_require__(/*! /home/vagrant/laravel-admin/resources/js/admin/users.js */"./resources/js/admin/users.js");
 
 
         /***/
