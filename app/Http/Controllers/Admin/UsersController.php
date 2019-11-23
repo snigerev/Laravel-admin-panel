@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 20.11.2019.
+ * Copyright (c) 23.11.2019.
  * File - UsersController.php
  * Author - tor
  */
@@ -42,7 +42,7 @@ class UsersController extends BaseAdminController
     public function index()
     {
         $users = $this->userRepository->getAllUsers();
-
+        dd($this->userRepository->getUserStatus(1));
         return view('admin.users.users', [
             'users' => $users
         ]);
