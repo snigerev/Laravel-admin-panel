@@ -1,13 +1,13 @@
 /*!
- * Copyright (c) 23.11.2019.
+ * Copyright (c) 25.11.2019.
  * File - main.scss
  * Author - tor
  */
 @import "../app";
 
 body {
-    background: url("../../img/mainPage/panel_down2.png") no-repeat fixed,
-    url("../../img/mainPage/bg.jpg") no-repeat fixed;
+    background: url("../../images/mainPage/panel_down2.png") no-repeat fixed,
+    url("../../images/mainPage/bg.jpg") no-repeat fixed;
     background-size: auto, auto, contain;
     background-position: bottom, center center;
 }

@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 23.11.2019.
+ * Copyright (c) 25.11.2019.
  * File - web.php
  * Author - tor
  */
@@ -19,8 +19,6 @@
 Route::get('/', 'MainPage\IndexController@index')->name('index');
 
 Auth::routes(['verify' => true]);
-
-//Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     Route::get('/', 'IndexController@index')->name('admin.index');

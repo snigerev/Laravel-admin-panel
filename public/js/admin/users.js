@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 23.11.2019.
+ * Copyright (c) 25.11.2019.
  * File - users.js
  * Author - tor
  */
