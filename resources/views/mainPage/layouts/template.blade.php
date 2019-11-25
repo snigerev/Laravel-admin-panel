@@ -14,44 +14,44 @@
 <body>
 <div id="app">
     <header>
-        <div class="container ">
-            <div class="row">
+        <div class="container">
+            <div class="row d-flex">
                 @guest
-                    <div class="col-3 top-button d-flex justify-content-center">
+                    <div class="col-3 top-button justify-content-center">
                         <a href="{{ route('register') }}" class="a-top"><img class="top-left"
                                                                              src="{{ asset('images/mainPage/button_left.png') }}"
                                                                              alt=""><span
-                                class="text-top-left">{{ trans('mainPage/register.Register') }}</span></a>
+                                class="text-top">{{ trans('mainPage/register.Register') }}</span></a>
                     </div>
-                    <div class="col-6 d-flex justify-content-center">
+                    <div class="col-6 justify-content-center">
                         <a class="navbar-brand" href="{{ url('/') }}">
                             <img src="{{ asset('images/mainPage/logo.png') }}" alt="">
                         </a>
                     </div>
-                    <div class="col-3 top-button d-flex justify-content-center">
+                    <div class="col-3 top-button justify-content-center">
                         <a href="{{ route('login') }}" class="a-top"><img class="top-left"
                                                                           src="{{ asset('images/mainPage/button_right.png') }}"
                                                                           alt=""><span
-                                class="text-top-right">{{ trans('mainPage/register.login') }}</span></a>
+                                class="text-top">{{ trans('mainPage/register.login') }}</span></a>
                     </div>
                 @else
-                    <div class="col-3 top-button d-flex justify-content-center">
+                    <div class="col-3 top-button justify-content-center">
                         <a href="#" class="a-top"><img class="top-left"
                                                        src="{{ asset('images/mainPage/button_left.png') }}"
                                                        alt=""><span
-                                class="text-top-left">{{ $nick }}</span></a>
+                                class="text-top">{{ $nick }}</span></a>
                     </div>
-                    <div class="col-6 d-flex justify-content-center">
+                    <div class="col-6 justify-content-center">
                         <a class="navbar-brand" href="{{ url('/') }}">
                             <img src="{{ asset('images/mainPage/logo.png') }}" alt="">
                         </a>
                     </div>
-                    <div class="col-3 top-button d-flex justify-content-center">
+                    <div class="col-3 top-button justify-content-center">
                         <a href="#" class="a-top" onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();"><img class="top-left"
                                                                                    src="{{ asset('images/mainPage/button_right.png') }}"
                                                                                    alt=""><span
-                                class="text-top-right">{{ trans('mainPage/register.logout') }}</span></a>
+                                class="text-top">{{ trans('mainPage/register.logout') }}</span></a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">--}}
                             @csrf
                         </form>

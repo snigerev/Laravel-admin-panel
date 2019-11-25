@@ -17,7 +17,41 @@ a:hover {
 }
 
 .top-button {
-    font-size: 30px;
+
+}
+
+.top-login {
+    position: fixed;
+    width: 100%;
+    text-align: right;
+    font-size: 20px;
+    right: 1%;
+    top: -2%;
+}
+
+.navbar-brand img {
+    width: 100%;
+}
+
+.top-left {
+    margin: 0;
+    overflow: hidden;
+    width: 100%;
+    min-width: 100%;
+    padding-top: 2%;
+}
+
+.text-top {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 2%;
+    font-size: 1.5rem;
+}
+
+.a-top {
+    position: relative;
+    text-align: center;
 }
 
 .main-text {
@@ -83,35 +117,3 @@ a:hover {
     border-bottom: 2px solid navajowhite;
 }
 
-.top-login {
-    position: fixed;
-    width: 100%;
-    text-align: right;
-    font-size: 20px;
-    right: 1%;
-    top: -2%;
-}
-
-.top-left {
-    width: 100%;
-    padding-top: 2%;
-}
-
-.text-top-left {
-    position: absolute;
-    width: 100%;
-    left: 0;
-    top: 2%;
-}
-
-.text-top-right {
-    position: absolute;
-    width: 100%;
-    left: 0;
-    top: 2%;
-}
-
-.a-top {
-    position: relative;
-    text-align: center;
-}
