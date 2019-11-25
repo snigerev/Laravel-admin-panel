@@ -1,7 +1,7 @@
 <?php
 /**
- * Copyright (c) 23.11.2019.
- * File - IndexController.php
+ * Copyright (c) 25.11.2019.
+ * File - IndexMainController.php
  * Author - tor
  */
 
@@ -11,7 +11,7 @@ use App\Http\Controllers\Controller;
 use App\Repositories\UserRepository;
 use Illuminate\Http\Request;
 
-class IndexController extends Controller
+class IndexMainController extends Controller
 {
 
     protected $userRepository;

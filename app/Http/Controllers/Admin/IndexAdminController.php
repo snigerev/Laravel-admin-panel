@@ -1,7 +1,7 @@
 <?php
 /**
- * Copyright (c) 30.10.2019.
- * File - IndexController.php
+ * Copyright (c) 25.11.2019.
+ * File - IndexAdminController.php
  * Author - tor
  */
 
@@ -9,7 +9,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 
-class IndexController extends BaseAdminController
+class IndexAdminController extends BaseAdminController
 {
     /**
      * Display a listing of the resource.

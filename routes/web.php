@@ -16,11 +16,11 @@
 |
 */
 
-Route::get('/', 'MainPage\IndexController@index')->name('index');
+Route::get('/', 'MainPage\IndexMainController@index')->name('index');
 
 Auth::routes(['verify' => true]);
 
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
-    Route::get('/', 'IndexController@index')->name('admin.index');
+    Route::get('/', 'IndexAdminController@index')->name('admin.index');
     Route::resource('users', 'UsersController')->names('admin.users');
 });
