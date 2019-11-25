@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 22.11.2019.
+ * Copyright (c) 25.11.2019.
  * File - ServerConfigRepository.php
  * Author - tor
  */
@@ -24,7 +24,7 @@ class ServerConfigRepository extends CoreRepository
     }
 
     /**
-     * Получаем счетчик пользователей в системе
+     * Получаем кол-во пользователей в системе
      *
      * @return mixed
      */
@@ -33,6 +33,11 @@ class ServerConfigRepository extends CoreRepository
         return $this->startConditions()->get(['user_count'])->first();
     }
 
+    /**
+     * Увеличиваем счетчик на $count
+     * @param int $count
+     * @return int
+     */
     public function userCountUp(int $count)
     {
         return $this->model->increment('user_count', $count);

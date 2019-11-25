@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 22.11.2019.
+ * Copyright (c) 25.11.2019.
  * File - RegisterController.php
  * Author - tor
  */
@@ -29,7 +29,7 @@ class RegisterController extends Controller
     */
 
     use RegistersUsers;
-    private $serverConfig;
+    protected $serverConfig;
 
     /**
      * Where to redirect users after registration.
@@ -80,10 +80,7 @@ class RegisterController extends Controller
 
         $createUser->DataUser()->create();
 
-        $serverConfig = $this->serverConfig->getUserCount();
-        if (!empty($serverConfig)) {
-            $updateUserCount = $this->serverConfig->userCountUp(1);
-        }
+        $updateUserCount = $this->serverConfig->userCountUp(1);
 
         if (!$updateUserCount) {
             dd($updateUserCount);
