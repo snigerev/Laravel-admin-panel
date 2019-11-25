@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 23.11.2019.
+ * Copyright (c) 25.11.2019.
  * File - register.php
  * Author - tor
  */
@@ -15,7 +15,9 @@ return [
     'reg-top' => 'Регистрационные данные командира',
     'logout' => 'Выйти',
     'login' => 'Войти',
-    'Name' => 'Имя командира',
+    'Name' => 'Ваше имя',
+    'nick' => 'Ваш ник',
+    'registration' => 'Регистрация',
     'email' => 'Адрес почты',
     'Register' => 'Регистрация',
     'Confirm Password' => 'Еще раз',
