@@ -10264,6 +10264,7 @@ body {
     background: url("../../images/mainPage/panel_down2.png") no-repeat fixed, url("../../images/mainPage/bg.jpg") no-repeat fixed;
     background-size: auto, auto, contain;
     background-position: bottom, center center;
+    width: 100%;
 }
 
 a:hover {
@@ -10295,8 +10296,8 @@ a:hover {
     position: absolute;
     width: 100%;
     left: 0;
-    top: 2%;
-    font-size: 1.5rem;
+    line-height: 50px;
+    font-size: 2vw;
 }
 
 .a-top {
