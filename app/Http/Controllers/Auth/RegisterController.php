@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 19.11.2019.
+ * Copyright (c) 25.11.2019.
  * File - RegisterController.php
  * Author - tor
  */
@@ -8,6 +8,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\ServerConfig;
+use App\Repositories\ServerConfigRepository;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
@@ -27,13 +29,14 @@ class RegisterController extends Controller
     */
 
     use RegistersUsers;
+    protected $serverConfig;
 
     /**
      * Where to redirect users after registration.
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/email/verify';
 
     /**
      * Create a new controller instance.
@@ -43,6 +46,7 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+        $this->serverConfig = app(ServerConfigRepository::class);
     }
 
     /**
@@ -75,6 +79,12 @@ class RegisterController extends Controller
         ]);
 
         $createUser->DataUser()->create();
+
+        $updateUserCount = $this->serverConfig->userCountUp(1);
+
+        if (!$updateUserCount) {
+            dd($updateUserCount);
+        }
 
         return $createUser;
     }

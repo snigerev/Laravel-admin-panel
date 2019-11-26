@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 20.11.2019.
+ * Copyright (c) 25.11.2019.
  * File - DataUser.php
  * Author - tor
  */
@@ -37,6 +37,16 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static \Illuminate\Database\Query\Builder|\App\Models\DataUser withTrashed()
  * @method static \Illuminate\Database\Query\Builder|\App\Models\DataUser withoutTrashed()
  * @mixin \Eloquent
+ * @property string|null $avatar
+ * @property int $banned
+ * @property string|null $banned_time
+ * @property int $vacation_mode
+ * @property string|null $vacation_time
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\DataUser whereAvatar($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\DataUser whereBanned($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\DataUser whereBannedTime($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\DataUser whereVacationMode($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\DataUser whereVacationTime($value)
  */
 class DataUser extends Model
 {

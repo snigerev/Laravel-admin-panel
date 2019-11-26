@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 1.11.2019.
+ * Copyright (c) 25.11.2019.
  * File - app.js
  * Author - tor
  */
@@ -37159,17 +37159,30 @@
         /***/
     }),
 
+    /***/ "./resources/sass/mainPage/main.scss":
+    /*!*******************************************!*\
+  !*** ./resources/sass/mainPage/main.scss ***!
+  \*******************************************/
+    /*! no static exports found */
+    /***/ (function (module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+        /***/
+    }),
+
     /***/ 0:
-    /*!*********************************************************************************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/admin/admin.scss ./resources/sass/admin/users.scss ./resources/sass/app.scss ***!
-  \*********************************************************************************************************************************/
+    /*!*********************************************************************************************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/sass/admin/admin.scss ./resources/sass/admin/users.scss ./resources/sass/app.scss ./resources/sass/mainPage/main.scss ***!
+  \*********************************************************************************************************************************************************************/
     /*! no static exports found */
     /***/ (function (module, exports, __webpack_require__) {
 
         __webpack_require__(/*! /home/vagrant/laravel/resources/js/app.js */"./resources/js/app.js");
         __webpack_require__(/*! /home/vagrant/laravel/resources/sass/admin/admin.scss */"./resources/sass/admin/admin.scss");
         __webpack_require__(/*! /home/vagrant/laravel/resources/sass/admin/users.scss */"./resources/sass/admin/users.scss");
-        module.exports = __webpack_require__(/*! /home/vagrant/laravel/resources/sass/app.scss */"./resources/sass/app.scss");
+        __webpack_require__(/*! /home/vagrant/laravel/resources/sass/app.scss */"./resources/sass/app.scss");
+        module.exports = __webpack_require__(/*! /home/vagrant/laravel/resources/sass/mainPage/main.scss */"./resources/sass/mainPage/main.scss");
 
 
         /***/

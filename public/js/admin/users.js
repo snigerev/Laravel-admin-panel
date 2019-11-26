@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 1.11.2019.
+ * Copyright (c) 25.11.2019.
  * File - users.js
  * Author - tor
  */
@@ -25521,7 +25521,7 @@
     /***/ (function (module, exports) {
 
         /*
- * Copyright (c) 30.10.2019.
+ * Copyright (c) 1.11.2019.
  * File - datatables-demo.js
  * Author - tor
  */

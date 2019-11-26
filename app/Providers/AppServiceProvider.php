@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 30.10.2019.
+ * Copyright (c) 20.11.2019.
  * File - AppServiceProvider.php
  * Author - tor
  */
@@ -28,6 +28,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+
     }
 }

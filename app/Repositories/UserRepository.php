@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 19.11.2019.
+ * Copyright (c) 25.11.2019.
  * File - UserRepository.php
  * Author - tor
  */
@@ -11,6 +11,7 @@ namespace App\Repositories;
 use App\User as Model;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Facades\DB;
 
 class UserRepository extends CoreRepository
 {
@@ -48,17 +49,40 @@ class UserRepository extends CoreRepository
     }
 
     /**
-     * @return Application[]|Collection|\Illuminate\Database\Eloquent\Model[]|mixed[]
+     * @return \Illuminate\Support\Collection
      */
 
     public function getAllUsers()
     {
-        return $this->startConditions()->all('id', 'name', 'email');
+        return $this->startConditions()
+            ->leftJoin('data_users as data', 'users.id', '=', 'data.user_id')
+            ->get(['users.id', 'users.name', 'users.email', 'data.role_id', 'data.nickname']);
     }
 
     /**
+     * @param $id
+     * @return mixed
+     */
+    public function getUserStatus($id)
+    {
+        return $this->startConditions()
+            ->where('users.id', $id)
+            ->leftJoin('data_users as data', 'users.id', '=', 'data.user_id')
+            ->get(['data.banned', 'data.banned_time', 'data.vacation_mode', 'data.vacation_time']);
+    }
+
+    /**
+     * @param $id
      * @return string
      */
+
+    public function getUserNick($id)
+    {
+        return $this->startConditions()
+            ->where('users.id', $id)
+            ->leftJoin('data_users as data', 'users.id', '=', 'data.user_id')
+            ->get(['data.nickname'])->first();
+    }
 
     protected function getModelClass()
     {

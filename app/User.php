@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 19.11.2019.
+ * Copyright (c) 21.11.2019.
  * File - User.php
  * Author - tor
  */
@@ -40,7 +40,6 @@ use Illuminate\Notifications\Notifiable;
  * @property int|null $role_id
  * @property string|null $deleted_at
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereDeletedAt($value)
- * @property-read \App\Models\UserData $userData
  * @method static bool|null forceDelete()
  * @method static \Illuminate\Database\Query\Builder|\App\User onlyTrashed()
  * @method static bool|null restore()
@@ -48,7 +47,7 @@ use Illuminate\Notifications\Notifiable;
  * @method static \Illuminate\Database\Query\Builder|\App\User withoutTrashed()
  * @property-read \App\Models\DataUser $DataUser
  */
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use Notifiable;
     use SoftDeletes;
@@ -84,6 +83,16 @@ class User extends Authenticatable
     public function DataUser()
     {
         return $this->hasOne('App\Models\DataUser');
+    }
+
+    public function isAdmin()
+    {
+        $role_id = $this->DataUser->role_id;
+
+        if ($role_id < 1) {
+            return false;
+        }
+        return $role_id;
     }
 
 }
