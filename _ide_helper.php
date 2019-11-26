@@ -1,15 +1,15 @@
 <?php
 /**
- * Copyright (c) 20.11.2019.
+ * Copyright (c) 26.11.2019.
  * File - _ide_helper.php
- * Author - tor
+ * Author - z1tka
  */
 
 // @formatter:off
 
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 6.5.2 on 2019-11-19 19:09:03.
+ * Generated for Laravel 6.5.2 on 2019-11-21 11:23:29.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -8841,7 +8841,7 @@ namespace Illuminate\Support\Facades {
          *
          * You should only list the reverse proxies that you manage directly.
          *
-         * @param array $proxies A list of trusted proxies
+         * @param array $proxies A list of trusted proxies, the string 'REMOTE_ADDR' will be replaced with $_SERVER['REMOTE_ADDR']
          * @param int $trustedHeaderSet A bit field of Request::HEADER_*, to set which headers to trust from your proxies
          * @throws \InvalidArgumentException When $trustedHeaderSet is invalid
          * @static
@@ -8981,9 +8981,8 @@ namespace Illuminate\Support\Facades {
         }
 
         /**
-         * Sets the Session.
          *
-         * @param \Symfony\Component\HttpFoundation\SessionInterface $session The Session
+         *
          * @static
          */
         public static function setSession($session)
@@ -9461,6 +9460,7 @@ namespace Illuminate\Support\Facades {
          * @param string|null $default The default format
          * @return string|null The request format
          * @static
+         * @see getPreferredFormat
          */
         public static function getRequestFormat($default = 'html')
         {
@@ -9663,9 +9663,24 @@ namespace Illuminate\Support\Facades {
         }
 
         /**
+         * Gets the preferred format for the response by inspecting, in the following order:
+         *   * the request format set using setRequestFormat
+         *   * the values of the Accept HTTP header
+         *   * the content type of the body of the request.
+         *
+         * @static
+         */
+        public static function getPreferredFormat($default = 'html')
+        {
+            //Method inherited from \Symfony\Component\HttpFoundation\Request
+            /** @var \Illuminate\Http\Request $instance */
+            return $instance->getPreferredFormat($default);
+        }
+
+        /**
          * Returns the preferred language.
          *
-         * @param array $locales An array of ordered available locales
+         * @param string[] $locales An array of ordered available locales
          * @return string|null The preferred locale
          * @static
          */
