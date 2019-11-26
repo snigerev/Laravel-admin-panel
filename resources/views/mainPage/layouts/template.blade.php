@@ -9,6 +9,7 @@
     <!-- Fonts -->
     <link rel="shortcut icon" type="image/png" href="{{ asset('images/favicon.png') }}">
     <!-- Styles -->
+    {{--    <link rel="stylesheet" href="{{ asset('css/app.css') }}">--}}
     <link href="{{ asset('css/mainPage/main.css') }}" rel="stylesheet">
 </head>
 <body>

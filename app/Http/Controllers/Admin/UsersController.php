@@ -1,12 +1,13 @@
 <?php
 /**
- * Copyright (c) 23.11.2019.
+ * Copyright (c) 26.11.2019.
  * File - UsersController.php
  * Author - tor
  */
 
 namespace App\Http\Controllers\Admin;
 
+use App\Classes\UserClass;
 use App\Repositories\UserRepository;
 use App\User;
 use Illuminate\Auth\Events\Registered;
@@ -42,7 +43,7 @@ class UsersController extends BaseAdminController
     public function index()
     {
         $users = $this->userRepository->getAllUsers();
-        dd($this->userRepository->getUserStatus(1));
+        //dd($this->userRepository->getUserStatus(1));
         return view('admin.users.users', [
             'users' => $users
         ]);
@@ -145,19 +146,23 @@ class UsersController extends BaseAdminController
      */
     public function destroy(int $id)
     {
-        $user = $this->userRepository->getUserById($id);
-        if (empty($user)) {
-            abort(404);
-        }
-        $adminUser = $this->userRepository->getAdminUsers();
-
-        if ($user->DataUser->role_id === 2 AND count($adminUser) <= 1) {
+        $deleteUser = (new \App\Classes\UserClass)->deleteUser($id);
+//        $user = $this->userRepository->getUserById($id);
+//        if (empty($user)) {
+//            abort(404);
+//        }
+//        $adminUser = $this->userRepository->getAdminUsers();
+//
+//        if ($user->DataUser->role_id === 2 AND count($adminUser) <= 1) {
+//            return redirect(route('admin.users.index'));
+//        }
+//        $user->delete();
+//        $user->DataUser()->delete();
+        if ($deleteUser) {
             return redirect(route('admin.users.index'));
+        } else {
+            dd($deleteUser);
         }
-        $user->delete();
-        $user->DataUser()->delete();
-
-        return redirect(route('admin.users.index'));
 
     }
 
