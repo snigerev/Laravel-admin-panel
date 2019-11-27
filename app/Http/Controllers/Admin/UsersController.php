@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 26.11.2019.
+ * Copyright (c) 27.11.2019.
  * File - UsersController.php
  * Author - tor
  */
@@ -118,22 +118,13 @@ class UsersController extends BaseAdminController
      */
     public function update(Request $request, int $id)
     {
-        $user = $this->userRepository->getUserById($id);
+        $user = new UserClass();
 
-        if (empty($user)) {
+        $updateUser = $user->updateUser($request, $id);
+
+        if (!$updateUser) {
             abort(404);
         }
-
-        $user->update(array_filter($request->all()));
-        $data = [];
-        if ($request['role_id']) {
-            $data = ['role_id' => $request['role_id']];
-        }
-        if ($request['nickname']) {
-            $data = ['nickname' => $request['nickname']];
-        }
-        $user->DataUser()->update($data);
-
 
         return redirect(route('admin.users.index'));
     }
@@ -146,18 +137,9 @@ class UsersController extends BaseAdminController
      */
     public function destroy(int $id)
     {
-        $deleteUser = (new \App\Classes\UserClass)->deleteUser($id);
-//        $user = $this->userRepository->getUserById($id);
-//        if (empty($user)) {
-//            abort(404);
-//        }
-//        $adminUser = $this->userRepository->getAdminUsers();
-//
-//        if ($user->DataUser->role_id === 2 AND count($adminUser) <= 1) {
-//            return redirect(route('admin.users.index'));
-//        }
-//        $user->delete();
-//        $user->DataUser()->delete();
+        $user = new UserClass();
+        $deleteUser = $user->deleteUser($id);
+
         if ($deleteUser) {
             return redirect(route('admin.users.index'));
         } else {
