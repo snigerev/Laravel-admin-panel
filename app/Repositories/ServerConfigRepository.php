@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 25.11.2019.
+ * Copyright (c) 27.11.2019.
  * File - ServerConfigRepository.php
  * Author - tor
  */
@@ -21,6 +21,12 @@ class ServerConfigRepository extends CoreRepository
     public function getServerConfig()
     {
         return $this->startConditions()->get()->first();
+    }
+
+    public function isActive()
+    {
+        $status_game = $this->startConditions()->get(['is_active'])->first();
+        return $status_game['is_active'];
     }
 
     /**

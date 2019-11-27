@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 20.11.2019.
+ * Copyright (c) 27.11.2019.
  * File - Kernel.php
  * Author - tor
  */
@@ -67,6 +67,7 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'globalAdmin' => \App\Http\Middleware\GlobalAdminMiddleware::class,
+        'gameIsActive' => \App\Http\Middleware\CheckGameIsOnline::class,
     ];
 
     /**

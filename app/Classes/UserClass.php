@@ -8,6 +8,7 @@
 namespace App\Classes;
 
 
+use App\Repositories\ServerConfigRepository;
 use App\Repositories\UserRepository;
 use App\User;
 use Illuminate\Support\Facades\Hash;
@@ -18,10 +19,12 @@ class UserClass
      * @var
      */
     protected $userRepository;
+    protected $serverConfigRepository;
 
     public function __construct()
     {
         $this->userRepository = app(UserRepository::class);
+        $this->serverConfigRepository = app(ServerConfigRepository::class);
     }
 
     /**
@@ -73,8 +76,13 @@ class UserClass
         ]);
         $user->DataUser()->create(['role_id' => $request['role_id']]);
 
+        if ($user) {
+            $updateUserCount = $this->serverConfigRepository->userCountUp(1);
+        }
+
         return $user;
     }
+
     /**
      * Обновить данные пользователя
      *

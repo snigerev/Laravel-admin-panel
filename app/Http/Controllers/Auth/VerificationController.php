@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 21.11.2019.
+ * Copyright (c) 27.11.2019.
  * File - VerificationController.php
  * Author - tor
  */
@@ -30,7 +30,7 @@ class VerificationController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectTo = '/game';
 
     /**
      * Create a new controller instance.

@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 21.11.2019.
+ * Copyright (c) 27.11.2019.
  * File - LoginController.php
  * Author - tor
  */
@@ -30,7 +30,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/admin';
+    protected $redirectTo = '/game';
 
     /**
      * Create a new controller instance.
