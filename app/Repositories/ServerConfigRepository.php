@@ -23,10 +23,14 @@ class ServerConfigRepository extends CoreRepository
         return $this->startConditions()->get()->first();
     }
 
+    /**
+     * Активна ли игра
+     *
+     * @return mixed
+     */
     public function isActive()
     {
-        $status_game = $this->startConditions()->get(['is_active'])->first();
-        return $status_game['is_active'];
+        return $this->startConditions()->get(['is_active'])->first()->is_active;
     }
 
     /**
@@ -36,7 +40,7 @@ class ServerConfigRepository extends CoreRepository
      */
     public function getUserCount()
     {
-        return $this->startConditions()->get(['user_count'])->first();
+        return $this->startConditions()->get(['user_count'])->first()->user_count;
     }
 
     /**
