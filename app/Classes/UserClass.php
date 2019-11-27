@@ -9,14 +9,14 @@ namespace App\Classes;
 
 
 use App\Repositories\UserRepository;
+use App\User;
+use Illuminate\Support\Facades\Hash;
 
 class UserClass
 {
     /**
      * @var
      */
-    protected $username;
-    protected $userRole;
     protected $userRepository;
 
     public function __construct()
@@ -36,18 +36,48 @@ class UserClass
     }
 
     /**
+     * Установка роли пользователя(игрок, модератор, админ)
      * @param $user
      * @param $role_id
      * @return bool
      */
     public function setUserRole($user, $role_id)
     {
-        $user->DataUser->update(['role_id' => $role_id]);
-
-        return true;
+        return $user->DataUser->update(['role_id' => $role_id]);
     }
 
     /**
+     * Смена ника пользователя
+     *
+     * @param $user
+     * @param $nickname
+     * @return bool
+     */
+    public function setUserNick($user, $nickname)
+    {
+        return $user->DataUser->update(['nickname' => $nickname]);
+    }
+
+    /**
+     * Создаем пользователя проверив введенные данные
+     *
+     * @param $request
+     * @return User|\Illuminate\Database\Eloquent\Model
+     */
+    public function createUser($request)
+    {
+        $user = User::create([
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'password' => Hash::make($request['password']),
+        ]);
+        $user->DataUser()->create(['role_id' => $request['role_id']]);
+
+        return $user;
+    }
+    /**
+     * Обновить данные пользователя
+     *
      * @param $request
      * @param int $id
      * @return bool
@@ -61,19 +91,20 @@ class UserClass
         }
 
         $user->update(array_filter($request->all()));
-        $data = [];
+
         if (($user->DataUser->role_id != $request['role_id']) && in_array($request['role_id'], [0, 1, 2])) {
             $this->setUserRole($user, $request['role_id']);
         }
         if ($request['nickname']) {
-            $data = ['nickname' => $request['nickname']];
-            $user->DataUser->update($data);
+            $this->setUserNick($user, $request['nickname']);
         }
 
         return true;
     }
 
     /**
+     * Удалить пользователя
+     *
      * @param $id
      * @return bool
      */
@@ -81,13 +112,13 @@ class UserClass
     {
         $user = $this->userRepository->getUserById($id);
         if (empty($user)) {
-            return false;
-            //abort(404);
+            return abort(404);
         }
+
         $adminUser = $this->userRepository->getAdminUsers();
 
         if ($user->DataUser->role_id === 2 AND count($adminUser) <= 1) {
-            return true;// redirect(route('admin.users.index'));
+            return true;
         }
         $user->delete();
         $user->DataUser()->delete();

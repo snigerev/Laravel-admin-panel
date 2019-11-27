@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 26.11.2019.
+ * Copyright (c) 27.11.2019.
  * File - UserRepository.php
  * Author - tor
  */
@@ -24,7 +24,7 @@ class UserRepository extends CoreRepository
     {
         return $this->startConditions()
             ->whereHas('DataUser', function ($q) {
-                $q->where('role_id', '>', '0');
+                $q->where('role_id', '2');
             })->get('id');
     }
 

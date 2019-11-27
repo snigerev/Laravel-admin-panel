@@ -8,6 +8,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Classes\UserClass;
+use App\Http\Requests\UserCreateRequest;
 use App\Repositories\UserRepository;
 use App\User;
 use Illuminate\Auth\Events\Registered;
@@ -43,7 +44,7 @@ class UsersController extends BaseAdminController
     public function index()
     {
         $users = $this->userRepository->getAllUsers();
-        //dd($this->userRepository->getUserStatus(1));
+
         return view('admin.users.users', [
             'users' => $users
         ]);
@@ -67,11 +68,9 @@ class UsersController extends BaseAdminController
      * @return Response
      * @throws ValidationException
      */
-    public function store(Request $request)
+    public function store(UserCreateRequest $request)
     {
-        $this->validator($request->all())->validate();
-
-        event(new Registered($user = $this->createUser($request->all())));
+        (new UserClass())->createUser($request);
 
         return redirect(route('admin.users.index'));
     }
@@ -118,15 +117,14 @@ class UsersController extends BaseAdminController
      */
     public function update(Request $request, int $id)
     {
-        $user = new UserClass();
+        $user = (new UserClass())->updateUser($request, $id);
 
-        $updateUser = $user->updateUser($request, $id);
-
-        if (!$updateUser) {
-            abort(404);
+        if ($user) {
+            return redirect(route('admin.users.index'));
+        } else {
+            return abort(404);
         }
 
-        return redirect(route('admin.users.index'));
     }
 
     /**
@@ -137,43 +135,13 @@ class UsersController extends BaseAdminController
      */
     public function destroy(int $id)
     {
-        $user = new UserClass();
-        $deleteUser = $user->deleteUser($id);
+        $user = (new UserClass())->deleteUser($id);
 
-        if ($deleteUser) {
+        if ($user) {
             return redirect(route('admin.users.index'));
         } else {
-            dd($deleteUser);
+            return abort(404);
         }
 
-    }
-
-    /**
-     * @param array $data
-     * @return \Illuminate\Contracts\Validation\Validator|\Illuminate\Validation\Validator
-     */
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
-    }
-
-    /**
-     * @param array $data
-     * @return User|Model
-     */
-    protected function createUser(array $data)
-    {
-        $user = User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
-        $user->DataUser()->create(['role_id' => $data['role_id']]);
-
-        return $user;
     }
 }
