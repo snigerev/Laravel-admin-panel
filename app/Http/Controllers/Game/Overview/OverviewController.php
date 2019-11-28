@@ -50,6 +50,9 @@ class OverviewController extends BaseGameController
     {
         $this->username = $this->userRepository->getUserNick(Session::get('userId'));
         $sector = $this->gameMapRepository->getSector(1, 1);
+
+        dd($this->gameMapRepository->getAllCoordinatesInSector(1));
+
         return 'hello ' . $this->username . ' ' . $sector;
     }
 }

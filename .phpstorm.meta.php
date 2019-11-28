@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 25.11.2019.
+ * Copyright (c) 28.11.2019.
  * File - .phpstorm.meta.php
  * Author - tor
  */
@@ -11,7 +11,7 @@ namespace PHPSTORM_META {
 
     /**
      * PhpStorm Meta file, to provide autocomplete information for PhpStorm
-     * Generated on 2019-11-25 07:55:39.
+     * Generated on 2019-11-28 12:58:54.
      *
      * @author Barry vd. Heuvel <barryvdh@gmail.com>
      * @see https://github.com/barryvdh/laravel-ide-helper

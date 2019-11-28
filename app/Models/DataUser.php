@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 27.11.2019.
+ * Copyright (c) 28.11.2019.
  * File - DataUser.php
  * Author - tor
  */
@@ -47,6 +47,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\DataUser whereBannedTime($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\DataUser whereVacationMode($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\DataUser whereVacationTime($value)
+ * @property int|null $last_planet
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\DataUser whereLastPlanet($value)
  */
 class DataUser extends Model
 {

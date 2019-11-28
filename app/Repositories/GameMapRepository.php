@@ -45,6 +45,11 @@ class GameMapRepository extends CoreRepository
         return $sector;
     }
 
+    public function getAllCoordinatesInSector($sector)
+    {
+        return $this->startConditions()->where('sector', $sector)->get(['x', 'y'])->toArray();
+    }
+
     protected function getModelClass()
     {
         return Model::class;
