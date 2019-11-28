@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 25.11.2019.
+ * Copyright (c) 28.11.2019.
  * File - ServerConfig.php
  * Author - tor
  */

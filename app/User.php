@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 21.11.2019.
+ * Copyright (c) 28.11.2019.
  * File - User.php
  * Author - tor
  */
@@ -85,6 +85,13 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasOne('App\Models\DataUser');
     }
 
+
+    public function UserPlanet()
+    {
+        return $this->hasMany('App\Models\UserPlanet');
+    }
+
+
     public function isAdmin()
     {
         $role_id = $this->DataUser->role_id;
@@ -94,5 +101,4 @@ class User extends Authenticatable implements MustVerifyEmail
         }
         return $role_id;
     }
-
 }
