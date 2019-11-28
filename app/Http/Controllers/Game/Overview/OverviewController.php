@@ -30,7 +30,7 @@ class OverviewController extends BaseGameController
 
     public function index()
     {
-        $this->username = $this->userRepository->getUserNick(Session::get('userId'))->nickname;
+        $this->username = $this->userRepository->getUserNick(Session::get('userId'));
 //        dd($this->username);
         return 'hello ' . $this->username;
     }

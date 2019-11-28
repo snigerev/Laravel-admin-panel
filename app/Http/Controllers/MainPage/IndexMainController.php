@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 27.11.2019.
+ * Copyright (c) 28.11.2019.
  * File - IndexMainController.php
  * Author - tor
  */
@@ -50,7 +50,7 @@ class IndexMainController extends Controller
     {
 
         if (\Auth::check()) {
-            $nick = $this->userRepository->getUserNick(\Auth::user()->id)->nickname;
+            $nick = $this->userRepository->getUserNick(\Auth::user()->id);
         }
 
         return view('mainPage.index', [
