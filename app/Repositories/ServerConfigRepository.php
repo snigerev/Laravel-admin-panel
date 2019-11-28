@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 27.11.2019.
+ * Copyright (c) 28.11.2019.
  * File - ServerConfigRepository.php
  * Author - tor
  */
@@ -48,6 +48,7 @@ class ServerConfigRepository extends CoreRepository
      * @param int $count
      * @return int
      */
+
     public function userCountUp(int $count)
     {
         return $this->model->increment('user_count', $count);
