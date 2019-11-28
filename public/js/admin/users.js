@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 27.11.2019.
+ * Copyright (c) 28.11.2019.
  * File - users.js
  * Author - tor
  */
@@ -25596,7 +25596,7 @@
     /*! no static exports found */
     /***/ (function (module, exports, __webpack_require__) {
 
-        module.exports = __webpack_require__(/*! /home/vagrant/laravel/resources/js/admin/users.js */"./resources/js/admin/users.js");
+        module.exports = __webpack_require__(/*! /home/vagrant/laravel-admin/resources/js/admin/users.js */"./resources/js/admin/users.js");
 
 
         /***/
