@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 27.11.2019.
+ * Copyright (c) 28.11.2019.
  * File - UsersController.php
  * Author - tor
  */
@@ -10,14 +10,9 @@ namespace App\Http\Controllers\Admin;
 use App\Classes\UserClass;
 use App\Http\Requests\UserCreateRequest;
 use App\Repositories\UserRepository;
-use App\User;
-use Illuminate\Auth\Events\Registered;
 use Illuminate\Contracts\Foundation\Application;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
 
 class UsersController extends BaseAdminController

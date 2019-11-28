@@ -20,18 +20,27 @@ class OverviewController extends BaseGameController
      * @var
      */
     public $username;
+    /**
+     * @var UserRepository|\Illuminate\Contracts\Foundation\Application|mixed
+     */
     protected $userRepository;
 
+    /**
+     * OverviewController constructor.
+     */
     public function __construct()
     {
         parent::__construct();
         $this->userRepository = app(UserRepository::class);
     }
 
+    /**
+     * @return string
+     */
     public function index()
     {
         $this->username = $this->userRepository->getUserNick(Session::get('userId'));
-//        dd($this->username);
+
         return 'hello ' . $this->username;
     }
 }
