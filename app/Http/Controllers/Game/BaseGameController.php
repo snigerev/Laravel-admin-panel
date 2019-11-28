@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 27.11.2019.
+ * Copyright (c) 28.11.2019.
  * File - BaseGameController.php
  * Author - tor
  */
@@ -20,8 +20,7 @@ class BaseGameController extends Controller
 
     public function __construct()
     {
-        $this->middleware(['auth', 'verified', 'gameIsActive']);
-
+        $this->middleware(['auth', 'verified', 'gameIsActive', 'setSessionsParameters']);
     }
 
 }
