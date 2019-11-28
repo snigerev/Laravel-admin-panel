@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 27.11.2019.
+ * Copyright (c) 28.11.2019.
  * File - UserClass.php
  * Author - tor
  */
@@ -16,11 +16,17 @@ use Illuminate\Support\Facades\Hash;
 class UserClass
 {
     /**
-     * @var
+     * @var UserRepository|\Illuminate\Contracts\Foundation\Application|mixed
      */
     protected $userRepository;
+    /**
+     * @var ServerConfigRepository|\Illuminate\Contracts\Foundation\Application|mixed
+     */
     protected $serverConfigRepository;
 
+    /**
+     * UserClass constructor.
+     */
     public function __construct()
     {
         $this->userRepository = app(UserRepository::class);
