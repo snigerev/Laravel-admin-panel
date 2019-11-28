@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 30.10.2019.
+ * Copyright (c) 28.11.2019.
  * File - DatabaseSeeder.php
  * Author - tor
  */
@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        $this->call(AddMap::class);
         // $this->call(UsersTableSeeder::class);
     }
 }

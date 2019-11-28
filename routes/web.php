@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 25.11.2019.
+ * Copyright (c) 27.11.2019.
  * File - web.php
  * Author - tor
  */
@@ -23,4 +23,8 @@ Auth::routes(['verify' => true]);
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     Route::get('/', 'IndexAdminController@index')->name('admin.index');
     Route::resource('users', 'UsersController')->names('admin.users');
+});
+
+Route::group(['namespace' => 'Game\Overview', 'prefix' => 'game'], function () {
+    Route::get('/', 'OverviewController@index')->name('game.index');
 });

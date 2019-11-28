@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 25.11.2019.
+ * Copyright (c) 27.11.2019.
  * File - DataUser.php
  * Author - tor
  */
@@ -53,7 +53,7 @@ class DataUser extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'role_id'
+        'role_id', 'nickname'
     ];
 
     public function user()

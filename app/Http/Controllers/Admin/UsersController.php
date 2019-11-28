@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 26.11.2019.
+ * Copyright (c) 28.11.2019.
  * File - UsersController.php
  * Author - tor
  */
@@ -8,15 +8,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Classes\UserClass;
+use App\Http\Requests\UserCreateRequest;
 use App\Repositories\UserRepository;
-use App\User;
-use Illuminate\Auth\Events\Registered;
 use Illuminate\Contracts\Foundation\Application;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
 
 class UsersController extends BaseAdminController
@@ -43,7 +39,7 @@ class UsersController extends BaseAdminController
     public function index()
     {
         $users = $this->userRepository->getAllUsers();
-        //dd($this->userRepository->getUserStatus(1));
+
         return view('admin.users.users', [
             'users' => $users
         ]);
@@ -67,11 +63,9 @@ class UsersController extends BaseAdminController
      * @return Response
      * @throws ValidationException
      */
-    public function store(Request $request)
+    public function store(UserCreateRequest $request)
     {
-        $this->validator($request->all())->validate();
-
-        event(new Registered($user = $this->createUser($request->all())));
+        (new UserClass())->createUser($request);
 
         return redirect(route('admin.users.index'));
     }
@@ -118,24 +112,14 @@ class UsersController extends BaseAdminController
      */
     public function update(Request $request, int $id)
     {
-        $user = $this->userRepository->getUserById($id);
+        $user = (new UserClass())->updateUser($request, $id);
 
-        if (empty($user)) {
-            abort(404);
+        if ($user) {
+            return redirect(route('admin.users.index'));
+        } else {
+            return abort(404);
         }
 
-        $user->update(array_filter($request->all()));
-        $data = [];
-        if ($request['role_id']) {
-            $data = ['role_id' => $request['role_id']];
-        }
-        if ($request['nickname']) {
-            $data = ['nickname' => $request['nickname']];
-        }
-        $user->DataUser()->update($data);
-
-
-        return redirect(route('admin.users.index'));
     }
 
     /**
@@ -146,52 +130,13 @@ class UsersController extends BaseAdminController
      */
     public function destroy(int $id)
     {
-        $deleteUser = (new \App\Classes\UserClass)->deleteUser($id);
-//        $user = $this->userRepository->getUserById($id);
-//        if (empty($user)) {
-//            abort(404);
-//        }
-//        $adminUser = $this->userRepository->getAdminUsers();
-//
-//        if ($user->DataUser->role_id === 2 AND count($adminUser) <= 1) {
-//            return redirect(route('admin.users.index'));
-//        }
-//        $user->delete();
-//        $user->DataUser()->delete();
-        if ($deleteUser) {
+        $user = (new UserClass())->deleteUser($id);
+
+        if ($user) {
             return redirect(route('admin.users.index'));
         } else {
-            dd($deleteUser);
+            return abort(404);
         }
 
-    }
-
-    /**
-     * @param array $data
-     * @return \Illuminate\Contracts\Validation\Validator|\Illuminate\Validation\Validator
-     */
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
-    }
-
-    /**
-     * @param array $data
-     * @return User|Model
-     */
-    protected function createUser(array $data)
-    {
-        $user = User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
-        $user->DataUser()->create(['role_id' => $data['role_id']]);
-
-        return $user;
     }
 }

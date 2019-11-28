@@ -9,7 +9,7 @@
     <!-- Fonts -->
     <link rel="shortcut icon" type="image/png" href="{{ asset('images/favicon.png') }}">
     <!-- Styles -->
-    {{--    <link rel="stylesheet" href="{{ asset('css/app.css') }}">--}}
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link href="{{ asset('css/mainPage/main.css') }}" rel="stylesheet">
 </head>
 <body>
@@ -19,8 +19,8 @@
             <div class="row d-flex">
                 @guest
                     <div class="col-3 top-button justify-content-center">
-                        <a href="{{ route('register') }}" class="a-top"><img class="top-left"
-                                                                             src="{{ asset('images/mainPage/button_left.png') }}"
+                        <a href="{{ route('register') }}" class="a-top">
+                            <img class="top-left" src="{{ asset('images/mainPage/button_left.png') }}"
                                                                              alt=""><span
                                 class="text-top">{{ trans('mainPage/register.Register') }}</span></a>
                     </div>

@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 26.11.2019.
+ * Copyright (c) 28.11.2019.
  * File - UserRepository.php
  * Author - tor
  */
@@ -24,7 +24,7 @@ class UserRepository extends CoreRepository
     {
         return $this->startConditions()
             ->whereHas('DataUser', function ($q) {
-                $q->where('role_id', '>', '0');
+                $q->where('role_id', '2');
             })->get('id');
     }
 
@@ -81,7 +81,7 @@ class UserRepository extends CoreRepository
         return $this->startConditions()
             ->where('users.id', $id)
             ->leftJoin('data_users as data', 'users.id', '=', 'data.user_id')
-            ->get(['data.nickname'])->first();
+            ->get(['data.nickname'])->first()->nickname;
     }
 
     protected function getModelClass()

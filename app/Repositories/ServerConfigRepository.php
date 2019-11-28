@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 25.11.2019.
+ * Copyright (c) 28.11.2019.
  * File - ServerConfigRepository.php
  * Author - tor
  */
@@ -24,13 +24,23 @@ class ServerConfigRepository extends CoreRepository
     }
 
     /**
+     * Активна ли игра
+     *
+     * @return mixed
+     */
+    public function isActive()
+    {
+        return $this->startConditions()->get(['is_active'])->first()->is_active;
+    }
+
+    /**
      * Получаем кол-во пользователей в системе
      *
      * @return mixed
      */
     public function getUserCount()
     {
-        return $this->startConditions()->get(['user_count'])->first();
+        return $this->startConditions()->get(['user_count'])->first()->user_count;
     }
 
     /**
@@ -38,6 +48,7 @@ class ServerConfigRepository extends CoreRepository
      * @param int $count
      * @return int
      */
+
     public function userCountUp(int $count)
     {
         return $this->model->increment('user_count', $count);
