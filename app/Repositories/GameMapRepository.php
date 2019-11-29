@@ -36,26 +36,60 @@ class GameMapRepository extends CoreRepository
      */
     public function getSectorByCoordinates($x, $y)
     {
-        $sector = $this->startConditions()
+        return $sector = $this->startConditions()
             ->where('x', $x)
             ->where('y', $y)
             ->get(['sector'])
             ->first()
             ->sector;
-        return $sector;
     }
 
+    /**
+     * @param $sector
+     * @return mixed
+     */
+    public function getPlacesWithPlanetInSector($sector)
+    {
+        return $this->startConditions()->where('sector', $sector)
+            ->where('type', '1')->get(['id']);
+    }
+
+    /**
+     * @param $sector
+     * @return mixed
+     */
     public function getAllCoordinatesInSector($sector)
     {
         return $this->startConditions()->where('sector', $sector)->get(['id', 'x', 'y'])->toArray();
     }
 
-    public function getFreeCoordinatesInSector($sector)
+    /**
+     * @param $sector
+     * @return mixed
+     */
+    public function getFreeCoordinatesInSectorOnRegistration($sector)
     {
-        return $this->startConditions()
+        $placesWithPlanets = $this->getPlacesWithPlanetInSector($sector)->toArray();
+
+        while (count($placesWithPlanets) > 2) {
+            $sector += 1;
+            $placesWithPlanets = $this->getPlacesWithPlanetInSector($sector)->toArray();
+        }
+
+        $freeCoordinates = $this->startConditions()
             ->where('sector', $sector)
             ->where('type', 0)
             ->get(['id']);
+
+        while (empty($freeCoordinates)) {
+            $sector += 1;
+            $freeCoordinates = $this->startConditions()
+                ->where('sector', $sector)
+                ->where('type', 0)
+                ->get(['id']);
+        }
+
+        return $freeCoordinates;
     }
 
     protected function getModelClass()

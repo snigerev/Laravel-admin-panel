@@ -28,7 +28,7 @@ class UserPlanetClass
     {
         $lastSector = $this->serverConfigRepository->getLastSector();
 
-        $arrayFreePlaces = $this->gameMapRepository->getFreeCoordinatesInSector($lastSector)->toArray();
+        $arrayFreePlaces = $this->gameMapRepository->getFreeCoordinatesInSectorOnRegistration($lastSector)->toArray();
 
         $placeForPlanet = Arr::random($arrayFreePlaces);
         $planet = UserPlanet::create([
