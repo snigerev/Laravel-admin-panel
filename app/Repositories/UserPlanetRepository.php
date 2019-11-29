@@ -22,6 +22,14 @@ class UserPlanetRepository extends CoreRepository
         return $planetSector;
     }
 
+    public function getPlanetInfo($planetId)
+    {
+        return $this->startConditions()->find($planetId);
+    }
+
+    /**
+     * @return string
+     */
     protected function getModelClass()
     {
         return Model::class;

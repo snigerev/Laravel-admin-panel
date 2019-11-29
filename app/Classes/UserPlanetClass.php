@@ -7,7 +7,6 @@
 
 namespace App\Classes;
 
-
 use App\Models\UserPlanet;
 use App\Repositories\GameMapRepository;
 
@@ -36,5 +35,4 @@ class UserPlanetClass
 
         return $planet;
     }
-
 }
