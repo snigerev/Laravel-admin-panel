@@ -1,10 +1,11 @@
 <?php
 /**
- * Copyright (c) 28.11.2019.
+ * Copyright (c) 29.11.2019.
  * File - AddMap.php
  * Author - tor
  */
 
+use App\Repositories\GameMapRepository;
 use Illuminate\Database\Seeder;
 
 class AddMap extends Seeder
@@ -19,7 +20,7 @@ class AddMap extends Seeder
      */
     public function __construct()
     {
-        $this->gameMapRepository = app(\App\Repositories\GameMapRepository::class);
+        $this->gameMapRepository = app(GameMapRepository::class);
     }
 
     /**

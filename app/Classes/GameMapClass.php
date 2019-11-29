@@ -1,17 +1,22 @@
 <?php
 /**
  * Copyright (c) 29.11.2019.
- * File - GameMap.php
+ * File - GameMapClass.php
  * Author - tor
  */
 
 namespace App\Classes;
 
 
-class GameMap
+use App\Models\GameMap;
+
+class GameMapClass
 {
     public function updateCoordinates($coordinateId)
     {
+        GameMap::whereId($coordinateId)->update([
+            'type' => 1
+        ]);
         return true;
     }
 

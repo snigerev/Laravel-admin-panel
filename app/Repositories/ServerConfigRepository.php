@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 28.11.2019.
+ * Copyright (c) 29.11.2019.
  * File - ServerConfigRepository.php
  * Author - tor
  */
@@ -43,15 +43,9 @@ class ServerConfigRepository extends CoreRepository
         return $this->startConditions()->get(['user_count'])->first()->user_count;
     }
 
-    /**
-     * Увеличиваем счетчик на $count
-     * @param int $count
-     * @return int
-     */
-
-    public function userCountUp(int $count)
+    public function getLastSector()
     {
-        return $this->model->increment('user_count', $count);
+        return $this->startConditions()->get(['last_sector'])->first()->last_sector;
     }
 
     /**

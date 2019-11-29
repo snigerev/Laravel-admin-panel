@@ -8,6 +8,7 @@
 namespace App\Http\Controllers\Game\Overview;
 
 
+use App\Classes\UserPlanetClass;
 use App\Http\Controllers\Game\BaseGameController;
 use App\Repositories\GameMapRepository;
 use App\Repositories\UserRepository;
@@ -49,9 +50,9 @@ class OverviewController extends BaseGameController
     public function index()
     {
         $this->username = $this->userRepository->getUserNick(Session::get('userId'));
-        $sector = $this->gameMapRepository->getSector(1, 1);
+        $sector = $this->gameMapRepository->getSectorByCoordinates(1, 1);
 
-        dd($this->gameMapRepository->getAllCoordinatesInSector(1));
+        (new UserPlanetClass())->createUserPlanetOnRegistration(2);
 
         return 'hello ' . $this->username . ' ' . $sector;
     }

@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 28.11.2019.
+ * Copyright (c) 29.11.2019.
  * File - UserPlanet.php
  * Author - tor
  */
@@ -42,7 +42,7 @@ class UserPlanet extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'planet_name', 'game_map_id'
+        'user_id', 'planet_name', 'game_map_id'
     ];
 
     public function User()

@@ -7,31 +7,40 @@
 
 namespace App\Classes;
 
+
 use App\Models\UserPlanet;
 use App\Repositories\GameMapRepository;
+use App\Repositories\ServerConfigRepository;
+use Arr;
 
 class UserPlanetClass
 {
     protected $gameMapRepository;
+    protected $serverConfigRepository;
 
     public function __construct()
     {
         $this->gameMapRepository = app(GameMapRepository::class);
+        $this->serverConfigRepository = app(ServerConfigRepository::class);
     }
 
-    public function createUserPlanet($userId, $gameMapId)
+    public function createUserPlanetOnRegistration($userId)
     {
-        $actionToCoordinate = mt_rand(0, 1);
-        dd($actionToCoordinate);
-        $coordinates = $this->gameMapRepository
-            ->getFreeCoordinatesInSector($gameMapId);
+        $lastSector = $this->serverConfigRepository->getLastSector();
 
-        dd($coordinates);
+        $arrayFreePlaces = $this->gameMapRepository->getFreeCoordinatesInSector($lastSector)->toArray();
 
+        $placeForPlanet = Arr::random($arrayFreePlaces);
         $planet = UserPlanet::create([
-            'userId' => $userId,
-            'game_map_id' => $gameMapId
+            'user_id' => $userId,
+            'game_map_id' => $placeForPlanet['id']
         ]);
+
+        (new GameMapClass())->updateCoordinates($placeForPlanet['id']);
+
+        (new ServerConfigClass())->updateLastSector();
+
+        dd($lastSector, $arrayFreePlaces, $placeForPlanet);
 
         return $planet;
     }

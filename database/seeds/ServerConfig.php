@@ -1,10 +1,11 @@
 <?php
 /**
- * Copyright (c) 28.11.2019.
+ * Copyright (c) 29.11.2019.
  * File - ServerConfig.php
  * Author - tor
  */
 
+use App\Repositories\ServerConfigRepository;
 use Illuminate\Database\Seeder;
 
 class ServerConfig extends Seeder
@@ -13,7 +14,7 @@ class ServerConfig extends Seeder
 
     public function __construct()
     {
-        $this->serverConfigRepository = app(\App\Repositories\ServerConfigRepository::class);
+        $this->serverConfigRepository = app(ServerConfigRepository::class);
     }
 
     /**

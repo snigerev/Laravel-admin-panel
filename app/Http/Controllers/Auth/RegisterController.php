@@ -1,12 +1,14 @@
 <?php
 /**
- * Copyright (c) 25.11.2019.
+ * Copyright (c) 29.11.2019.
  * File - RegisterController.php
  * Author - tor
  */
 
 namespace App\Http\Controllers\Auth;
 
+use App\Classes\ServerConfigClass;
+use App\Classes\UserClass;
 use App\Http\Controllers\Controller;
 use App\Models\ServerConfig;
 use App\Repositories\ServerConfigRepository;
@@ -72,19 +74,21 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $createUser = User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
+//        $createUser = User::create([
+//            'name' => $data['name'],
+//            'email' => $data['email'],
+//            'password' => Hash::make($data['password']),
+//        ]);
+//
+//        $createUser->DataUser()->create();
+//
+//        $updateUserCount = (new ServerConfigClass())->userCountUp(1);
+//
+//        if (!$updateUserCount) {
+//            dd($updateUserCount);
+//        }
 
-        $createUser->DataUser()->create();
-
-        $updateUserCount = $this->serverConfig->userCountUp(1);
-
-        if (!$updateUserCount) {
-            dd($updateUserCount);
-        }
+        $createUser = (new UserClass())->createUser($data);
 
         return $createUser;
     }

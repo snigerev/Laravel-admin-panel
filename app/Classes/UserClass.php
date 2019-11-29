@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 28.11.2019.
+ * Copyright (c) 29.11.2019.
  * File - UserClass.php
  * Author - tor
  */
@@ -83,7 +83,8 @@ class UserClass
         $user->DataUser()->create(['role_id' => $request['role_id']]);
 
         if ($user) {
-            $updateUserCount = $this->serverConfigRepository->userCountUp(1);
+            (new UserPlanetClass())->createUserPlanetOnRegistration($user['id']);
+            (new ServerConfigClass())->userCountUp(1);
         }
 
         return $user;
