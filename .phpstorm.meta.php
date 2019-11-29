@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 28.11.2019.
+ * Copyright (c) 29.11.2019.
  * File - .phpstorm.meta.php
  * Author - tor
  */
@@ -9,13 +9,13 @@
 
 namespace PHPSTORM_META {
 
-    /**
-     * PhpStorm Meta file, to provide autocomplete information for PhpStorm
-     * Generated on 2019-11-28 12:58:54.
-     *
-     * @author Barry vd. Heuvel <barryvdh@gmail.com>
-     * @see https://github.com/barryvdh/laravel-ide-helper
-     */
+   /**
+    * PhpStorm Meta file, to provide autocomplete information for PhpStorm
+    * Generated on 2019-11-28 11:33:28.
+    *
+    * @author Barry vd. Heuvel <barryvdh@gmail.com>
+    * @see https://github.com/barryvdh/laravel-ide-helper
+    */
     override(new \Illuminate\Contracts\Container\Container, map([
         '' => '@',
         'Barryvdh\Debugbar\LaravelDebugbar' => \Barryvdh\Debugbar\LaravelDebugbar::class,

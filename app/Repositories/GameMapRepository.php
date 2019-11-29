@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 28.11.2019.
+ * Copyright (c) 29.11.2019.
  * File - GameMapRepository.php
  * Author - tor
  */
@@ -34,7 +34,7 @@ class GameMapRepository extends CoreRepository
      * @param $y
      * @return int
      */
-    public function getSector($x, $y)
+    public function getSectorByCoordinates($x, $y)
     {
         $sector = $this->startConditions()
             ->where('x', $x)
@@ -47,7 +47,15 @@ class GameMapRepository extends CoreRepository
 
     public function getAllCoordinatesInSector($sector)
     {
-        return $this->startConditions()->where('sector', $sector)->get(['x', 'y'])->toArray();
+        return $this->startConditions()->where('sector', $sector)->get(['id', 'x', 'y'])->toArray();
+    }
+
+    public function getFreeCoordinatesInSector($sector)
+    {
+        return $this->startConditions()
+            ->where('sector', $sector)
+            ->where('type', 0)
+            ->get(['id']);
     }
 
     protected function getModelClass()
