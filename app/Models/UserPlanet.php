@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 29.11.2019.
+ * Copyright (c) 2.12.2019.
  * File - UserPlanet.php
  * Author - tor
  */
@@ -53,5 +53,10 @@ class UserPlanet extends Model
     public function GameMap()
     {
         return $this->hasOne('App\Models\GameMap');
+    }
+
+    public function Resources()
+    {
+        return $this->hasOne('App\Models\ResourcesPlanet');
     }
 }
