@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 29.11.2019.
+ * Copyright (c) 2.12.2019.
  * File - ServerConfigRepository.php
  * Author - tor
  */
@@ -46,6 +46,18 @@ class ServerConfigRepository extends CoreRepository
     public function getLastSector()
     {
         return $this->startConditions()->get(['last_sector'])->first()->last_sector;
+    }
+
+    public function getDefaultResources()
+    {
+        $resources = $this->startConditions()->get([
+            'def_unobtaniy',
+            'def_tiberium',
+            'def_spaice',
+            'def_nanoid'
+        ])->first();
+
+        return $resources;
     }
 
     /**

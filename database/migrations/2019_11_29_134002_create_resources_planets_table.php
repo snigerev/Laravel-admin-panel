@@ -24,8 +24,8 @@ class CreateResourcesPlanetsTable extends Migration
             $table->bigInteger('unobtaniy');
             $table->bigInteger('tiberium');
             $table->bigInteger('spaice');
-            $table->bigInteger('energy');
-            $table->bigInteger('energy_used');
+            $table->bigInteger('energy')->default(0);
+            $table->bigInteger('energy_used')->default(0);
             $table->bigInteger('nanoid');
             $table->foreign('planet_id')->references('id')->on('user_planets')->onDelete('cascade');
             $table->timestamps();

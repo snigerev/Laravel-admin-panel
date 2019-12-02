@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 29.11.2019.
+ * Copyright (c) 2.12.2019.
  * File - UserPlanetClass.php
  * Author - tor
  */
@@ -8,6 +8,7 @@
 namespace App\Classes;
 
 
+use App\Models\ResourcesPlanet;
 use App\Models\UserPlanet;
 use App\Repositories\GameMapRepository;
 use App\Repositories\ServerConfigRepository;
@@ -39,6 +40,8 @@ class UserPlanetClass
         (new GameMapClass())->updateCoordinates($placeForPlanet['id']);
 
         (new ServerConfigClass())->updateLastSector();
+
+        (new ResourcesPlanetClass())->createResourcesPlanetOnRegistration($planet['id']);
 
         dd($lastSector, $arrayFreePlaces, $placeForPlanet);
 
