@@ -20,7 +20,7 @@ class ResourcesPlanetClass
         $this->serverConfigRepository = app(ServerConfigRepository::class);
     }
 
-    public function createResourcesPlanetOnRegistration($planetId)
+    public function createResourcesPlanet($planetId)
     {
         $resourcesConfig = $this->serverConfigRepository->getDefaultResources();
 

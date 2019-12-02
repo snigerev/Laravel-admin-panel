@@ -41,7 +41,7 @@ class UserPlanetClass
 
         (new ServerConfigClass())->updateLastSector();
 
-        (new ResourcesPlanetClass())->createResourcesPlanetOnRegistration($planet['id']);
+        (new ResourcesPlanetClass())->createResourcesPlanet($planet['id']);
 
         dd($lastSector, $arrayFreePlaces, $placeForPlanet);
 
