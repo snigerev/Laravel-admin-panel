@@ -57,8 +57,19 @@ class UserPlanetClass
 
         (new ResourcesPlanetClass())->createResourcesPlanet($planet['id']);
 
-        dd($lastSector, $arrayFreePlaces, $placeForPlanet);
-
         return $planet;
+    }
+
+    public function deletePlanet($planetId)
+    {
+        $coordinateId = UserPlanet::find($planetId)->get(['game_map_id']);
+
+        (new GameMapClass())->updateWhenDeletePlanet($coordinateId['game_map_id']);
+
+        (new ResourcesPlanetClass())->deleteRecord($planetId);
+
+        UserPlanet::find($planetId)->delete();
+
+        return true;
     }
 }

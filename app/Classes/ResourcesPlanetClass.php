@@ -55,4 +55,9 @@ class ResourcesPlanetClass
         return (new ResourcesPlanet)->where('planet_id', $planetID)->update($resources);
     }
 
+    public function deleteRecord($planetId)
+    {
+        return ResourcesPlanet::where('planet_id', $planetId)->delete();
+    }
+
 }

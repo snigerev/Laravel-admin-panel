@@ -62,6 +62,7 @@ class TestPageController extends Controller
         (new ResourcesPlanetClass())->updateResourcePlanet(126, $resource);
         (new UserPlanetClass())->createUserPlanetOnRegistration(2);
 
-        return 'hello ' . $this->username . ' ' . $sector;
+        dd($resource, $sector);
+        return 'hello ' . dd($resource) . ' ' . $sector;
     }
 }

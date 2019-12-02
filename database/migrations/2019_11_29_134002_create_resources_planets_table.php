@@ -27,7 +27,12 @@ class CreateResourcesPlanetsTable extends Migration
             $table->bigInteger('energy')->default(0);
             $table->bigInteger('energy_used')->default(0);
             $table->bigInteger('nanoid');
-            $table->foreign('planet_id')->references('id')->on('user_planets')->onDelete('cascade');
+
+            $table->foreign('planet_id')
+                ->references('id')
+                ->on('user_planets')
+                ->onDelete('cascade');
+
             $table->timestamps();
             $table->softDeletes();
         });

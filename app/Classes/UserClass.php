@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 29.11.2019.
+ * Copyright (c) 2.12.2019.
  * File - UserClass.php
  * Author - tor
  */
@@ -137,6 +137,7 @@ class UserClass
         }
         $user->delete();
         $user->DataUser()->delete();
+        $user->UserPlanet()->delete();
 
         return true;
     }

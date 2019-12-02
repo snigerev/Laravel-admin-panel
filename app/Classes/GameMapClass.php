@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 29.11.2019.
+ * Copyright (c) 2.12.2019.
  * File - GameMapClass.php
  * Author - tor
  */
@@ -16,6 +16,14 @@ class GameMapClass
     {
         GameMap::whereId($coordinateId)->update([
             'type' => 1
+        ]);
+        return true;
+    }
+
+    public function updateWhenDeletePlanet($coordinateId)
+    {
+        GameMap::whereId($coordinateId)->update([
+            'type' => 0
         ]);
         return true;
     }
