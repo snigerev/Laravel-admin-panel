@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 28.11.2019.
+ * Copyright (c) 2.12.2019.
  * File - GameMap.php
  * Author - tor
  */
@@ -30,6 +30,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\GameMap whereX($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\GameMap whereY($value)
  * @mixin \Eloquent
+ * @property-read \App\Models\UserPlanet $UserPlanet
  */
 class GameMap extends Model
 {

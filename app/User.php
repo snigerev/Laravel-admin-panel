@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 28.11.2019.
+ * Copyright (c) 2.12.2019.
  * File - User.php
  * Author - tor
  */
@@ -46,6 +46,8 @@ use Illuminate\Notifications\Notifiable;
  * @method static \Illuminate\Database\Query\Builder|\App\User withTrashed()
  * @method static \Illuminate\Database\Query\Builder|\App\User withoutTrashed()
  * @property-read \App\Models\DataUser $DataUser
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\UserPlanet[] $UserPlanet
+ * @property-read int|null $user_planet_count
  */
 class User extends Authenticatable implements MustVerifyEmail
 {

@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 28.11.2019.
+ * Copyright (c) 2.12.2019.
  * File - DataUser.php
  * Author - tor
  */

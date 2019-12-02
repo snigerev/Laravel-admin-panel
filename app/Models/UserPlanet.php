@@ -36,6 +36,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static \Illuminate\Database\Query\Builder|\App\Models\UserPlanet withTrashed()
  * @method static \Illuminate\Database\Query\Builder|\App\Models\UserPlanet withoutTrashed()
  * @mixin \Eloquent
+ * @property-read \App\Models\GameMap $GameMap
+ * @property-read \App\Models\ResourcesPlanet $Resources
+ * @property-read \App\User $User
  */
 class UserPlanet extends Model
 {

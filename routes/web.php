@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 27.11.2019.
+ * Copyright (c) 2.12.2019.
  * File - web.php
  * Author - tor
  */
@@ -15,8 +15,15 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+/**
+ * Test Page
+ */
+Route::get('/test', 'TestPageController@index');
+/**
+ *
+ */
 Route::get('/', 'MainPage\IndexMainController@index')->name('index');
+
 
 Auth::routes(['verify' => true]);
 

@@ -16,15 +16,29 @@ use Arr;
 
 class UserPlanetClass
 {
+    /**
+     * @var GameMapRepository|\Illuminate\Contracts\Foundation\Application|mixed
+     */
     protected $gameMapRepository;
+
+    /**
+     * @var ServerConfigRepository|\Illuminate\Contracts\Foundation\Application|mixed
+     */
     protected $serverConfigRepository;
 
+    /**
+     * UserPlanetClass constructor.
+     */
     public function __construct()
     {
         $this->gameMapRepository = app(GameMapRepository::class);
         $this->serverConfigRepository = app(ServerConfigRepository::class);
     }
 
+    /**
+     * @param $userId
+     * @return UserPlanet|\Illuminate\Database\Eloquent\Model
+     */
     public function createUserPlanetOnRegistration($userId)
     {
         $lastSector = $this->serverConfigRepository->getLastSector();

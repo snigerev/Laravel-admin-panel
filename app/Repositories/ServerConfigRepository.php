@@ -43,11 +43,17 @@ class ServerConfigRepository extends CoreRepository
         return $this->startConditions()->get(['user_count'])->first()->user_count;
     }
 
+    /**
+     * @return mixed
+     */
     public function getLastSector()
     {
         return $this->startConditions()->get(['last_sector'])->first()->last_sector;
     }
 
+    /**
+     * @return mixed
+     */
     public function getDefaultResources()
     {
         $resources = $this->startConditions()->get([
