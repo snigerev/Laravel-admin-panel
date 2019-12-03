@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 2.12.2019.
+ * Copyright (c) 3.12.2019.
  * File - TestPageController.php
  * Author - tor
  */
@@ -9,13 +9,14 @@ namespace App\Http\Controllers;
 
 use App\Classes\ResourcesPlanetClass;
 use App\Classes\UserPlanetClass;
+use App\Http\Controllers\Game\BaseGameController;
 use App\Repositories\GameMapRepository;
 use App\Repositories\ResourcesPlanetRepository;
 use App\Repositories\UserRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
-class TestPageController extends Controller
+class TestPageController extends BaseGameController
 {
     /**
      * @var
@@ -43,6 +44,7 @@ class TestPageController extends Controller
      */
     public function __construct()
     {
+        parent::__construct();
         $this->userRepository = app(UserRepository::class);
         $this->gameMapRepository = app(GameMapRepository::class);
         $this->resourcesPlanetRepository = app(ResourcesPlanetRepository::class);
@@ -54,7 +56,7 @@ class TestPageController extends Controller
     public function index()
     {
         $this->username = $this->userRepository->getUserNick(Session::get('userId'));
-        $sector = $this->gameMapRepository->getSectorByCoordinates(1, 1);
+        //$sector = $this->gameMapRepository->getSectorByCoordinates(1, 1);
         $resource = $this->resourcesPlanetRepository->getResourcesPlanet(126)->toArray();
 
         $resource['nanoid'] += 1000;
@@ -62,7 +64,7 @@ class TestPageController extends Controller
         (new ResourcesPlanetClass())->updateResourcePlanet(126, $resource);
         (new UserPlanetClass())->createUserPlanetOnRegistration(2);
 
-        dd($resource, $sector);
-        return 'hello ' . dd($resource) . ' ' . $sector;
+        //dd($resource, $sector);
+        return 'hello ';
     }
 }

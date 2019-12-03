@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 29.11.2019.
+ * Copyright (c) 3.12.2019.
  * File - ServerConfigClass.php
  * Author - tor
  */
@@ -18,7 +18,7 @@ class ServerConfigClass
     public function updateLastSector()
     {
         $action = rand(0, 1);
-        $count = rand(2, 5);
+        $count = rand(6, 15);
 
         switch ($action) {
             case 0:

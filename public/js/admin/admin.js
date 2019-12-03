@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 3.12.2019.
  * File - admin.js
- * Author - z1tka
+ * Author - tor
  */
 
 /******/ (function(modules) { // webpackBootstrap
@@ -37410,7 +37410,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-        module.exports = __webpack_require__(/*! /home/z1tka/PhpstormProjects/Laravel-admin-panel/resources/js/admin/admin.js */"./resources/js/admin/admin.js");
+        module.exports = __webpack_require__(/*! /home/vagrant/laravel/resources/js/admin/admin.js */"./resources/js/admin/admin.js");
 
 
 /***/ })
