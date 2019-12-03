@@ -1,7 +1,7 @@
 /*
- * Copyright (c) 28.11.2019.
+ * Copyright (c) 3.12.2019.
  * File - users.js
- * Author - tor
+ * Author - z1tka
  */
 
 /******/
@@ -25596,7 +25596,7 @@
     /*! no static exports found */
     /***/ (function (module, exports, __webpack_require__) {
 
-        module.exports = __webpack_require__(/*! /home/vagrant/laravel-admin/resources/js/admin/users.js */"./resources/js/admin/users.js");
+        module.exports = __webpack_require__(/*! /home/z1tka/PhpstormProjects/Laravel-admin-panel/resources/js/admin/users.js */"./resources/js/admin/users.js");
 
 
         /***/

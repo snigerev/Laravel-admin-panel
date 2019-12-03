@@ -1,18 +1,22 @@
 /*!
- * Copyright (c) 28.11.2019.
+ * Copyright (c) 3.12.2019.
  * File - main.scss
  * Author - z1tka
  */
 //@import "../app";
 
+html {
+    position: relative;
+    min-height: 100%;
+}
 
 body {
-    //    background: url("/../../images/mainPage/panel_down2.png") no-repeat fixed,
-    url("/../../images/mainPage/bg.jpg") no-repeat fixed;
+    background: url("/../../images/mainPage/bg.jpg") no-repeat fixed;
     background-size: auto, auto, contain;
     background-position: bottom, center center;
+    margin-bottom: 40px;
     width: 100%;
-    min-height: 900px;
+    min-height: 800px;
 }
 
 a:hover {
@@ -124,3 +128,9 @@ a:hover {
     border-bottom: 2px solid navajowhite;
 }
 
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 225px;
+}

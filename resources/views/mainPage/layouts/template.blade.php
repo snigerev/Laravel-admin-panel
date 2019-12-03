@@ -118,16 +118,16 @@
             @yield('content')
         </div>
     </main>
-</div>
-<footer>
-    <div class="container">
-        <div class="">
-            <a class="navbar-footer" href="{{ url('/') }}">
-                <img src="{{ asset('images/mainPage/panel_down2.png') }}" alt="">
-            </a>
+    <footer>
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <a class="">
+                    <img src="{{ asset('images/mainPage/panel_down2.png') }}" alt="">
+                </a>
+            </div>
         </div>
-    </div>
-</footer>
+    </footer>
+</div>
 <script src="{{ asset('js/app.js') }}" defer></script>
 </body>
 </html>
