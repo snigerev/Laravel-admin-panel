@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 3.12.2019.
+ * Copyright (c) 11.12.2019.
  * File - admin.js
  * Author - tor
  */
