@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 30.10.2019.
+ * Copyright (c) 12.12.2019.
  * File - app.js
  * Author - tor
  */
