@@ -65,8 +65,7 @@
 </template>
 
 <script>
-    import router from "../../route";
-    import axios from 'axios';
+    import router from '../../route';
 
     export default {
         name: "UsersListComponents",

@@ -16,15 +16,15 @@
 </head>
 <body id="page-top">
 <div id="wrapper">
-    @include('admin.left')
+    <div id="leftMenu">
+        <left-menu></left-menu>
+    </div>
     <div id="content-wrapper" class="d-flex flex-column">
         <div id="content">
             @include('admin.header')
             @yield('content')
         </div>
     </div>
-
-
 </div>
 <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
