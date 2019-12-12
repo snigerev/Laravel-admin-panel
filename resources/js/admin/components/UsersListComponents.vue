@@ -1,5 +1,5 @@
 <!--
-  - Copyright (c) 11.12.2019.
+  - Copyright (c) 12.12.2019.
   - File - UsersListComponents.vue
   - Author - tor
   -->
@@ -48,10 +48,10 @@
                         </td>
                         <td>
                             <a href="#" @click="route('admin.users.edit', user.id)">
-                                <i class="fas fa-edit"></i>
+                                <i class="fas fa-edit"/>
                             </a>
                             <a href="#" @click="route('admin.users.show', user.id)">
-                                <i class="fas fa-times-circle"></i>
+                                <i class="fas fa-times-circle"/>
                             </a>
                         </td>
                     </tr>

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 11.12.2019.
+ * Copyright (c) 12.12.2019.
  * File - app.js
  * Author - tor
  */
@@ -142,8 +142,8 @@
     return __webpack_require__(__webpack_require__.s = 0);
     /******/
 })
-/************************************************************************/
-/******/({
+    /************************************************************************/
+    /******/ ({
 
     /***/ "./node_modules/axios/index.js":
     /*!*************************************!*\
@@ -9231,7 +9231,6 @@
             var rsingleTag = (/^<([a-z][^\/\0>:\x20\t\r\n\f]*)[\x20\t\r\n\f]*\/?>(?:<\/\1>|)$/i);
 
 
-
 // Implement the identical functionality for filter and not
             function winnow(elements, qualifier, not) {
                 if (isFunction(qualifier)) {
@@ -9612,7 +9611,6 @@
                 };
             });
             var rnothtmlwhite = (/[^\x20\t\r\n\f]+/g);
-
 
 
 // Convert String-formatted options into Object-formatted ones
@@ -10253,8 +10251,6 @@
             };
 
 
-
-
 // The deferred used on DOM ready
             var readyList = jQuery.Deferred();
 
@@ -10577,7 +10573,6 @@
             var dataPriv = new Data();
 
             var dataUser = new Data();
-
 
 
 //	Implementation Summary
@@ -11114,7 +11109,6 @@
             var rtagName = (/<([a-z][^\/\0>\x20\t\r\n\f]*)/i);
 
             var rscriptType = (/^$|^module$|\/(?:java|ecma)script/i);
-
 
 
 // We have to close these tags to support XHTML (#13200)
@@ -13901,7 +13895,7 @@
                     // Show any hidden elements after setting opacity to 0
                     return this.filter(isHiddenWithinTree).css("opacity", 0).show()
 
-                    // Animate to the value specified
+                        // Animate to the value specified
                         .end().animate({opacity: to}, speed, easing, callback);
                 },
                 animate: function (prop, speed, easing, callback) {
@@ -14996,7 +14990,6 @@
             var nonce = Date.now();
 
             var rquery = (/\?/);
-
 
 
 // Cross-browser xml parsing
@@ -35932,8 +35925,8 @@
                     var measurement = (index === 1 ? !useHeight : useHeight) ? 'height' : 'width';
                     var mergeWithPrevious = false;
                     return op
-                    // This aggregates any `+` or `-` sign that aren't considered operators
-                    // e.g.: 10 + +5 => [10, +, +5]
+                        // This aggregates any `+` or `-` sign that aren't considered operators
+                        // e.g.: 10 + +5 => [10, +, +5]
                         .reduce(function (a, b) {
                             if (a[a.length - 1] === '' && ['+', '-'].indexOf(b) !== -1) {
                                 a[a.length - 1] = b;
@@ -36664,7 +36657,7 @@
                             name: name
                         }, _this.options.modifiers[name]);
                     })
-                    // sort the modifiers by order
+                        // sort the modifiers by order
                         .sort(function (a, b) {
                             return a.order - b.order;
                         });
@@ -37062,7 +37055,7 @@
     /***/ (function (module, exports, __webpack_require__) {
 
         /*
- * Copyright (c) 30.10.2019.
+ * Copyright (c) 12.12.2019.
  * File - app.js
  * Author - tor
  */
@@ -37178,11 +37171,11 @@
     /*! no static exports found */
     /***/ (function (module, exports, __webpack_require__) {
 
-        __webpack_require__(/*! /home/vagrant/laravel/resources/js/app.js */"./resources/js/app.js");
-        __webpack_require__(/*! /home/vagrant/laravel/resources/sass/mainPage/main.scss */"./resources/sass/mainPage/main.scss");
-        __webpack_require__(/*! /home/vagrant/laravel/resources/sass/admin/admin.scss */"./resources/sass/admin/admin.scss");
-        __webpack_require__(/*! /home/vagrant/laravel/resources/sass/admin/users.scss */"./resources/sass/admin/users.scss");
-        module.exports = __webpack_require__(/*! /home/vagrant/laravel/resources/sass/app.scss */"./resources/sass/app.scss");
+        __webpack_require__(/*! /home/vagrant/laravel-admin/resources/js/app.js */"./resources/js/app.js");
+        __webpack_require__(/*! /home/vagrant/laravel-admin/resources/sass/mainPage/main.scss */"./resources/sass/mainPage/main.scss");
+        __webpack_require__(/*! /home/vagrant/laravel-admin/resources/sass/admin/admin.scss */"./resources/sass/admin/admin.scss");
+        __webpack_require__(/*! /home/vagrant/laravel-admin/resources/sass/admin/users.scss */"./resources/sass/admin/users.scss");
+        module.exports = __webpack_require__(/*! /home/vagrant/laravel-admin/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
         /***/

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 11.12.2019.
+ * Copyright (c) 12.12.2019.
  * File - admin.js
  * Author - tor
  */
@@ -37345,7 +37345,7 @@ __webpack_require__(/*! bootstrap-notify/bootstrap-notify */ "./node_modules/boo
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
- * Copyright (c) 30.10.2019.
+ * Copyright (c) 12.12.2019.
  * File - app.js
  * Author - tor
  */
@@ -37410,7 +37410,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-        module.exports = __webpack_require__(/*! /home/vagrant/laravel/resources/js/admin/admin.js */"./resources/js/admin/admin.js");
+            module.exports = __webpack_require__(/*! /home/vagrant/laravel-admin/resources/js/admin/admin.js */"./resources/js/admin/admin.js");
 
 
 /***/ })
