@@ -1809,12 +1809,12 @@ function extend(a, b, thisArg) {
 }
 
 module.exports = {
-  isArray: isArray,
-  isArrayBuffer: isArrayBuffer,
-  isBuffer: isBuffer,
-  isFormData: isFormData,
-  isArrayBufferView: isArrayBufferView,
-  isString: isString,
+    isArray: isArray,
+    isArrayBuffer: isArrayBuffer,
+    isBuffer: isBuffer,
+    isFormData: isFormData,
+    isArrayBufferView: isArrayBufferView,
+    isString: isString,
     isNumber: isNumber,
     isObject: isObject,
     isUndefined: isUndefined,
@@ -1912,16 +1912,6 @@ module.exports = {
             __webpack_require__.r(__webpack_exports__);
             /* harmony import */
             var _route__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../route */ "./resources/js/route.js");
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -6420,20 +6410,20 @@ module.exports = {
    */
 
   (function () {
-    if (typeof $ === 'undefined') {
-      throw new TypeError('Bootstrap\'s JavaScript requires jQuery. jQuery must be included before Bootstrap\'s JavaScript.');
-    }
+      if (typeof $ === 'undefined') {
+          throw new TypeError('Bootstrap\'s JavaScript requires jQuery. jQuery must be included before Bootstrap\'s JavaScript.');
+      }
 
-    var version = $.fn.jquery.split(' ')[0].split('.');
-    var minMajor = 1;
-    var ltMajor = 2;
-    var minMinor = 9;
-    var minPatch = 1;
-    var maxMajor = 4;
+      var version = $.fn.jquery.split(' ')[0].split('.');
+      var minMajor = 1;
+      var ltMajor = 2;
+      var minMinor = 9;
+      var minPatch = 1;
+      var maxMajor = 4;
 
-    if (version[0] < ltMajor && version[1] < minMinor || version[0] === minMajor && version[1] === minMinor && version[2] < minPatch || version[0] >= maxMajor) {
-      throw new Error('Bootstrap\'s JavaScript requires at least jQuery v1.9.1 but less than v4.0.0');
-    }
+      if (version[0] < ltMajor && version[1] < minMinor || version[0] === minMajor && version[1] === minMinor && version[2] < minPatch || version[0] >= maxMajor) {
+          throw new Error('Bootstrap\'s JavaScript requires at least jQuery v1.9.1 but less than v4.0.0');
+      }
   })();
 
     exports.Util = Util;
@@ -6627,8 +6617,8 @@ module.exports = {
 
             module.exports = function isBuffer(obj) {
                 return obj != null && obj.constructor != null &&
-    typeof obj.constructor.isBuffer === 'function' && obj.constructor.isBuffer(obj)
-}
+                    typeof obj.constructor.isBuffer === 'function' && obj.constructor.isBuffer(obj)
+            }
 
 
 /***/ }),
@@ -37147,24 +37137,26 @@ function Item(fun, array) {
     this.fun = fun;
     this.array = array;
 }
-Item.prototype.run = function () {
-    this.fun.apply(null, this.array);
-};
-process.title = 'browser';
-process.browser = true;
-process.env = {};
-process.argv = [];
-process.version = ''; // empty string to avoid regexp issues
-process.versions = {};
 
-function noop() {}
+            Item.prototype.run = function () {
+                this.fun.apply(null, this.array);
+            };
+            process.title = 'browser';
+            process.browser = true;
+            process.env = {};
+            process.argv = [];
+            process.version = ''; // empty string to avoid regexp issues
+            process.versions = {};
 
-process.on = noop;
-process.addListener = noop;
-process.once = noop;
-process.off = noop;
-process.removeListener = noop;
-process.removeAllListeners = noop;
+            function noop() {
+            }
+
+            process.on = noop;
+            process.addListener = noop;
+            process.once = noop;
+            process.off = noop;
+            process.removeListener = noop;
+            process.removeAllListeners = noop;
             process.emit = noop;
             process.prependListener = noop;
             process.prependOnceListener = noop;
@@ -38140,6 +38132,8 @@ process.removeAllListeners = noop;
                                 "table",
                                 {staticClass: "table table-bordered", attrs: {id: "dataTable"}},
                                 [
+                                    _vm._m(0),
+                                    _vm._v(" "),
                                     _c(
                                         "tbody",
                                         _vm._l(_vm.usersList, function (user) {
@@ -38191,7 +38185,14 @@ process.removeAllListeners = noop;
                     ])
                 ])
             }
-            var staticRenderFns = []
+            var staticRenderFns = [
+                function () {
+                    var _vm = this
+                    var _h = _vm.$createElement
+                    var _c = _vm._self._c || _h
+                    return _c("thead", [_c("tr", [_c("th", [_vm._v("#")])])])
+                }
+            ]
             render._withStripped = true
 
 
@@ -51220,11 +51221,11 @@ process.removeAllListeners = noop;
 
             try {
                 // This works if eval is allowed (see CSP)
-	g = g || new Function("return this")();
-} catch (e) {
-	// This works if the window reference is available
-	if (typeof window === "object") g = window;
-}
+                g = g || new Function("return this")();
+            } catch (e) {
+                // This works if the window reference is available
+                if (typeof window === "object") g = window;
+            }
 
 // g can still be undefined, but nothing to do about it...
 // We return undefined, instead of nothing here, so it's
@@ -51244,20 +51245,21 @@ module.exports = g;
 
 module.exports = function(module) {
 	if (!module.webpackPolyfill) {
-		module.deprecate = function() {};
-		module.paths = [];
-		// module.parent = undefined by default
-		if (!module.children) module.children = [];
-		Object.defineProperty(module, "loaded", {
-			enumerable: true,
-			get: function() {
-				return module.l;
-			}
-		});
-		Object.defineProperty(module, "id", {
-			enumerable: true,
-			get: function() {
-				return module.i;
+        module.deprecate = function () {
+        };
+        module.paths = [];
+        // module.parent = undefined by default
+        if (!module.children) module.children = [];
+        Object.defineProperty(module, "loaded", {
+            enumerable: true,
+            get: function () {
+                return module.l;
+            }
+        });
+        Object.defineProperty(module, "id", {
+            enumerable: true,
+            get: function () {
+                return module.i;
             }
         });
         module.webpackPolyfill = 1;
@@ -51292,7 +51294,7 @@ module.exports = function(module) {
             /* harmony import */
             var vue_sidebar_menu_dist_vue_sidebar_menu_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vue_sidebar_menu_dist_vue_sidebar_menu_css__WEBPACK_IMPORTED_MODULE_2__);
             /*
- * Copyright (c) 12.12.2019.
+ * Copyright (c) 13.12.2019.
  * File - admin.js
  * Author - tor
  */
@@ -51551,26 +51553,28 @@ module.exports = function(module) {
         /***/ (function (module, exports, __webpack_require__) {
 
             /*
- * Copyright (c) 12.12.2019.
+ * Copyright (c) 13.12.2019.
  * File - app.js
  * Author - tor
  */
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+            __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
-/***/ }),
+            /***/
+        }),
 
-/***/ "./resources/js/bootstrap.js":
-/*!***********************************!*\
-  !*** ./resources/js/bootstrap.js ***!
-  \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+        /***/
+        "./resources/js/bootstrap.js":
+        /*!***********************************!*\
+          !*** ./resources/js/bootstrap.js ***!
+          \***********************************/
+        /*! no static exports found */
+        /***/ (function (module, exports, __webpack_require__) {
 
-/*
- * Copyright (c) 30.10.2019.
- * File - bootstrap.js
- * Author - tor
- */
+            /*
+             * Copyright (c) 30.10.2019.
+             * File - bootstrap.js
+             * Author - tor
+             */
 window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
@@ -51666,7 +51670,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
         /*! no static exports found */
         /***/ (function (module, exports, __webpack_require__) {
 
-            module.exports = __webpack_require__(/*! /home/vagrant/laravel-admin/resources/js/admin/admin.js */"./resources/js/admin/admin.js");
+            module.exports = __webpack_require__(/*! /home/vagrant/laravel/resources/js/admin/admin.js */"./resources/js/admin/admin.js");
 
 
             /***/

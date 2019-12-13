@@ -16,26 +16,16 @@
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable">
-                    <!--                    <thead>-->
-                    <!--                    <tr>-->
-                    <!--                        <th>#</th>-->
-                    <!--                        <th>{{ trans('admin/users.username') }}</th>-->
-                    <!--                        <th>{{ trans('admin/users.nickname') }}</th>-->
-                    <!--                        <th>{{ trans('admin/users.email') }}</th>-->
-                    <!--                        <th>{{ trans('admin/users.group') }}</th>-->
-                    <!--                        <th>{{ trans('admin/users.actions') }}</th>-->
-                    <!--                    </tr>-->
-                    <!--                    </thead>-->
-                    <!--                    <tfoot>-->
-                    <!--                    <tr>-->
-                    <!--                        <th>#</th>-->
-                    <!--                        <th>{{ trans('admin/users.username') }}</th>-->
-                    <!--                        <th>{{ trans('admin/users.nickname') }}</th>-->
-                    <!--                        <th>{{ trans('admin/users.email') }}</th>-->
-                    <!--                        <th>{{ trans('admin/users.group') }}</th>-->
-                    <!--                        <th>{{ trans('admin/users.actions') }}</th>-->
-                    <!--                    </tr>-->
-                    <!--                    </tfoot>-->
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <!--                                            <th>{{Lang.get('admin.users.username')}}</th>-->
+                        <!--                                            <th>{{ trans('admin/users.nickname') }}</th>-->
+                        <!--                                            <th>{{ trans('admin/users.email') }}</th>-->
+                        <!--                                            <th>{{ trans('admin/users.group') }}</th>-->
+                        <!--                                            <th>{{ trans('admin/users.actions') }}</th>-->
+                    </tr>
+                    </thead>
                     <tbody>
 
                     <tr v-for="user in usersList">
@@ -66,7 +56,6 @@
 
 <script>
     import router from '../../route';
-
     export default {
         name: "UsersListComponents",
         data() {
