@@ -1,25 +1,29 @@
 /*
- * Copyright (c) 12.12.2019.
+ * Copyright (c) 13.12.2019.
  * File - admin.js
  * Author - tor
  */
 
 require('../app');
-//require('perfect-scrollbar/dist/perfect-scrollbar');
+window.$ = window.JQuery = require('jquery');
 
-// require('./sb-admin-2.min');
-// //require('chart.js/dist/Chart');
-// require('bootstrap-notify/bootstrap-notify');
 import Vue from 'vue';
-
 
 import VueSidebarMenu from 'vue-sidebar-menu'
 import 'vue-sidebar-menu/dist/vue-sidebar-menu.css'
 
 Vue.use(VueSidebarMenu);
 
+
+Vue.component('users-list', require('./components/UsersListComponents').default);
 Vue.component('left-menu', require('./components/LeftMenuComponents').default);
 
 const leftMenu = new Vue({
+    mode: history,
     el: '#leftMenu',
+});
+
+const main_content = new Vue({
+    mode: history,
+    el: '#main-content',
 });

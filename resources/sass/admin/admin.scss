@@ -1,8 +1,27 @@
 /*!
- * Copyright (c) 30.10.2019.
+ * Copyright (c) 13.12.2019.
  * File - admin.scss
  * Author - tor
  */
-//@import "../app.scss";
+@import "../app.scss";
 @import "~@fortawesome/fontawesome-free/css/all.min.css";
-@import "./sb-admin-2";
+
+body {
+    margin: 0;
+}
+
+#wrapper {
+    display: flex;
+}
+
+.content-wrapper {
+    background-color: #f8f9fc;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}

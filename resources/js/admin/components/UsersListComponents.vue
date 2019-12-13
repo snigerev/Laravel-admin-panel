@@ -1,11 +1,11 @@
 <!--
-  - Copyright (c) 12.12.2019.
+  - Copyright (c) 13.12.2019.
   - File - UsersListComponents.vue
   - Author - tor
   -->
 
 <template>
-    <div class="container">
+    <div class="card shadow mb-4 container">
         <div class="card-header py-3 d-flex">
             <h6 class="m-0 col-10 font-weight-bold text-primary">Table</h6>
             <!--            {{ trans('admin/users.user_table') }}-->
@@ -76,7 +76,6 @@
         },
         created() {
             this.userList();
-            console.log('created')
         },
         methods: {
             userList() {

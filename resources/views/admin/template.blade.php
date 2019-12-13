@@ -16,20 +16,14 @@
 </head>
 <body id="page-top">
 <div id="wrapper">
-    <div id="leftMenu">
+    <div id="leftMenu" class="left-menu">
         <left-menu></left-menu>
     </div>
-    <div id="content-wrapper" class="d-flex flex-column">
-        <div id="content">
-            @include('admin.header')
-            @yield('content')
-        </div>
+    <div id="main-content" class="content-wrapper d-flex flex-column">
+        @include('admin.header')
+        @yield('content')
     </div>
 </div>
-<a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-</a>
-
 
 <script src="{{ asset('js/admin/admin.js') }}"></script>
 
