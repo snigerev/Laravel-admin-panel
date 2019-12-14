@@ -16,13 +16,13 @@
 </head>
 <body id="page-top">
 <div id="wrapper">
-    <div id="leftMenu" class="left-menu">
-        <left-menu></left-menu>
-    </div>
+    <left-menu></left-menu>
     <div id="main-content" class="content-wrapper d-flex flex-column">
         @include('admin.header')
-        @yield('content')
+        <router-view></router-view>
+        {{--        @yield('content')--}}
     </div>
+
 </div>
 
 <script src="{{ asset('js/admin/admin.js') }}"></script>

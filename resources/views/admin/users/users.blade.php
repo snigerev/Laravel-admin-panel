@@ -5,5 +5,5 @@
 @endsection
 
 @section('content')
-        <users-list></users-list>
+{{--        <users-list></users-list>--}}
 @endsection

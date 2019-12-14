@@ -1,5 +1,5 @@
 <!--
-  - Copyright (c) 12.12.2019.
+  - Copyright (c) 14.12.2019.
   - File - LeftMenuComponents.vue
   - Author - tor
   -->
@@ -9,7 +9,6 @@
 </template>
 
 <script>
-    import router from "../../route";
 
     export default {
         name: "LeftMenuComponents",
@@ -25,12 +24,12 @@
                         hiddenOnCollapse: true
                     },
                     {
-                        href: '/admin',
+                        href: {path: '/'},
                         title: 'Dashboard',
                         icon: 'fas fa-fw fa-tachometer-alt'
                     },
                     {
-                        href: '/admin/users',
+                        href: {name: 'usersList'},
                         title: 'Пользователи',
                         icon: 'fas fa-user-alt'
                     },
@@ -40,15 +39,7 @@
         created() {
 
         },
-        methods: {
-            route: function (route, parameters = '') {
-                if (parameters !== '') {
-                    window.location.replace(router(route, parameters))
-                } else {
-                    window.location.replace(router(route))
-                }
-            }
-        }
+        methods: {}
     }
 </script>
 <style scoped>
