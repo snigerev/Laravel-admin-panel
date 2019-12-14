@@ -17,9 +17,11 @@
 <body id="page-top">
 <div id="wrapper">
     <left-menu></left-menu>
-    <div id="main-content" class="content-wrapper d-flex flex-column">
+    <div id="main-content" class="">
         @include('admin.header')
-        <router-view></router-view>
+        <transition>
+            <router-view></router-view>
+        </transition>
         {{--        @yield('content')--}}
     </div>
 

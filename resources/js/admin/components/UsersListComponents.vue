@@ -1,66 +1,72 @@
 <!--
-  - Copyright (c) 13.12.2019.
+  - Copyright (c) 14.12.2019.
   - File - UsersListComponents.vue
   - Author - tor
   -->
 
 <template>
-    <div class="card shadow mb-4 container">
-        <div class="card-header py-3 d-flex">
-            <h6 class="m-0 col-10 font-weight-bold text-primary">Table</h6>
-            <!--            {{ trans('admin/users.user_table') }}-->
-            <a href="#" @click="route('admin.users.create')"
-               class="btn col-2 m-auto btn-primary">ADD</a>
-            <!--            {{ trans('admin/users.add_user') }}-->
+    <div class="content-wrapper ">
+        <div id="loading" v-if="loading" class="d-flex align-items-center h-auto justify-content-center">
+            <div class="spinner-border" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
         </div>
-        <div class="card-body">
-            <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable">
-                    <thead>
-                    <tr>
-                        <th>#</th>
-                        <!--                                            <th>{{Lang.get('admin.users.username')}}</th>-->
-                        <!--                                            <th>{{ trans('admin/users.nickname') }}</th>-->
-                        <!--                                            <th>{{ trans('admin/users.email') }}</th>-->
-                        <!--                                            <th>{{ trans('admin/users.group') }}</th>-->
-                        <!--                                            <th>{{ trans('admin/users.actions') }}</th>-->
-                    </tr>
-                    </thead>
-                    <tbody>
 
-                    <tr v-for="user in usersList">
-                        <td>{{ user.id }}</td>
-                        <td>{{ user.name }}</td>
-                        <td>{{ user.nickname }}</td>
-                        <td>{{ user.email }}</td>
-                        <td>
-                            <!--                                    {{  trans('admin/users.' . $user->role_id) }}-->
-                        </td>
-                        <td>
-                            <a href="#" @click="route('admin.users.edit', user.id)">
-                                <i class="fas fa-edit"/>
-                            </a>
-                            <a href="#" @click="route('admin.users.show', user.id)">
-                                <i class="fas fa-times-circle"/>
-                            </a>
-                        </td>
-                    </tr>
+        <div v-if="!loading" class="card shadow mb-4 ml-2 container">
+            <div class="card-header py-3 d-flex">
+                <h6 class="m-0 col-10 font-weight-bold text-primary">Таблица ползователей</h6>
+                <router-link :to="{name: 'userAdd'}"
+                             class="btn col-2 m-auto btn-primary">Добавить
+                </router-link>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Имя пользователя</th>
+                            <th>Ник</th>
+                            <th>Почта</th>
+                            <th>Группа</th>
+                            <th>Действия</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr v-for="user in usersList">
+                            <td>{{ user.id }}</td>
+                            <td>{{ user.name }}</td>
+                            <td>{{ user.nickname }}</td>
+                            <td>{{ user.email }}</td>
+                            <td>
+                                <!--                                    {{  trans('admin/users.' . $user->role_id) }}-->
+                            </td>
+                            <td>
+                                <a href="#">
+                                    <i class="fas fa-edit"/>
+                                </a>
+                                <a href="#">
+                                    <i class="fas fa-times-circle"/>
+                                </a>
+                            </td>
+                        </tr>
 
 
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
 </template>
 
 <script>
-    import router from '../../route';
     export default {
         name: "UsersListComponents",
         data() {
             return {
-                usersList: []
+                usersList: [],
+                loading: true
             }
         },
         created() {
@@ -68,19 +74,13 @@
         },
         methods: {
             userList() {
-                axios.get(router('getUsersList'))
+                axios.get('/api/getUsersList')
                     .then((response) => {
+                        this.loading = false;
                         this.usersList = response.data;
                     })
 
             },
-            route: function (route, parameters = '') {
-                if (parameters !== '') {
-                    window.location.replace(router(route, parameters))
-                } else {
-                    window.location.replace(router(route))
-                }
-            }
         }
     }
 </script>

@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 13.12.2019.
+ * Copyright (c) 14.12.2019.
  * File - _ide_helper.php
  * Author - tor
  */
@@ -9,7 +9,7 @@
 
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 6.7.0 on 2019-12-13 12:25:13.
+ * Generated for Laravel 6.7.0 on 2019-12-14 13:31:47.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -18480,15 +18480,25 @@ namespace {
         }
     }
 
-    class Event extends \Illuminate\Support\Facades\Event {}
+    class Event extends \Illuminate\Support\Facades\Event
+    {
+    }
 
-    class File extends \Illuminate\Support\Facades\File {}
+    class File extends \Illuminate\Support\Facades\File
+    {
+    }
 
-    class Gate extends \Illuminate\Support\Facades\Gate {}
+    class Gate extends \Illuminate\Support\Facades\Gate
+    {
+    }
 
-    class Hash extends \Illuminate\Support\Facades\Hash {}
+    class Hash extends \Illuminate\Support\Facades\Hash
+    {
+    }
 
-    class Lang extends \Illuminate\Support\Facades\Lang {}
+    class Lang extends \Illuminate\Support\Facades\Lang
+    {
+    }
 
     class Log extends \Illuminate\Support\Facades\Log {}
 

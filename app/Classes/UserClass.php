@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 2.12.2019.
+ * Copyright (c) 14.12.2019.
  * File - UserClass.php
  * Author - tor
  */
@@ -80,7 +80,7 @@ class UserClass
             'email' => $request['email'],
             'password' => Hash::make($request['password']),
         ]);
-        $user->DataUser()->create(['role_id' => $request['role_id']]);
+        $user->DataUser()->create(['role_id' => isset($request['role_id']) ? $request['role_id'] : '1']);
 
         if ($user) {
             (new UserPlanetClass())->createUserPlanetOnRegistration($user['id']);

@@ -12,20 +12,19 @@ import VueRouter from "vue-router";
 
 import VueSidebarMenu from 'vue-sidebar-menu'
 import 'vue-sidebar-menu/dist/vue-sidebar-menu.css'
-import rout from './rout';
+import route from './route';
 
 Vue.use(VueSidebarMenu);
 Vue.use(VueRouter);
 
-//Vue.component('users-list', require('./components/UsersListComponents').default);
 Vue.component('left-menu', require('./components/LeftMenuComponents').default);
 
-const routers = new VueRouter({
+const router = new VueRouter({
     mode: 'history',
-    routes: rout
+    routes: route
 });
 
 const main_content = new Vue({
     el: '#wrapper',
-    router: routers
+    router: router
 });

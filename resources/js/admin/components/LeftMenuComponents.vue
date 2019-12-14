@@ -5,7 +5,7 @@
   -->
 
 <template>
-    <sidebar-menu :menu="menu"/>
+    <sidebar-menu @toggle-collapse="onToggleCollapse" :menu="menu"/>
 </template>
 
 <script>
@@ -24,7 +24,7 @@
                         hiddenOnCollapse: true
                     },
                     {
-                        href: {path: '/'},
+                        href: {name: 'dashboard'},
                         title: 'Dashboard',
                         icon: 'fas fa-fw fa-tachometer-alt'
                     },
@@ -39,17 +39,17 @@
         created() {
 
         },
-        methods: {}
+        methods: {
+            onToggleCollapse(collapse) {
+                if (collapse) {
+                    $('#main-content').addClass('collapsed').html();
+                } else {
+                    $('#main-content').removeClass('collapsed').html();
+                }
+            }
+        }
     }
 </script>
 <style scoped>
-    .v-sidebar-menu.vsm_expanded {
-        position: relative;
-        margin: 0 50px 0 0;
-    }
 
-    .v-sidebar-menu.vsm_collapsed {
-        position: relative;
-        margin: 0;
-    }
 </style>

@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 11.12.2019.
+ * Copyright (c) 14.12.2019.
  * File - api.php
  * Author - tor
  */
@@ -22,4 +22,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('getUsersList', 'Api\UserApiController@getUsersList')->name('getUsersList');
+Route::get('getUsersList', 'Api\UserApiController@getUsersList');
