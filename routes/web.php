@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 2.12.2019.
+ * Copyright (c) 16.12.2019.
  * File - web.php
  * Author - tor
  */
@@ -28,6 +28,9 @@ Route::get('/', 'MainPage\IndexMainController@index')->name('index');
 Auth::routes(['verify' => true]);
 
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
+    Route::get('/{vue_capture?}', function () {
+        return view('admin.index');
+    })->where('vue_capture', '.*');
     Route::get('/', 'IndexAdminController@index')->name('admin.index');
     Route::resource('users', 'UsersController')->names('admin.users');
 });

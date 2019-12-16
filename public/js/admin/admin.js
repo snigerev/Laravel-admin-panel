@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 14.12.2019.
+ * Copyright (c) 16.12.2019.
  * File - admin.js
  * Author - tor
  */
@@ -1972,6 +1972,7 @@ module.exports = {
 //
 //
 //
+//
             /* harmony default export */
             __webpack_exports__["default"] = ({
                 name: "UserAddComponent",
@@ -2061,6 +2062,7 @@ module.exports = {
 //
 //
 //
+//
             /* harmony default export */
             __webpack_exports__["default"] = ({
                 name: "UsersListComponents",
@@ -2088,14 +2090,15 @@ module.exports = {
             /***/
         }),
 
-/***/ "./node_modules/bootstrap/dist/js/bootstrap.js":
-/*!*****************************************************!*\
+        /***/
+        "./node_modules/bootstrap/dist/js/bootstrap.js":
+        /*!*****************************************************!*\
   !*** ./node_modules/bootstrap/dist/js/bootstrap.js ***!
   \*****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+        /*! no static exports found */
+        /***/ (function (module, exports, __webpack_require__) {
 
-/*!
+            /*!
   * Bootstrap v4.3.1 (https://getbootstrap.com/)
   * Copyright 2011-2019 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
@@ -38377,7 +38380,7 @@ process.nextTick = function (fun) {
                                             staticClass: "btn col-2 m-auto btn-primary",
                                             attrs: {to: {name: "userAdd"}}
                                         },
-                                        [_vm._v("Добавить")]
+                                        [_vm._v("Добавить\n            ")]
                                     )
                                 ],
                                 1
@@ -54863,7 +54866,7 @@ module.exports = function(module) {
             var _components_UserAddComponent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/UserAddComponent */ "./resources/js/admin/components/UserAddComponent.vue");
             /*
  * Copyright (c) 14.12.2019.
- * File - rout.js
+ * File - route.js
  * Author - tor
  */
 
@@ -54931,19 +54934,19 @@ module.exports = function(module) {
             } catch (e) {
             }
             /**
- * We'll load the axios HTTP library which allows us to easily issue requests
- * to our Laravel back-end. This library automatically handles sending the
- * CSRF token as a header based on the value of the "XSRF" token cookie.
- */
+             * We'll load the axios HTTP library which allows us to easily issue requests
+             * to our Laravel back-end. This library automatically handles sending the
+             * CSRF token as a header based on the value of the "XSRF" token cookie.
+             */
 
 
-window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-/**
- * Echo exposes an expressive API for subscribing to channels and listening
+            window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+            window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+            /**
+             * Echo exposes an expressive API for subscribing to channels and listening
  * for events that are broadcast by Laravel. Echo and event broadcasting
  * allows your team to easily build robust real-time web applications.
- */
+             */
 // import Echo from 'laravel-echo';
 // window.Pusher = require('pusher-js');
 // window.Echo = new Echo({
@@ -54964,7 +54967,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
         /*! no static exports found */
         /***/ (function (module, exports, __webpack_require__) {
 
-            module.exports = __webpack_require__(/*! /home/tor/Projects/php/laravel-admin/resources/js/admin/admin.js */"./resources/js/admin/admin.js");
+            module.exports = __webpack_require__(/*! /home/vagrant/laravel/resources/js/admin/admin.js */"./resources/js/admin/admin.js");
 
 
             /***/

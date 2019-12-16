@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 14.12.2019.
+ * Copyright (c) 16.12.2019.
  * File - app.js
  * Author - tor
  */
@@ -37171,11 +37171,11 @@
     /*! no static exports found */
     /***/ (function (module, exports, __webpack_require__) {
 
-        __webpack_require__(/*! /home/tor/Projects/php/laravel-admin/resources/js/app.js */"./resources/js/app.js");
-        __webpack_require__(/*! /home/tor/Projects/php/laravel-admin/resources/sass/mainPage/main.scss */"./resources/sass/mainPage/main.scss");
-        __webpack_require__(/*! /home/tor/Projects/php/laravel-admin/resources/sass/admin/admin.scss */"./resources/sass/admin/admin.scss");
-        __webpack_require__(/*! /home/tor/Projects/php/laravel-admin/resources/sass/admin/users.scss */"./resources/sass/admin/users.scss");
-        module.exports = __webpack_require__(/*! /home/tor/Projects/php/laravel-admin/resources/sass/app.scss */"./resources/sass/app.scss");
+        __webpack_require__(/*! /home/vagrant/laravel/resources/js/app.js */"./resources/js/app.js");
+        __webpack_require__(/*! /home/vagrant/laravel/resources/sass/mainPage/main.scss */"./resources/sass/mainPage/main.scss");
+        __webpack_require__(/*! /home/vagrant/laravel/resources/sass/admin/admin.scss */"./resources/sass/admin/admin.scss");
+        __webpack_require__(/*! /home/vagrant/laravel/resources/sass/admin/users.scss */"./resources/sass/admin/users.scss");
+        module.exports = __webpack_require__(/*! /home/vagrant/laravel/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
         /***/
