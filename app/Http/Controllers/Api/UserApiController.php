@@ -1,17 +1,15 @@
 <?php
 /**
- * Copyright (c) 12.12.2019.
+ * Copyright (c) 18.12.2019.
  * File - UserApiController.php
- * Author - tor
+ * Author - snigerev
  */
 
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Repositories\UserRepository;
-use App\User;
 use Illuminate\Contracts\Foundation\Application;
-use Illuminate\Http\Request;
 
 class UserApiController extends Controller
 {

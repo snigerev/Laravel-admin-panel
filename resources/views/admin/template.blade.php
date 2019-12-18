@@ -16,10 +16,15 @@
 </head>
 <body id="page-top">
 <div id="wrapper">
+    <div id="loading" class="loading justify-content-center">
+        <div class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
     <left-menu></left-menu>
     <div id="main-content" class="">
         @include('admin.header')
-        <transition>
+        <transition name="pop-out">
             <router-view></router-view>
         </transition>
         {{--        @yield('content')--}}

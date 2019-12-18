@@ -1,8 +1,7 @@
 /*
- * Copyright (c) 13.12.2019.
+ * Copyright (c) 18.12.2019.
  * File - app.js
- * Author - tor
+ * Author - snigerev
  */
 
 require('./bootstrap');
-

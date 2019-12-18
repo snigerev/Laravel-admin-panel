@@ -1,15 +1,15 @@
 <?php
 /**
- * Copyright (c) 14.12.2019.
+ * Copyright (c) 18.12.2019.
  * File - _ide_helper.php
- * Author - tor
+ * Author - snigerev
  */
 
 // @formatter:off
 
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 6.7.0 on 2019-12-14 13:31:47.
+ * Generated for Laravel 6.8.0 on 2019-12-18 11:59:28.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -10229,8 +10229,8 @@ namespace Illuminate\Support\Facades {
          * Retrieve an input item from the request.
          *
          * @param string|null $key
-         * @param string|array|null $default
-         * @return string|array|null
+         * @param mixed $default
+         * @return mixed
          * @static
          */
         public static function input($key = null, $default = null)

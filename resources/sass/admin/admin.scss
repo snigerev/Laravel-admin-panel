@@ -1,13 +1,33 @@
 /*!
- * Copyright (c) 14.12.2019.
+ * Copyright (c) 18.12.2019.
  * File - admin.scss
- * Author - tor
+ * Author - snigerev
  */
 @import "../app.scss";
 @import "~@fortawesome/fontawesome-free/css/all.min.css";
 
 body {
     margin: 0;
+}
+
+.loading {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.pop-out-enter-active {
+    transition: opacity .3s ease;
+}
+
+.pop-out-leave-active {
+    transition: .5s;
+}
+
+.pop-out-enter,
+.pop-out-leave-to {
+    opacity: 0;
 }
 
 #wrapper {
@@ -33,13 +53,4 @@ body {
 *::before,
 *::after {
     box-sizing: border-box;
-}
-
-.fade-enter-active, .fade-leave-active {
-    transition: opacity .5s;
-}
-
-.fade-enter, .fade-leave-to /* .fade-leave-active до версии 2.1.8 */
-{
-    opacity: 0;
 }

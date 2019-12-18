@@ -1,17 +1,11 @@
 <!--
-  - Copyright (c) 14.12.2019.
+  - Copyright (c) 18.12.2019.
   - File - UsersListComponents.vue
-  - Author - tor
+  - Author - snigerev
   -->
 
 <template>
     <div class="content-wrapper ">
-        <div id="loading" v-if="loading" class="d-flex align-items-center h-auto justify-content-center">
-            <div class="spinner-border" role="status">
-                <span class="sr-only">Loading...</span>
-            </div>
-        </div>
-
         <div v-if="!loading" class="card shadow mb-4 ml-2 container">
             <div class="card-header py-3 d-flex">
                 <h6 class="m-0 col-10 font-weight-bold text-primary">Таблица ползователей</h6>
@@ -38,9 +32,7 @@
                             <td>{{ user.name }}</td>
                             <td>{{ user.nickname }}</td>
                             <td>{{ user.email }}</td>
-                            <td>
-                                <!--                                    {{  trans('admin/users.' . $user->role_id) }}-->
-                            </td>
+                            <td>{{user.role_name}}</td>
                             <td>
                                 <a href="#">
                                     <i class="fas fa-edit"/>
@@ -50,8 +42,6 @@
                                 </a>
                             </td>
                         </tr>
-
-
                         </tbody>
                     </table>
                 </div>
@@ -61,6 +51,7 @@
 </template>
 
 <script>
+
     export default {
         name: "UsersListComponents",
         data() {
@@ -76,7 +67,9 @@
             userList() {
                 axios.get('/api/getUsersList')
                     .then((response) => {
+                        console.log(response.data);
                         this.loading = false;
+                        $('#loading').hide();
                         this.usersList = response.data;
                     })
 

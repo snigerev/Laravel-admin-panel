@@ -1,7 +1,7 @@
 /*
- * Copyright (c) 14.12.2019.
+ * Copyright (c) 18.12.2019.
  * File - admin.js
- * Author - tor
+ * Author - snigerev
  */
 
 require('../app');
@@ -13,7 +13,10 @@ import VueRouter from "vue-router";
 import VueSidebarMenu from 'vue-sidebar-menu'
 import 'vue-sidebar-menu/dist/vue-sidebar-menu.css'
 import route from './route';
+import VModal from 'vue-js-modal'
 
+
+Vue.use(VModal);
 Vue.use(VueSidebarMenu);
 Vue.use(VueRouter);
 
