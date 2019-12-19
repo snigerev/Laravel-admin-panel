@@ -1,7 +1,7 @@
 /*
- * Copyright (c) 14.12.2019.
+ * Copyright (c) 19.12.2019.
  * File - route.js
- * Author - tor
+ * Author - snigerev
  */
 
 import users from './components/UsersListComponents';
@@ -14,7 +14,8 @@ export default [
         name: 'usersList'
     },
     {
-        path: '/admin',
+        path: '/admin/',
+        component: users,
         name: 'dashboard'
     },
     {

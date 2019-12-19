@@ -16,7 +16,7 @@
 </head>
 <body id="page-top">
 <div id="wrapper">
-    <div id="loading" class="loading justify-content-center">
+    <div id="loading" class="d-flex align-items-center loading justify-content-center">
         <div class="spinner-border" role="status">
             <span class="sr-only">Loading...</span>
         </div>

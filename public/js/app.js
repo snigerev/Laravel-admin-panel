@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 18.12.2019.
+ * Copyright (c) 19.12.2019.
  * File - app.js
  * Author - snigerev
  */
@@ -37055,9 +37055,9 @@
     /***/ (function (module, exports, __webpack_require__) {
 
         /*
- * Copyright (c) 13.12.2019.
+ * Copyright (c) 18.12.2019.
  * File - app.js
- * Author - tor
+ * Author - snigerev
  */
         __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 

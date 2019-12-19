@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 18.12.2019.
+ * Copyright (c) 19.12.2019.
  * File - admin.js
  * Author - snigerev
  */
@@ -2053,26 +2053,88 @@ module.exports = {
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+            var MODAL_WIDTH = 656;
             /* harmony default export */
             __webpack_exports__["default"] = ({
                 name: "UsersListComponents",
                 data: function data() {
                     return {
                         usersList: [],
-                        loading: true
+                        loading: true,
+                        modalWidth: MODAL_WIDTH,
+                        userData: [],
+                        userEdit: []
                     };
                 },
                 created: function created() {
                     this.userList();
                 },
                 methods: {
+                    openEdit: function openEdit(data) {
+                        this.modalWidth = window.innerWidth < MODAL_WIDTH ? MODAL_WIDTH / 2 : MODAL_WIDTH;
+                        this.userData = data;
+                        this.$modal.show('edit');
+                    },
+                    saveUser: function saveUser(data) {
+                        console.log(data.name);
+                        $('#loading').attr('style', 'display:');
+                    },
                     userList: function userList() {
                         var _this = this;
 
                         axios.get('/api/getUsersList').then(function (response) {
-                            console.log(response.data);
                             _this.loading = false;
-                            $('#loading').hide();
+                            $('#loading').attr('style', 'display:none !important');
                             _this.usersList = response.data;
                         });
                     }
@@ -2101,15 +2163,15 @@ module.exports = {
             }(this, function (exports, $, Popper) {
                 'use strict';
 
-  $ = $ && $.hasOwnProperty('default') ? $['default'] : $;
-  Popper = Popper && Popper.hasOwnProperty('default') ? Popper['default'] : Popper;
+                $ = $ && $.hasOwnProperty('default') ? $['default'] : $;
+                Popper = Popper && Popper.hasOwnProperty('default') ? Popper['default'] : Popper;
 
-  function _defineProperties(target, props) {
-    for (var i = 0; i < props.length; i++) {
-      var descriptor = props[i];
-      descriptor.enumerable = descriptor.enumerable || false;
-      descriptor.configurable = true;
-      if ("value" in descriptor) descriptor.writable = true;
+                function _defineProperties(target, props) {
+                    for (var i = 0; i < props.length; i++) {
+                        var descriptor = props[i];
+                        descriptor.enumerable = descriptor.enumerable || false;
+                        descriptor.configurable = true;
+                        if ("value" in descriptor) descriptor.writable = true;
       Object.defineProperty(target, descriptor.key, descriptor);
     }
   }
@@ -6564,7 +6626,7 @@ module.exports = {
 
 
 // module
-            exports.push([module.i, "\na[data-v-533f60a1] {\n    cursor: pointer;\n}\n", ""]);
+            exports.push([module.i, "\na[data-v-533f60a1] {\n    cursor: pointer;\n}\na[data-v-533f60a1]:not([href]) {\n    color: #3490dc;\n}\na[data-v-533f60a1]:not([href]):hover {\n    color: #1d68a7;\n}\n", ""]);
 
 // exports
 
@@ -39156,68 +39218,343 @@ process.nextTick = function (fun) {
                 var _vm = this
                 var _h = _vm.$createElement
                 var _c = _vm._self._c || _h
-                return _c("div", {staticClass: "content-wrapper "}, [
-                    !_vm.loading
-                        ? _c("div", {staticClass: "card shadow mb-4 ml-2 container"}, [
-                            _c(
-                                "div",
-                                {staticClass: "card-header py-3 d-flex"},
-                                [
-                                    _c(
-                                        "h6",
-                                        {staticClass: "m-0 col-10 font-weight-bold text-primary"},
-                                        [_vm._v("Таблица ползователей")]
-                                    ),
-                                    _vm._v(" "),
-                                    _c(
-                                        "router-link",
-                                        {
-                                            staticClass: "btn col-2 m-auto btn-primary",
-                                            attrs: {to: {name: "userAdd"}}
-                                        },
-                                        [_vm._v("Добавить\n            ")]
-                                    )
-                                ],
-                                1
-                            ),
-                            _vm._v(" "),
-                            _c("div", {staticClass: "card-body"}, [
-                                _c("div", {staticClass: "table-responsive"}, [
-                                    _c(
-                                        "table",
-                                        {
-                                            staticClass: "table table-bordered",
-                                            attrs: {id: "dataTable"}
-                                        },
-                                        [
-                                            _vm._m(0),
-                                            _vm._v(" "),
-                                            _c(
-                                                "tbody",
-                                                _vm._l(_vm.usersList, function (user) {
-                                                    return _c("tr", [
-                                                        _c("td", [_vm._v(_vm._s(user.id))]),
-                                                        _vm._v(" "),
-                                                        _c("td", [_vm._v(_vm._s(user.name))]),
-                                                        _vm._v(" "),
-                                                        _c("td", [_vm._v(_vm._s(user.nickname))]),
-                                                        _vm._v(" "),
-                                                        _c("td", [_vm._v(_vm._s(user.email))]),
-                                                        _vm._v(" "),
-                                                        _c("td", [_vm._v(_vm._s(user.role_name))]),
-                                                        _vm._v(" "),
-                                                        _vm._m(1, true)
-                                                    ])
-                                                }),
-                                                0
-                                            )
-                                        ]
-                                    )
+                return _c(
+                    "div",
+                    {staticClass: "content-wrapper "},
+                    [
+                        !_vm.loading
+                            ? _c("div", {staticClass: "card shadow mb-4 ml-2 container"}, [
+                                _c(
+                                    "div",
+                                    {staticClass: "card-header py-3 d-flex"},
+                                    [
+                                        _c(
+                                            "h6",
+                                            {staticClass: "m-0 col-10 font-weight-bold text-primary"},
+                                            [_vm._v("Таблица ползователей")]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                            "router-link",
+                                            {
+                                                staticClass: "btn col-2 m-auto btn-primary",
+                                                attrs: {to: {name: "userAdd"}}
+                                            },
+                                            [_vm._v("Добавить\n            ")]
+                                        )
+                                    ],
+                                    1
+                                ),
+                                _vm._v(" "),
+                                _c("div", {staticClass: "card-body"}, [
+                                    _c("div", {staticClass: "table-responsive"}, [
+                                        _c(
+                                            "table",
+                                            {
+                                                staticClass: "table table-bordered",
+                                                attrs: {id: "dataTable"}
+                                            },
+                                            [
+                                                _vm._m(0),
+                                                _vm._v(" "),
+                                                _c(
+                                                    "tbody",
+                                                    _vm._l(_vm.usersList, function (user) {
+                                                        return _c("tr", [
+                                                            _c("td", [_vm._v(_vm._s(user.id))]),
+                                                            _vm._v(" "),
+                                                            _c("td", [_vm._v(_vm._s(user.name))]),
+                                                            _vm._v(" "),
+                                                            _c("td", [_vm._v(_vm._s(user.nickname))]),
+                                                            _vm._v(" "),
+                                                            _c("td", [_vm._v(_vm._s(user.email))]),
+                                                            _vm._v(" "),
+                                                            _c("td", [_vm._v(_vm._s(user.role_name))]),
+                                                            _vm._v(" "),
+                                                            _c("td", [
+                                                                _c(
+                                                                    "a",
+                                                                    {
+                                                                        on: {
+                                                                            click: function ($event) {
+                                                                                return _vm.openEdit(user)
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    [_c("i", {staticClass: "fas fa-edit"})]
+                                                                ),
+                                                                _vm._v(" "),
+                                                                _vm._m(1, true)
+                                                            ])
+                                                        ])
+                                                    }),
+                                                    0
+                                                )
+                                            ]
+                                        )
+                                    ])
                                 ])
                             ])
-                        ])
-                        : _vm._e()
-                ])
+                            : _vm._e(),
+                        _vm._v(" "),
+                        _c(
+                            "modal",
+                            {
+                                attrs: {
+                                    name: "edit",
+                                    transition: "pop-out",
+                                    width: _vm.modalWidth,
+                                    height: "auto"
+                                }
+                            },
+                            [
+                                _c("div", {staticClass: "box"}, [
+                                    _c("div", {staticClass: "card"}, [
+                                        _c("div", {staticClass: "card-header"}, [
+                                            _vm._v("Редактирование аккаунта\n                    "),
+                                            _c(
+                                                "button",
+                                                {
+                                                    staticClass: "close",
+                                                    attrs: {
+                                                        type: "button",
+                                                        "data-dismiss": "modal",
+                                                        "aria-label": "Close"
+                                                    },
+                                                    on: {
+                                                        click: function ($event) {
+                                                            return _vm.$modal.hide("edit")
+                                                        }
+                                                    }
+                                                },
+                                                [
+                                                    _c("span", {attrs: {"aria-hidden": "true"}}, [
+                                                        _vm._v("×")
+                                                    ])
+                                                ]
+                                            )
+                                        ]),
+                                        _vm._v(" "),
+                                        _c("div", {staticClass: "card-body "}, [
+                                            _c("form", [
+                                                _c("div", {staticClass: "form-group d-flex"}, [
+                                                    _c(
+                                                        "div",
+                                                        {staticClass: "col-4 form-row align-content-center"},
+                                                        [
+                                                            _c(
+                                                                "label",
+                                                                {
+                                                                    staticClass: "col-form-label mb-2",
+                                                                    attrs: {for: "name"}
+                                                                },
+                                                                [_vm._v("Имя пользователя: ")]
+                                                            ),
+                                                            _vm._v(" "),
+                                                            _c("input", {
+                                                                directives: [
+                                                                    {
+                                                                        name: "model",
+                                                                        rawName: "v-model",
+                                                                        value: _vm.userEdit.name,
+                                                                        expression: "userEdit.name"
+                                                                    }
+                                                                ],
+                                                                staticClass: "form-control",
+                                                                attrs: {
+                                                                    type: "text",
+                                                                    id: "name",
+                                                                    placeholder: _vm.userData.name
+                                                                },
+                                                                domProps: {value: _vm.userEdit.name},
+                                                                on: {
+                                                                    input: function ($event) {
+                                                                        if ($event.target.composing) {
+                                                                            return
+                                                                        }
+                                                                        _vm.$set(
+                                                                            _vm.userEdit,
+                                                                            "name",
+                                                                            $event.target.value
+                                                                        )
+                                                                    }
+                                                                }
+                                                            })
+                                                        ]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                        "div",
+                                                        {staticClass: "col-4 form-row align-content-center"},
+                                                        [
+                                                            _c(
+                                                                "label",
+                                                                {
+                                                                    staticClass: "col-form-label mb-2",
+                                                                    attrs: {for: "nickname"}
+                                                                },
+                                                                [_vm._v("Ник пользователя: ")]
+                                                            ),
+                                                            _vm._v(" "),
+                                                            _c("input", {
+                                                                directives: [
+                                                                    {
+                                                                        name: "model",
+                                                                        rawName: "v-model",
+                                                                        value: _vm.userEdit.nickname,
+                                                                        expression: "userEdit.nickname"
+                                                                    }
+                                                                ],
+                                                                staticClass: "form-control",
+                                                                attrs: {
+                                                                    type: "text",
+                                                                    id: "nickname",
+                                                                    placeholder: _vm.userData.nickname
+                                                                },
+                                                                domProps: {value: _vm.userEdit.nickname},
+                                                                on: {
+                                                                    input: function ($event) {
+                                                                        if ($event.target.composing) {
+                                                                            return
+                                                                        }
+                                                                        _vm.$set(
+                                                                            _vm.userEdit,
+                                                                            "nickname",
+                                                                            $event.target.value
+                                                                        )
+                                                                    }
+                                                                }
+                                                            })
+                                                        ]
+                                                    )
+                                                ]),
+                                                _vm._v(" "),
+                                                _c("div", {staticClass: "form-group d-flex"}, [
+                                                    _c(
+                                                        "div",
+                                                        {staticClass: "col-4 form-row align-content-center"},
+                                                        [
+                                                            _c(
+                                                                "label",
+                                                                {
+                                                                    staticClass: "col-form-label mb-2",
+                                                                    attrs: {for: "email"}
+                                                                },
+                                                                [_vm._v("Почта пользователя: ")]
+                                                            ),
+                                                            _vm._v(" "),
+                                                            _c("input", {
+                                                                directives: [
+                                                                    {
+                                                                        name: "model",
+                                                                        rawName: "v-model",
+                                                                        value: _vm.userEdit.email,
+                                                                        expression: "userEdit.email"
+                                                                    }
+                                                                ],
+                                                                staticClass: "form-control",
+                                                                attrs: {
+                                                                    type: "text",
+                                                                    id: "email",
+                                                                    placeholder: _vm.userData.email
+                                                                },
+                                                                domProps: {value: _vm.userEdit.email},
+                                                                on: {
+                                                                    input: function ($event) {
+                                                                        if ($event.target.composing) {
+                                                                            return
+                                                                        }
+                                                                        _vm.$set(
+                                                                            _vm.userEdit,
+                                                                            "email",
+                                                                            $event.target.value
+                                                                        )
+                                                                    }
+                                                                }
+                                                            })
+                                                        ]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                        "div",
+                                                        {staticClass: "col-4 form-row align-content-center"},
+                                                        [
+                                                            _c(
+                                                                "label",
+                                                                {
+                                                                    staticClass: "col-form-label mb-2",
+                                                                    attrs: {for: "password"}
+                                                                },
+                                                                [_vm._v("Пароль пользователя: ")]
+                                                            ),
+                                                            _vm._v(" "),
+                                                            _c("input", {
+                                                                directives: [
+                                                                    {
+                                                                        name: "model",
+                                                                        rawName: "v-model",
+                                                                        value: _vm.userEdit.paswword,
+                                                                        expression: "userEdit.paswword"
+                                                                    }
+                                                                ],
+                                                                staticClass: "form-control",
+                                                                attrs: {type: "password", id: "password"},
+                                                                domProps: {value: _vm.userEdit.paswword},
+                                                                on: {
+                                                                    input: function ($event) {
+                                                                        if ($event.target.composing) {
+                                                                            return
+                                                                        }
+                                                                        _vm.$set(
+                                                                            _vm.userEdit,
+                                                                            "paswword",
+                                                                            $event.target.value
+                                                                        )
+                                                                    }
+                                                                }
+                                                            })
+                                                        ]
+                                                    )
+                                                ])
+                                            ]),
+                                            _vm._v(" "),
+                                            _c("div", {staticStyle: {"margin-top": "42px"}}),
+                                            _vm._v(" "),
+                                            _c("div", {staticClass: "button-set"}, [
+                                                _c(
+                                                    "button",
+                                                    {
+                                                        staticClass: "btn btn-primary",
+                                                        on: {
+                                                            click: function ($event) {
+                                                                return _vm.saveUser(_vm.userEdit)
+                                                            }
+                                                        }
+                                                    },
+                                                    [_vm._v("Сохранить")]
+                                                ),
+                                                _vm._v(" "),
+                                                _c(
+                                                    "button",
+                                                    {
+                                                        staticClass: "btn btn-dark",
+                                                        on: {
+                                                            click: function ($event) {
+                                                                return _vm.$modal.hide("edit")
+                                                            }
+                                                        }
+                                                    },
+                                                    [_vm._v("Отменить")]
+                                                )
+                                            ])
+                                        ])
+                                    ])
+                                ])
+                            ]
+                        )
+                    ],
+                    1
+                )
             }
             var staticRenderFns = [
                 function () {
@@ -39244,15 +39581,7 @@ process.nextTick = function (fun) {
                     var _vm = this
                     var _h = _vm.$createElement
                     var _c = _vm._self._c || _h
-                    return _c("td", [
-                        _c("a", {attrs: {href: "#"}}, [
-                            _c("i", {staticClass: "fas fa-edit"})
-                        ]),
-                        _vm._v(" "),
-                        _c("a", {attrs: {href: "#"}}, [
-                            _c("i", {staticClass: "fas fa-times-circle"})
-                        ])
-                    ])
+                    return _c("a", [_c("i", {staticClass: "fas fa-times-circle"})])
                 }
             ]
             render._withStripped = true
@@ -55332,9 +55661,9 @@ module.exports = function(module) {
             /* harmony import */
             var vue_js_modal__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(vue_js_modal__WEBPACK_IMPORTED_MODULE_5__);
             /*
- * Copyright (c) 14.12.2019.
+ * Copyright (c) 18.12.2019.
  * File - admin.js
- * Author - tor
+ * Author - snigerev
  */
             __webpack_require__(/*! ../app */ "./resources/js/app.js");
 
@@ -55667,7 +55996,8 @@ module.exports = function(module) {
                 component: _components_UsersListComponents__WEBPACK_IMPORTED_MODULE_0__["default"],
                 name: 'usersList'
             }, {
-                path: '/admin',
+                path: '/admin/',
+                component: _components_UsersListComponents__WEBPACK_IMPORTED_MODULE_0__["default"],
                 name: 'dashboard'
             }, {
                 path: '/admin/useradd',
@@ -55687,9 +56017,9 @@ module.exports = function(module) {
         /***/ (function (module, exports, __webpack_require__) {
 
             /*
- * Copyright (c) 13.12.2019.
+ * Copyright (c) 18.12.2019.
  * File - app.js
- * Author - tor
+ * Author - snigerev
  */
             __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
