@@ -1,7 +1,7 @@
 /*
- * Copyright (c) 19.12.2019.
+ * Copyright (c) 20.12.2019.
  * File - admin.js
- * Author - snigerev
+ * Author - tor
  */
 
 /******/ (function(modules) { // webpackBootstrap
@@ -1992,10 +1992,10 @@ module.exports = {
         }),
 
         /***/
-        "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/admin/components/UsersListComponents.vue?vue&type=script&lang=js&":
-        /*!************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/admin/components/UsersListComponents.vue?vue&type=script&lang=js& ***!
-  \************************************************************************************************************************************************************************************/
+        "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/admin/components/UserEditComponent.vue?vue&type=script&lang=js&":
+        /*!**********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/admin/components/UserEditComponent.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************************/
         /*! exports provided: default */
         /***/ (function (module, __webpack_exports__, __webpack_require__) {
 
@@ -2059,65 +2059,16 @@ module.exports = {
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
             var MODAL_WIDTH = 656;
             /* harmony default export */
             __webpack_exports__["default"] = ({
-                name: "UsersListComponents",
+                name: "UserEditComponent",
                 data: function data() {
                     return {
-                        usersList: [],
-                        loading: true,
                         modalWidth: MODAL_WIDTH,
                         userData: [],
                         userEdit: []
                     };
-                },
-                created: function created() {
-                    this.userList();
                 },
                 methods: {
                     openEdit: function openEdit(data) {
@@ -2128,6 +2079,96 @@ module.exports = {
                     saveUser: function saveUser(data) {
                         console.log(data.name);
                         $('#loading').attr('style', 'display:');
+                    }
+                }
+            });
+
+            /***/
+        }),
+
+        /***/
+        "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/admin/components/UsersListComponents.vue?vue&type=script&lang=js&":
+        /*!************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/admin/components/UsersListComponents.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************************************************************/
+        /*! exports provided: default */
+        /***/ (function (module, __webpack_exports__, __webpack_require__) {
+
+            "use strict";
+            __webpack_require__.r(__webpack_exports__);
+            /* harmony import */
+            var _UserEditComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./UserEditComponent */ "./resources/js/admin/components/UserEditComponent.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+            /* harmony default export */
+            __webpack_exports__["default"] = ({
+                name: "UsersListComponents",
+                components: {
+                    userEdit: _UserEditComponent__WEBPACK_IMPORTED_MODULE_0__["default"]
+                },
+                data: function data() {
+                    return {
+                        usersList: [],
+                        loading: true
+                    };
+                },
+                created: function created() {
+                    this.userList();
+                },
+                methods: {
+                    open: function open(data) {
+                        _UserEditComponent__WEBPACK_IMPORTED_MODULE_0__["default"].openEdit(data);
                     },
                     userList: function userList() {
                         var _this = this;
@@ -2172,15 +2213,15 @@ module.exports = {
                         descriptor.enumerable = descriptor.enumerable || false;
                         descriptor.configurable = true;
                         if ("value" in descriptor) descriptor.writable = true;
-      Object.defineProperty(target, descriptor.key, descriptor);
-    }
-  }
+                        Object.defineProperty(target, descriptor.key, descriptor);
+                    }
+                }
 
-  function _createClass(Constructor, protoProps, staticProps) {
-    if (protoProps) _defineProperties(Constructor.prototype, protoProps);
-    if (staticProps) _defineProperties(Constructor, staticProps);
-    return Constructor;
-  }
+                function _createClass(Constructor, protoProps, staticProps) {
+                    if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+                    if (staticProps) _defineProperties(Constructor, staticProps);
+                    return Constructor;
+                }
 
   function _defineProperty(obj, key, value) {
     if (key in obj) {
@@ -39197,6 +39238,279 @@ process.nextTick = function (fun) {
         }),
 
         /***/
+        "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/admin/components/UserEditComponent.vue?vue&type=template&id=0f3d2b6d&scoped=true&":
+        /*!**************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/admin/components/UserEditComponent.vue?vue&type=template&id=0f3d2b6d&scoped=true& ***!
+  \**************************************************************************************************************************************************************************************************************************************/
+        /*! exports provided: render, staticRenderFns */
+        /***/ (function (module, __webpack_exports__, __webpack_require__) {
+
+            "use strict";
+            __webpack_require__.r(__webpack_exports__);
+            /* harmony export (binding) */
+            __webpack_require__.d(__webpack_exports__, "render", function () {
+                return render;
+            });
+            /* harmony export (binding) */
+            __webpack_require__.d(__webpack_exports__, "staticRenderFns", function () {
+                return staticRenderFns;
+            });
+            var render = function () {
+                var _vm = this
+                var _h = _vm.$createElement
+                var _c = _vm._self._c || _h
+                return _c(
+                    "modal",
+                    {
+                        attrs: {
+                            name: "edit",
+                            transition: "pop-out",
+                            width: _vm.modalWidth,
+                            height: "auto"
+                        }
+                    },
+                    [
+                        _c("div", {staticClass: "box"}, [
+                            _c("div", {staticClass: "card"}, [
+                                _c("div", {staticClass: "card-header"}, [
+                                    _vm._v("Редактирование аккаунта\n                "),
+                                    _c(
+                                        "button",
+                                        {
+                                            staticClass: "close",
+                                            attrs: {
+                                                type: "button",
+                                                "data-dismiss": "modal",
+                                                "aria-label": "Close"
+                                            },
+                                            on: {
+                                                click: function ($event) {
+                                                    return _vm.$modal.hide("edit")
+                                                }
+                                            }
+                                        },
+                                        [_c("span", {attrs: {"aria-hidden": "true"}}, [_vm._v("×")])]
+                                    )
+                                ]),
+                                _vm._v(" "),
+                                _c("div", {staticClass: "card-body "}, [
+                                    _c("form", [
+                                        _c("div", {staticClass: "form-group d-flex"}, [
+                                            _c(
+                                                "div",
+                                                {staticClass: "col-4 form-row align-content-center"},
+                                                [
+                                                    _c(
+                                                        "label",
+                                                        {
+                                                            staticClass: "col-form-label mb-2",
+                                                            attrs: {for: "name"}
+                                                        },
+                                                        [_vm._v("Имя пользователя: ")]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c("input", {
+                                                        directives: [
+                                                            {
+                                                                name: "model",
+                                                                rawName: "v-model",
+                                                                value: _vm.userEdit.name,
+                                                                expression: "userEdit.name"
+                                                            }
+                                                        ],
+                                                        staticClass: "form-control",
+                                                        attrs: {
+                                                            type: "text",
+                                                            id: "name",
+                                                            placeholder: _vm.userData.name
+                                                        },
+                                                        domProps: {value: _vm.userEdit.name},
+                                                        on: {
+                                                            input: function ($event) {
+                                                                if ($event.target.composing) {
+                                                                    return
+                                                                }
+                                                                _vm.$set(_vm.userEdit, "name", $event.target.value)
+                                                            }
+                                                        }
+                                                    })
+                                                ]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                                "div",
+                                                {staticClass: "col-4 form-row align-content-center"},
+                                                [
+                                                    _c(
+                                                        "label",
+                                                        {
+                                                            staticClass: "col-form-label mb-2",
+                                                            attrs: {for: "nickname"}
+                                                        },
+                                                        [_vm._v("Ник пользователя: ")]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c("input", {
+                                                        directives: [
+                                                            {
+                                                                name: "model",
+                                                                rawName: "v-model",
+                                                                value: _vm.userEdit.nickname,
+                                                                expression: "userEdit.nickname"
+                                                            }
+                                                        ],
+                                                        staticClass: "form-control",
+                                                        attrs: {
+                                                            type: "text",
+                                                            id: "nickname",
+                                                            placeholder: _vm.userData.nickname
+                                                        },
+                                                        domProps: {value: _vm.userEdit.nickname},
+                                                        on: {
+                                                            input: function ($event) {
+                                                                if ($event.target.composing) {
+                                                                    return
+                                                                }
+                                                                _vm.$set(
+                                                                    _vm.userEdit,
+                                                                    "nickname",
+                                                                    $event.target.value
+                                                                )
+                                                            }
+                                                        }
+                                                    })
+                                                ]
+                                            )
+                                        ]),
+                                        _vm._v(" "),
+                                        _c("div", {staticClass: "form-group d-flex"}, [
+                                            _c(
+                                                "div",
+                                                {staticClass: "col-4 form-row align-content-center"},
+                                                [
+                                                    _c(
+                                                        "label",
+                                                        {
+                                                            staticClass: "col-form-label mb-2",
+                                                            attrs: {for: "email"}
+                                                        },
+                                                        [_vm._v("Почта пользователя: ")]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c("input", {
+                                                        directives: [
+                                                            {
+                                                                name: "model",
+                                                                rawName: "v-model",
+                                                                value: _vm.userEdit.email,
+                                                                expression: "userEdit.email"
+                                                            }
+                                                        ],
+                                                        staticClass: "form-control",
+                                                        attrs: {
+                                                            type: "text",
+                                                            id: "email",
+                                                            placeholder: _vm.userData.email
+                                                        },
+                                                        domProps: {value: _vm.userEdit.email},
+                                                        on: {
+                                                            input: function ($event) {
+                                                                if ($event.target.composing) {
+                                                                    return
+                                                                }
+                                                                _vm.$set(_vm.userEdit, "email", $event.target.value)
+                                                            }
+                                                        }
+                                                    })
+                                                ]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                                "div",
+                                                {staticClass: "col-4 form-row align-content-center"},
+                                                [
+                                                    _c(
+                                                        "label",
+                                                        {
+                                                            staticClass: "col-form-label mb-2",
+                                                            attrs: {for: "password"}
+                                                        },
+                                                        [_vm._v("Пароль пользователя: ")]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c("input", {
+                                                        directives: [
+                                                            {
+                                                                name: "model",
+                                                                rawName: "v-model",
+                                                                value: _vm.userEdit.paswword,
+                                                                expression: "userEdit.paswword"
+                                                            }
+                                                        ],
+                                                        staticClass: "form-control",
+                                                        attrs: {type: "password", id: "password"},
+                                                        domProps: {value: _vm.userEdit.paswword},
+                                                        on: {
+                                                            input: function ($event) {
+                                                                if ($event.target.composing) {
+                                                                    return
+                                                                }
+                                                                _vm.$set(
+                                                                    _vm.userEdit,
+                                                                    "paswword",
+                                                                    $event.target.value
+                                                                )
+                                                            }
+                                                        }
+                                                    })
+                                                ]
+                                            )
+                                        ])
+                                    ]),
+                                    _vm._v(" "),
+                                    _c("div", {staticStyle: {"margin-top": "42px"}}),
+                                    _vm._v(" "),
+                                    _c("div", {staticClass: "button-set"}, [
+                                        _c(
+                                            "button",
+                                            {
+                                                staticClass: "btn btn-primary",
+                                                on: {
+                                                    click: function ($event) {
+                                                        return _vm.saveUser(_vm.userEdit)
+                                                    }
+                                                }
+                                            },
+                                            [_vm._v("Сохранить")]
+                                        ),
+                                        _vm._v(" "),
+                                        _c(
+                                            "button",
+                                            {
+                                                staticClass: "btn btn-dark",
+                                                on: {
+                                                    click: function ($event) {
+                                                        return _vm.$modal.hide("edit")
+                                                    }
+                                                }
+                                            },
+                                            [_vm._v("Отменить")]
+                                        )
+                                    ])
+                                ])
+                            ])
+                        ])
+                    ]
+                )
+            }
+            var staticRenderFns = []
+            render._withStripped = true
+
+
+            /***/
+        }),
+
+        /***/
         "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/admin/components/UsersListComponents.vue?vue&type=template&id=533f60a1&scoped=true&":
         /*!****************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/admin/components/UsersListComponents.vue?vue&type=template&id=533f60a1&scoped=true& ***!
@@ -39218,343 +39532,82 @@ process.nextTick = function (fun) {
                 var _vm = this
                 var _h = _vm.$createElement
                 var _c = _vm._self._c || _h
-                return _c(
-                    "div",
-                    {staticClass: "content-wrapper "},
-                    [
-                        !_vm.loading
-                            ? _c("div", {staticClass: "card shadow mb-4 ml-2 container"}, [
-                                _c(
-                                    "div",
-                                    {staticClass: "card-header py-3 d-flex"},
-                                    [
-                                        _c(
-                                            "h6",
-                                            {staticClass: "m-0 col-10 font-weight-bold text-primary"},
-                                            [_vm._v("Таблица ползователей")]
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                            "router-link",
-                                            {
-                                                staticClass: "btn col-2 m-auto btn-primary",
-                                                attrs: {to: {name: "userAdd"}}
-                                            },
-                                            [_vm._v("Добавить\n            ")]
-                                        )
-                                    ],
-                                    1
-                                ),
-                                _vm._v(" "),
-                                _c("div", {staticClass: "card-body"}, [
-                                    _c("div", {staticClass: "table-responsive"}, [
-                                        _c(
-                                            "table",
-                                            {
-                                                staticClass: "table table-bordered",
-                                                attrs: {id: "dataTable"}
-                                            },
-                                            [
-                                                _vm._m(0),
-                                                _vm._v(" "),
-                                                _c(
-                                                    "tbody",
-                                                    _vm._l(_vm.usersList, function (user) {
-                                                        return _c("tr", [
-                                                            _c("td", [_vm._v(_vm._s(user.id))]),
-                                                            _vm._v(" "),
-                                                            _c("td", [_vm._v(_vm._s(user.name))]),
-                                                            _vm._v(" "),
-                                                            _c("td", [_vm._v(_vm._s(user.nickname))]),
-                                                            _vm._v(" "),
-                                                            _c("td", [_vm._v(_vm._s(user.email))]),
-                                                            _vm._v(" "),
-                                                            _c("td", [_vm._v(_vm._s(user.role_name))]),
-                                                            _vm._v(" "),
-                                                            _c("td", [
-                                                                _c(
-                                                                    "a",
-                                                                    {
-                                                                        on: {
-                                                                            click: function ($event) {
-                                                                                return _vm.openEdit(user)
-                                                                            }
+                return _c("div", {staticClass: "content-wrapper "}, [
+                    !_vm.loading
+                        ? _c("div", {staticClass: "card shadow mb-4 ml-2 container"}, [
+                            _c(
+                                "div",
+                                {staticClass: "card-header py-3 d-flex"},
+                                [
+                                    _c(
+                                        "h6",
+                                        {staticClass: "m-0 col-10 font-weight-bold text-primary"},
+                                        [_vm._v("Таблица ползователей")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                        "router-link",
+                                        {
+                                            staticClass: "btn col-2 m-auto btn-primary",
+                                            attrs: {to: {name: "userAdd"}}
+                                        },
+                                        [_vm._v("Добавить\n            ")]
+                                    )
+                                ],
+                                1
+                            ),
+                            _vm._v(" "),
+                            _c("div", {staticClass: "card-body"}, [
+                                _c("div", {staticClass: "table-responsive"}, [
+                                    _c(
+                                        "table",
+                                        {
+                                            staticClass: "table table-bordered",
+                                            attrs: {id: "dataTable"}
+                                        },
+                                        [
+                                            _vm._m(0),
+                                            _vm._v(" "),
+                                            _c(
+                                                "tbody",
+                                                _vm._l(_vm.usersList, function (user) {
+                                                    return _c("tr", [
+                                                        _c("td", [_vm._v(_vm._s(user.id))]),
+                                                        _vm._v(" "),
+                                                        _c("td", [_vm._v(_vm._s(user.name))]),
+                                                        _vm._v(" "),
+                                                        _c("td", [_vm._v(_vm._s(user.nickname))]),
+                                                        _vm._v(" "),
+                                                        _c("td", [_vm._v(_vm._s(user.email))]),
+                                                        _vm._v(" "),
+                                                        _c("td", [_vm._v(_vm._s(user.role_name))]),
+                                                        _vm._v(" "),
+                                                        _c("td", [
+                                                            _c(
+                                                                "a",
+                                                                {
+                                                                    on: {
+                                                                        click: function ($event) {
+                                                                            return _vm.open(user)
                                                                         }
-                                                                    },
-                                                                    [_c("i", {staticClass: "fas fa-edit"})]
-                                                                ),
-                                                                _vm._v(" "),
-                                                                _vm._m(1, true)
-                                                            ])
+                                                                    }
+                                                                },
+                                                                [_c("i", {staticClass: "fas fa-edit"})]
+                                                            ),
+                                                            _vm._v(" "),
+                                                            _vm._m(1, true)
                                                         ])
-                                                    }),
-                                                    0
-                                                )
-                                            ]
-                                        )
-                                    ])
+                                                    ])
+                                                }),
+                                                0
+                                            )
+                                        ]
+                                    )
                                 ])
                             ])
-                            : _vm._e(),
-                        _vm._v(" "),
-                        _c(
-                            "modal",
-                            {
-                                attrs: {
-                                    name: "edit",
-                                    transition: "pop-out",
-                                    width: _vm.modalWidth,
-                                    height: "auto"
-                                }
-                            },
-                            [
-                                _c("div", {staticClass: "box"}, [
-                                    _c("div", {staticClass: "card"}, [
-                                        _c("div", {staticClass: "card-header"}, [
-                                            _vm._v("Редактирование аккаунта\n                    "),
-                                            _c(
-                                                "button",
-                                                {
-                                                    staticClass: "close",
-                                                    attrs: {
-                                                        type: "button",
-                                                        "data-dismiss": "modal",
-                                                        "aria-label": "Close"
-                                                    },
-                                                    on: {
-                                                        click: function ($event) {
-                                                            return _vm.$modal.hide("edit")
-                                                        }
-                                                    }
-                                                },
-                                                [
-                                                    _c("span", {attrs: {"aria-hidden": "true"}}, [
-                                                        _vm._v("×")
-                                                    ])
-                                                ]
-                                            )
-                                        ]),
-                                        _vm._v(" "),
-                                        _c("div", {staticClass: "card-body "}, [
-                                            _c("form", [
-                                                _c("div", {staticClass: "form-group d-flex"}, [
-                                                    _c(
-                                                        "div",
-                                                        {staticClass: "col-4 form-row align-content-center"},
-                                                        [
-                                                            _c(
-                                                                "label",
-                                                                {
-                                                                    staticClass: "col-form-label mb-2",
-                                                                    attrs: {for: "name"}
-                                                                },
-                                                                [_vm._v("Имя пользователя: ")]
-                                                            ),
-                                                            _vm._v(" "),
-                                                            _c("input", {
-                                                                directives: [
-                                                                    {
-                                                                        name: "model",
-                                                                        rawName: "v-model",
-                                                                        value: _vm.userEdit.name,
-                                                                        expression: "userEdit.name"
-                                                                    }
-                                                                ],
-                                                                staticClass: "form-control",
-                                                                attrs: {
-                                                                    type: "text",
-                                                                    id: "name",
-                                                                    placeholder: _vm.userData.name
-                                                                },
-                                                                domProps: {value: _vm.userEdit.name},
-                                                                on: {
-                                                                    input: function ($event) {
-                                                                        if ($event.target.composing) {
-                                                                            return
-                                                                        }
-                                                                        _vm.$set(
-                                                                            _vm.userEdit,
-                                                                            "name",
-                                                                            $event.target.value
-                                                                        )
-                                                                    }
-                                                                }
-                                                            })
-                                                        ]
-                                                    ),
-                                                    _vm._v(" "),
-                                                    _c(
-                                                        "div",
-                                                        {staticClass: "col-4 form-row align-content-center"},
-                                                        [
-                                                            _c(
-                                                                "label",
-                                                                {
-                                                                    staticClass: "col-form-label mb-2",
-                                                                    attrs: {for: "nickname"}
-                                                                },
-                                                                [_vm._v("Ник пользователя: ")]
-                                                            ),
-                                                            _vm._v(" "),
-                                                            _c("input", {
-                                                                directives: [
-                                                                    {
-                                                                        name: "model",
-                                                                        rawName: "v-model",
-                                                                        value: _vm.userEdit.nickname,
-                                                                        expression: "userEdit.nickname"
-                                                                    }
-                                                                ],
-                                                                staticClass: "form-control",
-                                                                attrs: {
-                                                                    type: "text",
-                                                                    id: "nickname",
-                                                                    placeholder: _vm.userData.nickname
-                                                                },
-                                                                domProps: {value: _vm.userEdit.nickname},
-                                                                on: {
-                                                                    input: function ($event) {
-                                                                        if ($event.target.composing) {
-                                                                            return
-                                                                        }
-                                                                        _vm.$set(
-                                                                            _vm.userEdit,
-                                                                            "nickname",
-                                                                            $event.target.value
-                                                                        )
-                                                                    }
-                                                                }
-                                                            })
-                                                        ]
-                                                    )
-                                                ]),
-                                                _vm._v(" "),
-                                                _c("div", {staticClass: "form-group d-flex"}, [
-                                                    _c(
-                                                        "div",
-                                                        {staticClass: "col-4 form-row align-content-center"},
-                                                        [
-                                                            _c(
-                                                                "label",
-                                                                {
-                                                                    staticClass: "col-form-label mb-2",
-                                                                    attrs: {for: "email"}
-                                                                },
-                                                                [_vm._v("Почта пользователя: ")]
-                                                            ),
-                                                            _vm._v(" "),
-                                                            _c("input", {
-                                                                directives: [
-                                                                    {
-                                                                        name: "model",
-                                                                        rawName: "v-model",
-                                                                        value: _vm.userEdit.email,
-                                                                        expression: "userEdit.email"
-                                                                    }
-                                                                ],
-                                                                staticClass: "form-control",
-                                                                attrs: {
-                                                                    type: "text",
-                                                                    id: "email",
-                                                                    placeholder: _vm.userData.email
-                                                                },
-                                                                domProps: {value: _vm.userEdit.email},
-                                                                on: {
-                                                                    input: function ($event) {
-                                                                        if ($event.target.composing) {
-                                                                            return
-                                                                        }
-                                                                        _vm.$set(
-                                                                            _vm.userEdit,
-                                                                            "email",
-                                                                            $event.target.value
-                                                                        )
-                                                                    }
-                                                                }
-                                                            })
-                                                        ]
-                                                    ),
-                                                    _vm._v(" "),
-                                                    _c(
-                                                        "div",
-                                                        {staticClass: "col-4 form-row align-content-center"},
-                                                        [
-                                                            _c(
-                                                                "label",
-                                                                {
-                                                                    staticClass: "col-form-label mb-2",
-                                                                    attrs: {for: "password"}
-                                                                },
-                                                                [_vm._v("Пароль пользователя: ")]
-                                                            ),
-                                                            _vm._v(" "),
-                                                            _c("input", {
-                                                                directives: [
-                                                                    {
-                                                                        name: "model",
-                                                                        rawName: "v-model",
-                                                                        value: _vm.userEdit.paswword,
-                                                                        expression: "userEdit.paswword"
-                                                                    }
-                                                                ],
-                                                                staticClass: "form-control",
-                                                                attrs: {type: "password", id: "password"},
-                                                                domProps: {value: _vm.userEdit.paswword},
-                                                                on: {
-                                                                    input: function ($event) {
-                                                                        if ($event.target.composing) {
-                                                                            return
-                                                                        }
-                                                                        _vm.$set(
-                                                                            _vm.userEdit,
-                                                                            "paswword",
-                                                                            $event.target.value
-                                                                        )
-                                                                    }
-                                                                }
-                                                            })
-                                                        ]
-                                                    )
-                                                ])
-                                            ]),
-                                            _vm._v(" "),
-                                            _c("div", {staticStyle: {"margin-top": "42px"}}),
-                                            _vm._v(" "),
-                                            _c("div", {staticClass: "button-set"}, [
-                                                _c(
-                                                    "button",
-                                                    {
-                                                        staticClass: "btn btn-primary",
-                                                        on: {
-                                                            click: function ($event) {
-                                                                return _vm.saveUser(_vm.userEdit)
-                                                            }
-                                                        }
-                                                    },
-                                                    [_vm._v("Сохранить")]
-                                                ),
-                                                _vm._v(" "),
-                                                _c(
-                                                    "button",
-                                                    {
-                                                        staticClass: "btn btn-dark",
-                                                        on: {
-                                                            click: function ($event) {
-                                                                return _vm.$modal.hide("edit")
-                                                            }
-                                                        }
-                                                    },
-                                                    [_vm._v("Отменить")]
-                                                )
-                                            ])
-                                        ])
-                                    ])
-                                ])
-                            ]
-                        )
-                    ],
-                    1
-                )
+                        ])
+                        : _vm._e()
+                ])
             }
             var staticRenderFns = [
                 function () {
@@ -55674,6 +55727,7 @@ module.exports = function(module) {
             vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_sidebar_menu__WEBPACK_IMPORTED_MODULE_2___default.a);
             vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
             vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('left-menu', __webpack_require__(/*! ./components/LeftMenuComponents */ "./resources/js/admin/components/LeftMenuComponents.vue")["default"]);
+            vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('user-edit', __webpack_require__(/*! ./components/UserEditComponent */ "./resources/js/admin/components/UserEditComponent.vue")["default"]);
             var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
                 mode: 'history',
                 routes: _route__WEBPACK_IMPORTED_MODULE_4__["default"]
@@ -55857,6 +55911,91 @@ module.exports = function(module) {
         }),
 
         /***/
+        "./resources/js/admin/components/UserEditComponent.vue":
+        /*!*************************************************************!*\
+  !*** ./resources/js/admin/components/UserEditComponent.vue ***!
+  \*************************************************************/
+        /*! exports provided: default */
+        /***/ (function (module, __webpack_exports__, __webpack_require__) {
+
+            "use strict";
+            __webpack_require__.r(__webpack_exports__);
+            /* harmony import */
+            var _UserEditComponent_vue_vue_type_template_id_0f3d2b6d_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./UserEditComponent.vue?vue&type=template&id=0f3d2b6d&scoped=true& */ "./resources/js/admin/components/UserEditComponent.vue?vue&type=template&id=0f3d2b6d&scoped=true&");
+            /* harmony import */
+            var _UserEditComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./UserEditComponent.vue?vue&type=script&lang=js& */ "./resources/js/admin/components/UserEditComponent.vue?vue&type=script&lang=js&");
+            /* empty/unused harmony star reexport *//* harmony import */
+            var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+            /* normalize component */
+
+            var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+                _UserEditComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+                _UserEditComponent_vue_vue_type_template_id_0f3d2b6d_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+                _UserEditComponent_vue_vue_type_template_id_0f3d2b6d_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+                false,
+                null,
+                "0f3d2b6d",
+                null
+            )
+
+            /* hot reload */
+            if (false) {
+                var api;
+            }
+            component.options.__file = "resources/js/admin/components/UserEditComponent.vue"
+            /* harmony default export */
+            __webpack_exports__["default"] = (component.exports);
+
+            /***/
+        }),
+
+        /***/
+        "./resources/js/admin/components/UserEditComponent.vue?vue&type=script&lang=js&":
+        /*!**************************************************************************************!*\
+  !*** ./resources/js/admin/components/UserEditComponent.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************/
+        /*! exports provided: default */
+        /***/ (function (module, __webpack_exports__, __webpack_require__) {
+
+            "use strict";
+            __webpack_require__.r(__webpack_exports__);
+            /* harmony import */
+            var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UserEditComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./UserEditComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/admin/components/UserEditComponent.vue?vue&type=script&lang=js&");
+            /* empty/unused harmony star reexport */ /* harmony default export */
+            __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UserEditComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+            /***/
+        }),
+
+        /***/
+        "./resources/js/admin/components/UserEditComponent.vue?vue&type=template&id=0f3d2b6d&scoped=true&":
+        /*!********************************************************************************************************!*\
+  !*** ./resources/js/admin/components/UserEditComponent.vue?vue&type=template&id=0f3d2b6d&scoped=true& ***!
+  \********************************************************************************************************/
+        /*! exports provided: render, staticRenderFns */
+        /***/ (function (module, __webpack_exports__, __webpack_require__) {
+
+            "use strict";
+            __webpack_require__.r(__webpack_exports__);
+            /* harmony import */
+            var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UserEditComponent_vue_vue_type_template_id_0f3d2b6d_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./UserEditComponent.vue?vue&type=template&id=0f3d2b6d&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/admin/components/UserEditComponent.vue?vue&type=template&id=0f3d2b6d&scoped=true&");
+            /* harmony reexport (safe) */
+            __webpack_require__.d(__webpack_exports__, "render", function () {
+                return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UserEditComponent_vue_vue_type_template_id_0f3d2b6d_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"];
+            });
+
+            /* harmony reexport (safe) */
+            __webpack_require__.d(__webpack_exports__, "staticRenderFns", function () {
+                return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UserEditComponent_vue_vue_type_template_id_0f3d2b6d_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"];
+            });
+
+
+            /***/
+        }),
+
+        /***/
         "./resources/js/admin/components/UsersListComponents.vue":
         /*!***************************************************************!*\
   !*** ./resources/js/admin/components/UsersListComponents.vue ***!
@@ -55984,9 +56123,9 @@ module.exports = function(module) {
             /* harmony import */
             var _components_UserAddComponent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/UserAddComponent */ "./resources/js/admin/components/UserAddComponent.vue");
             /*
- * Copyright (c) 14.12.2019.
+ * Copyright (c) 19.12.2019.
  * File - route.js
- * Author - tor
+ * Author - snigerev
  */
 
 
@@ -56087,7 +56226,7 @@ module.exports = function(module) {
         /*! no static exports found */
         /***/ (function (module, exports, __webpack_require__) {
 
-            module.exports = __webpack_require__(/*! /home/snigerev/Projects/php/laravel-admin/resources/js/admin/admin.js */"./resources/js/admin/admin.js");
+            module.exports = __webpack_require__(/*! /home/tor/Projects/php/laravel-admin/resources/js/admin/admin.js */"./resources/js/admin/admin.js");
 
 
             /***/

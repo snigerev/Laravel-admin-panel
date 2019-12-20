@@ -1,7 +1,7 @@
 /*
- * Copyright (c) 18.12.2019.
+ * Copyright (c) 20.12.2019.
  * File - admin.js
- * Author - snigerev
+ * Author - tor
  */
 
 require('../app');
@@ -21,6 +21,7 @@ Vue.use(VueSidebarMenu);
 Vue.use(VueRouter);
 
 Vue.component('left-menu', require('./components/LeftMenuComponents').default);
+Vue.component('user-edit', require('./components/UserEditComponent').default);
 
 const router = new VueRouter({
     mode: 'history',
