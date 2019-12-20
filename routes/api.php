@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright (c) 14.12.2019.
+ * Copyright (c) 20.12.2019.
  * File - api.php
- * Author - tor
+ * Author - snigerev
  */
 
 use Illuminate\Http\Request;
@@ -23,3 +23,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('getUsersList', 'Api\UserApiController@getUsersList');
+
+Route::post('editUser/{id}', 'Api\UserApiController@edit');

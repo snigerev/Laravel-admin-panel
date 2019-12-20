@@ -1,15 +1,18 @@
 <?php
 /**
- * Copyright (c) 18.12.2019.
+ * Copyright (c) 20.12.2019.
  * File - UserApiController.php
  * Author - snigerev
  */
 
 namespace App\Http\Controllers\Api;
 
+use App\Classes\UserClass;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UserCreateRequest;
 use App\Repositories\UserRepository;
 use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Http\Request;
 
 class UserApiController extends Controller
 {
@@ -32,5 +35,16 @@ class UserApiController extends Controller
     public function getUsersList()
     {
         return $this->userRepository->getAllUsers();
+    }
+
+    public function edit(UserCreateRequest $request, int $id)
+    {
+        $user = (new UserClass())->updateUser($request, $id);
+
+        if ($user) {
+            return 'ok';
+        } else {
+            return 'false';
+        }
     }
 }

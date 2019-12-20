@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 18.12.2019.
+ * Copyright (c) 20.12.2019.
  * File - UserRepository.php
  * Author - snigerev
  */
@@ -76,7 +76,7 @@ class UserRepository extends CoreRepository
         return $this->startConditions()
             ->leftJoin('data_users as data', 'users.id', '=', 'data.user_id')
             ->leftJoin('roles as role', 'role.id', '=', 'data.role_id')
-            ->get(['users.id', 'users.name', 'users.email', 'role.name as role_name', 'data.nickname']);
+            ->get(['users.id', 'users.name', 'users.email', 'data.role_id', 'role.name as role_name', 'data.nickname']);
     }
 
     /**

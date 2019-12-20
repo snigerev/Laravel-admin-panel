@@ -1,7 +1,7 @@
 <!--
   - Copyright (c) 20.12.2019.
   - File - UsersListComponents.vue
-  - Author - tor
+  - Author - snigerev
   -->
 
 <template>
@@ -34,7 +34,7 @@
                             <td>{{ user.email }}</td>
                             <td>{{user.role_name}}</td>
                             <td>
-                                <a @click="open(user)">
+                                <a @click="$refs.userEdit.openEdit(user)">
                                     <i class="fas fa-edit"/>
                                 </a>
                                 <a>
@@ -47,27 +47,26 @@
                 </div>
             </div>
         </div>
+        <UserEditComponent ref="userEdit"></UserEditComponent>
     </div>
 </template>
 
 <script>
-    import userEdit from './UserEditComponent';
+    import UserEditComponent from './UserEditComponent';
     export default {
         name: "UsersListComponents",
-        components: {userEdit},
+        components: {UserEditComponent},
         data() {
             return {
                 usersList: [],
                 loading: true,
+                showEditModal: false
             }
         },
         created() {
             this.userList();
         },
         methods: {
-            open(data) {
-                userEdit.openEdit(data);
-            },
             userList() {
                 axios.get('/api/getUsersList')
                     .then((response) => {
