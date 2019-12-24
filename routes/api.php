@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 20.12.2019.
+ * Copyright (c) 24.12.2019.
  * File - api.php
  * Author - snigerev
  */
@@ -21,6 +21,8 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('getRoles', 'Api\UserApiController@getRoles');
 
 Route::get('getUsersList', 'Api\UserApiController@getUsersList');
 

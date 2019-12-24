@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 20.12.2019.
+ * Copyright (c) 24.12.2019.
  * File - UserApiController.php
  * Author - snigerev
  */
@@ -10,9 +10,11 @@ namespace App\Http\Controllers\Api;
 use App\Classes\UserClass;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserCreateRequest;
+use App\Repositories\RolesRepository;
 use App\Repositories\UserRepository;
 use Illuminate\Contracts\Foundation\Application;
-use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Model;
 
 class UserApiController extends Controller
 {
@@ -22,11 +24,17 @@ class UserApiController extends Controller
     private $userRepository;
 
     /**
+     * @var RolesRepository|Application|mixed
+     */
+    private $rolesRepository;
+
+    /**
      * UsersController constructor.
      */
     public function __construct()
     {
         $this->userRepository = app(UserRepository::class);
+        $this->rolesRepository = app(RolesRepository::class);
     }
 
     /**
@@ -46,5 +54,13 @@ class UserApiController extends Controller
         } else {
             return 'false';
         }
+    }
+
+    /**
+     * @return Application[]|Collection|Model[]|mixed[]
+     */
+    public function getRoles()
+    {
+        return $this->rolesRepository->getRoles();
     }
 }
