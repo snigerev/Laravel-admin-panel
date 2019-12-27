@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright (c) 2.12.2019.
+ * Copyright (c) 18.12.2019.
  * File - DataUser.php
- * Author - tor
+ * Author - snigerev
  */
 
 namespace App\Models;
@@ -49,6 +49,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\DataUser whereVacationTime($value)
  * @property int|null $last_planet
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\DataUser whereLastPlanet($value)
+ * @property-read \App\Models\Role $role
  */
 class DataUser extends Model
 {
@@ -61,5 +62,10 @@ class DataUser extends Model
     public function user()
     {
         return $this->belongsTo('App\User');
+    }
+
+    public function role()
+    {
+        return $this->belongsTo('App\Models\Role');
     }
 }

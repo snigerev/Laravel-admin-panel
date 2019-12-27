@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 3.12.2019.
+ * Copyright (c) 12.12.2019.
  * File - TestPageController.php
  * Author - tor
  */
@@ -57,12 +57,12 @@ class TestPageController extends BaseGameController
     {
         $this->username = $this->userRepository->getUserNick(Session::get('userId'));
         //$sector = $this->gameMapRepository->getSectorByCoordinates(1, 1);
-        $resource = $this->resourcesPlanetRepository->getResourcesPlanet(126)->toArray();
+        $resource = $this->resourcesPlanetRepository->getResourcesPlanet(32)->toArray();
 
         $resource['nanoid'] += 1000;
 
-        (new ResourcesPlanetClass())->updateResourcePlanet(126, $resource);
-        (new UserPlanetClass())->createUserPlanetOnRegistration(2);
+        (new ResourcesPlanetClass())->updateResourcePlanet(32, $resource);
+        (new UserPlanetClass())->createUserPlanetOnRegistration(1);
 
         //dd($resource, $sector);
         return 'hello ';

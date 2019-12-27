@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright (c) 19.11.2019.
+ * Copyright (c) 18.12.2019.
  * File - 2019_11_19_061226_create_data_users_table.php
- * Author - tor
+ * Author - snigerev
  */
 
 use Illuminate\Database\Migrations\Migration;
@@ -21,7 +21,7 @@ class CreateDataUsersTable extends Migration
         Schema::create('data_users', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('user_id')->unsigned()->unique();
-            $table->integer('role_id')->default('0');
+            $table->bigInteger('role_id')->unsigned()->default('0');
             $table->string('nickname', '50')->nullable();
 
             $table->foreign('user_id')

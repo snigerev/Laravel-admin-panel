@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 27.11.2019.
+ * Copyright (c) 13.12.2019.
  * File - webpack.mix.js
  * Author - tor
  */
@@ -29,7 +29,6 @@ mix.sass('resources/sass/admin/admin.scss', 'public/css/admin')
         processCssUrls: true
     });
 
-mix.js('resources/js/admin/users.js', 'public/js/admin');
 mix.sass('resources/sass/admin/users.scss', 'public/css/admin');
 mix.sass('resources/sass/app.scss', 'public/css')
     .options({

@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright (c) 2.12.2019.
+ * Copyright (c) 20.12.2019.
  * File - UserClass.php
- * Author - tor
+ * Author - snigerev
  */
 
 namespace App\Classes;
@@ -11,6 +11,7 @@ namespace App\Classes;
 use App\Repositories\ServerConfigRepository;
 use App\Repositories\UserRepository;
 use App\User;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Hash;
 
 class UserClass
@@ -71,7 +72,7 @@ class UserClass
      * Создаем пользователя проверив введенные данные
      *
      * @param $request
-     * @return User|\Illuminate\Database\Eloquent\Model
+     * @return User|Model
      */
     public function createUser($request)
     {
@@ -80,7 +81,7 @@ class UserClass
             'email' => $request['email'],
             'password' => Hash::make($request['password']),
         ]);
-        $user->DataUser()->create(['role_id' => $request['role_id']]);
+        $user->DataUser()->create(['nickname' => $request['nickname'], 'role_id' => isset($request['role_id']) ? $request['role_id'] : '1']);
 
         if ($user) {
             (new UserPlanetClass())->createUserPlanetOnRegistration($user['id']);
@@ -107,7 +108,7 @@ class UserClass
 
         $user->update(array_filter($request->all()));
 
-        if (($user->DataUser->role_id != $request['role_id']) && in_array($request['role_id'], [0, 1, 2])) {
+        if ($user->DataUser->role_id != $request['role_id'] && in_array($request['role_id'], [1, 2, 3])) {
             $this->setUserRole($user, $request['role_id']);
         }
         if ($request['nickname']) {
@@ -121,7 +122,7 @@ class UserClass
      * Удалить пользователя
      *
      * @param $id
-     * @return bool
+     * @return bool|void
      */
     public function deleteUser($id)
     {

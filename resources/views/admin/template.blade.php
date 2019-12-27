@@ -16,20 +16,21 @@
 </head>
 <body id="page-top">
 <div id="wrapper">
-    @include('admin.left')
-    <div id="content-wrapper" class="d-flex flex-column">
-        <div id="content">
-            @include('admin.header')
-            @yield('content')
+    <div id="loading" class="d-flex align-items-center loading justify-content-center">
+        <div class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
         </div>
     </div>
-
+    <left-menu></left-menu>
+    <div id="main-content" class="">
+        @include('admin.header')
+        <transition name="pop-out">
+            <router-view></router-view>
+        </transition>
+        {{--        @yield('content')--}}
+    </div>
 
 </div>
-<a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-</a>
-
 
 <script src="{{ asset('js/admin/admin.js') }}"></script>
 

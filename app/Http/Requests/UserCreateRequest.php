@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright (c) 27.11.2019.
+ * Copyright (c) 20.12.2019.
  * File - UserCreateRequest.php
- * Author - tor
+ * Author - snigerev
  */
 
 namespace App\Http\Requests;
@@ -28,14 +28,14 @@ class UserCreateRequest extends FormRequest
      */
     public function rules()
     {
-        $role_id = [0, 1, 2];
+        $role_id = [1, 2, 3];
 
         return [
-            'name' => ['required', 'string', 'max:255'],
+            'name' => ['string', 'max:255'],
             'nickname' => ['string', 'max:50'],
-            'role_id' => ['required', 'in_array:role_id'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'role_id' => ['in_array:role_id'],
+            'email' => ['string', 'email', 'max:255', 'unique:users'],
+            'password' => ['string', 'min:8', 'confirmed'],
         ];
     }
 }

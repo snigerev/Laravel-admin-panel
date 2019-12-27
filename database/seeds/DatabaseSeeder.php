@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright (c) 28.11.2019.
+ * Copyright (c) 18.12.2019.
  * File - DatabaseSeeder.php
- * Author - tor
+ * Author - snigerev
  */
 
 use Illuminate\Database\Seeder;
@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(ServerConfig::class);
         $this->call(AddMap::class);
+        $this->call(Roles::class);
         // $this->call(UsersTableSeeder::class);
     }
 }
