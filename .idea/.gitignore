@@ -5,3 +5,5 @@
 /dataSources/
 dataSources.local.xml
 dataSources.xml
+# Project exclude paths
+/.

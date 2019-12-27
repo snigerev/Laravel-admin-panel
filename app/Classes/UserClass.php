@@ -80,7 +80,11 @@ class UserClass
             'email' => $request['email'],
             'password' => Hash::make($request['password']),
         ]);
-        $user->DataUser()->create(['role_id' => $request['role_id']]);
+        if (isset($request['role_id'])) {
+            $user->DataUser()->create(['role_id' => $request['role_id']]);
+        }else{
+            $user->DataUser()->create();
+        }
 
         if ($user) {
             (new UserPlanetClass())->createUserPlanetOnRegistration($user['id']);
