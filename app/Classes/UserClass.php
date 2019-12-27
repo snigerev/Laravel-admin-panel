@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright (c) 2.12.2019.
+ * Copyright (c) 27.12.2019.
  * File - UserClass.php
- * Author - tor
+ * Author - snigerev
  */
 
 namespace App\Classes;
@@ -111,7 +111,7 @@ class UserClass
 
         $user->update(array_filter($request->all()));
 
-        if (($user->DataUser->role_id != $request['role_id']) && in_array($request['role_id'], [0, 1, 2])) {
+        if (($user->DataUser->role_id != $request['role_id']) && in_array($request['role_id'], [1, 2, 3])) {
             $this->setUserRole($user, $request['role_id']);
         }
         if ($request['nickname']) {

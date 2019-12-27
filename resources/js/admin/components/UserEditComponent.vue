@@ -1,5 +1,5 @@
 <!--
-  - Copyright (c) 24.12.2019.
+  - Copyright (c) 27.12.2019.
   - File - UserEditComponent.vue
   - Author - snigerev
   -->
@@ -17,31 +17,31 @@
                 <div class="card-body ">
                     <form>
                         <div class="form-group d-flex">
-                            <div class="col-4 form-row align-content-center">
+                            <div class="col-6 form-row align-content-center">
                                 <label for="name" class="col-form-label mb-2">Имя пользователя: </label>
                                 <input type="text" id="name" v-model="userEdit.name" class="form-control"
                                        :placeholder="userData.name">
                             </div>
-                            <div class="col-4 form-row align-content-center">
+                            <div class="col-6 form-row align-content-center">
                                 <label for="nickname" class="col-form-label mb-2">Ник пользователя: </label>
                                 <input type="text" id="nickname" v-model="userEdit.nickname" class="form-control"
                                        :placeholder="userData.nickname">
                             </div>
                         </div>
                         <div class="form-group d-flex">
-                            <div class="col-4 form-row align-content-center">
+                            <div class="col-6 form-row align-content-center">
                                 <label for="email" class="col-form-label mb-2">Почта пользователя: </label>
                                 <input type="text" id="email" v-model="userEdit.email" class="form-control"
                                        :placeholder="userData.email">
                             </div>
-                            <div class="col-4 form-row align-content-center">
+                            <div class="col-6 form-row align-content-center">
                                 <label for="password" class="col-form-label mb-2">Пароль пользователя: </label>
                                 <input type="password" id="password" v-model="userEdit.password"
                                        class="form-control">
                             </div>
                         </div>
                         <div class="form-group d-flex">
-                            <div class="col-4 form-row align-content-center">
+                            <div class="col-6 form-row align-content-center">
                                 <label for="role_name" class="col-form-label mb-2">Группа пользователя: </label>
                                 <select class="form-control" id="role_name" :name="userEdit.role_id" @change="RoleId">
                                     <option
@@ -75,7 +75,7 @@
             return {
                 userData: [],
                 roles: [],
-                userid: null,
+                userId: null,
                 userEdit: {},
             }
         },
@@ -93,7 +93,6 @@
             },
             saveUser() {
                 $('#loading').attr('style', 'display:');
-                console.log(this.userEdit);
                 if (!$.isEmptyObject(this.userEdit)) {
                     axios({
                         method: 'post',
@@ -101,19 +100,16 @@
                         data: this.userEdit
                     }).then((resp) => {
                         if (resp.data === 'ok') {
-                            console.log(resp.data);
                             alert('Данные успешно обновлены!');
                             $('#loading').attr('style', 'display:none !important');
                         }
                     })
                         .catch(function (resp) {
-                            console.log(resp);
                             alert("Обновление не удалось.");
                         });
                 } else {
                     alert('Данные не заполнены');
                 }
-
             },
         }
     }

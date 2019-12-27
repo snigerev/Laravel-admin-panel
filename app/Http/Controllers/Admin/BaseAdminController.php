@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright (c) 21.11.2019.
+ * Copyright (c) 27.12.2019.
  * File - BaseAdminController.php
- * Author - tor
+ * Author - snigerev
  */
 
 namespace App\Http\Controllers\Admin;
@@ -20,7 +20,7 @@ class BaseAdminController extends Controller
 
     public function __construct()
     {
-        $this->middleware(['auth', 'verified', 'globalAdmin']);
+        $this->middleware(['auth', 'verified']); //, 'globalAdmin'
 
     }
 
