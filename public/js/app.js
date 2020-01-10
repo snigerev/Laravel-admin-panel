@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 27.12.2019.
+ * Copyright (c) 10.1.2020.
  * File - app.js
  * Author - snigerev
  */

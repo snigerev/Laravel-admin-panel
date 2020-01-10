@@ -1,5 +1,5 @@
 <!--
-  - Copyright (c) 20.12.2019.
+  - Copyright (c) 10.1.2020.
   - File - UsersListComponents.vue
   - Author - snigerev
   -->
@@ -32,7 +32,7 @@
                             <td>{{ user.name }}</td>
                             <td>{{ user.nickname }}</td>
                             <td>{{ user.email }}</td>
-                            <td>{{user.role_name}}</td>
+                            <td>{{ user.role_name }}</td>
                             <td>
                                 <a @click="$refs.userEdit.openEdit(user)">
                                     <i class="fas fa-edit"/>
@@ -47,7 +47,7 @@
                 </div>
             </div>
         </div>
-        <UserEditComponent ref="userEdit"></UserEditComponent>
+        <UserEditComponent ref="userEdit"/>
     </div>
 </template>
 
@@ -68,7 +68,7 @@
         },
         methods: {
             userList() {
-                axios.get('/api/getUsersList')
+                axios.get('/api/users')
                     .then((response) => {
                         this.loading = false;
                         $('#loading').attr('style', 'display:none !important');

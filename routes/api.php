@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 24.12.2019.
+ * Copyright (c) 10.1.2020.
  * File - api.php
  * Author - snigerev
  */
@@ -22,8 +22,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('getRoles', 'Api\UserApiController@getRoles');
+Route::get('roles', 'Api\UserApiController@getRoles');
 
-Route::get('getUsersList', 'Api\UserApiController@getUsersList');
+Route::get('users', 'Api\UserApiController@getUsersList');
 
-Route::post('editUser/{id}', 'Api\UserApiController@edit');
+Route::post('users/{id}', 'Api\UserApiController@edit');

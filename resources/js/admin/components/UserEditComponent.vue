@@ -1,5 +1,5 @@
 <!--
-  - Copyright (c) 27.12.2019.
+  - Copyright (c) 10.1.2020.
   - File - UserEditComponent.vue
   - Author - snigerev
   -->
@@ -84,7 +84,7 @@
                 this.userData = data;
                 this.userId = data.id;
                 this.$modal.show('edit');
-                axios.get('/api/getRoles').then((resp) => {
+                axios.get('/api/roles').then((resp) => {
                     this.roles = resp.data;
                 })
             },
@@ -96,7 +96,7 @@
                 if (!$.isEmptyObject(this.userEdit)) {
                     axios({
                         method: 'post',
-                        url: '/api/editUser/' + this.userId,
+                        url: '/api/users/' + this.userId,
                         data: this.userEdit
                     }).then((resp) => {
                         if (resp.data === 'ok') {
