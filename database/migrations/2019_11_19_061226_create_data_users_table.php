@@ -21,7 +21,7 @@ class CreateDataUsersTable extends Migration
         Schema::create('data_users', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('user_id')->unsigned()->unique();
-            $table->bigInteger('role_id')->unsigned()->default('0');
+            $table->bigInteger('role_id')->unsigned()->default(1);
             $table->string('nickname', '50')->nullable();
 
             $table->foreign('user_id')
