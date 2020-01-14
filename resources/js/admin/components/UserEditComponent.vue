@@ -1,7 +1,7 @@
 <!--
-  - Copyright (c) 10.1.2020.
+  - Copyright (c) 14.1.2020.
   - File - UserEditComponent.vue
-  - Author - snigerev
+  - Author - admin
   -->
 
 <template>
@@ -58,7 +58,7 @@
 
                         <div class="button-set">
                             <button class="btn btn-success" @click="saveUser()">Сохранить</button>
-                            <button class="btn btn-dark" @click="$modal.hide('edit')">Отменить</button>
+                            <input type="button" class="btn btn-dark" @click="$modal.hide('edit')" value="Отменить">
                         </div>
                     </form>
                 </div>

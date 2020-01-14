@@ -1,7 +1,7 @@
 /*
- * Copyright (c) 10.1.2020.
+ * Copyright (c) 14.1.2020.
  * File - app.js
- * Author - snigerev
+ * Author - admin
  */
 
 /******/
