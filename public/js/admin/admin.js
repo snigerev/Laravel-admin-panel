@@ -1961,18 +1961,54 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+var MODAL_WIDTH = 656;
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "UserAddComponent",
+  name: "UserEditComponent",
   data: function data() {
     return {
-      csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-      loading: true
+      roles: [],
+      userAdd: {}
     };
   },
-  created: function created() {
-    this.loading = false;
+  beforeCreate: function beforeCreate() {
+    var _this = this;
+
+    axios.get('/api/roles').then(function (resp) {
+      _this.roles = resp.data;
+    });
   },
-  methods: {}
+  methods: {
+    openAdd: function openAdd() {
+      this.$modal.show('add');
+    },
+    addUser: function addUser() {
+      $('#loading').attr('style', 'display:');
+
+      if (!$.isEmptyObject(this.userAdd)) {
+        axios({
+          method: 'post',
+          url: '/api/users',
+          data: this.userAdd
+        }).then(function (resp) {
+          if (resp.data === 'ok') {
+            alert('Данные успешно обновлены!');
+            $('#loading').attr('style', 'display:none !important');
+          }
+        })["catch"](function (resp) {
+          alert("Обновление не удалось.");
+        });
+      } else {
+        alert('Данные не заполнены');
+      }
+    }
+  }
 });
 
 /***/ }),
@@ -2066,16 +2102,18 @@ var MODAL_WIDTH = 656;
       userEdit: {}
     };
   },
+  beforeCreate: function beforeCreate() {
+    var _this = this;
+
+    axios.get('/api/roles').then(function (resp) {
+      _this.roles = resp.data;
+    });
+  },
   methods: {
     openEdit: function openEdit(data) {
-      var _this = this;
-
       this.userData = data;
       this.userId = data.id;
       this.$modal.show('edit');
-      axios.get('/api/roles').then(function (resp) {
-        _this.roles = resp.data;
-      });
     },
     RoleId: function RoleId(e) {
       this.userEdit.role_id = e.target.value;
@@ -2115,7 +2153,7 @@ var MODAL_WIDTH = 656;
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _UserEditComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./UserEditComponent */ "./resources/js/admin/components/UserEditComponent.vue");
-//
+/* harmony import */ var _UserAddComponent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./UserAddComponent */ "./resources/js/admin/components/UserAddComponent.vue");
 //
 //
 //
@@ -2169,10 +2207,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "UsersListComponents",
   components: {
-    UserEditComponent: _UserEditComponent__WEBPACK_IMPORTED_MODULE_0__["default"]
+    UserEditComponent: _UserEditComponent__WEBPACK_IMPORTED_MODULE_0__["default"],
+    UserAddComponent: _UserAddComponent__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   data: function data() {
     return {
@@ -38207,183 +38247,296 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "content-wrapper d-flex flex-column" }, [
-    _vm.loading
-      ? _c(
-          "div",
-          {
-            staticClass:
-              "d-flex align-items-center h-auto justify-content-center"
-          },
-          [_vm._m(0)]
-        )
-      : _vm._e(),
-    _vm._v(" "),
-    !_vm.loading
-      ? _c("div", { staticClass: "card shadow mb-4 ml-2 container" }, [
-          _vm._m(1),
+  return _c(
+    "modal",
+    { attrs: { name: "add", transition: "pop-out", height: "auto" } },
+    [
+      _c("div", { staticClass: "box" }, [
+        _c("div", { staticClass: "card" }, [
+          _c("div", { staticClass: "card-header" }, [
+            _vm._v("Добавление аккаунта\n                "),
+            _c(
+              "button",
+              {
+                staticClass: "close",
+                attrs: {
+                  type: "button",
+                  "data-dismiss": "modal",
+                  "aria-label": "Close"
+                },
+                on: {
+                  click: function($event) {
+                    return _vm.$modal.hide("add")
+                  }
+                }
+              },
+              [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+            )
+          ]),
           _vm._v(" "),
-          _c("div", { staticClass: "card-body col-4" }, [
-            _c("form", { attrs: { action: "#", method: "post" } }, [
-              _c("input", {
-                attrs: { type: "hidden", name: "_token" },
-                domProps: { value: _vm.csrf }
-              }),
+          _c("div", { staticClass: "card-body " }, [
+            _c("form", [
+              _c("div", { staticClass: "form-group d-flex" }, [
+                _c(
+                  "div",
+                  { staticClass: "col-6 form-row align-content-center" },
+                  [
+                    _c(
+                      "label",
+                      {
+                        staticClass: "col-form-label mb-2",
+                        attrs: { for: "name" }
+                      },
+                      [_vm._v("Имя пользователя: ")]
+                    ),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.userAdd.name,
+                          expression: "userAdd.name"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "text", id: "name" },
+                      domProps: { value: _vm.userAdd.name },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.userAdd, "name", $event.target.value)
+                        }
+                      }
+                    })
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "col-6 form-row align-content-center" },
+                  [
+                    _c(
+                      "label",
+                      {
+                        staticClass: "col-form-label mb-2",
+                        attrs: { for: "nickname" }
+                      },
+                      [_vm._v("Ник пользователя: ")]
+                    ),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.userAdd.nickname,
+                          expression: "userAdd.nickname"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "text", id: "nickname" },
+                      domProps: { value: _vm.userAdd.nickname },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.userAdd, "nickname", $event.target.value)
+                        }
+                      }
+                    })
+                  ]
+                )
+              ]),
               _vm._v(" "),
-              _vm._m(2),
+              _c("div", { staticClass: "form-group d-flex" }, [
+                _c(
+                  "div",
+                  { staticClass: "col-6 form-row align-content-center" },
+                  [
+                    _c(
+                      "label",
+                      {
+                        staticClass: "col-form-label mb-2",
+                        attrs: { for: "email" }
+                      },
+                      [_vm._v("Почта пользователя: ")]
+                    ),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.userAdd.email,
+                          expression: "userAdd.email"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "text", id: "email" },
+                      domProps: { value: _vm.userAdd.email },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.userAdd, "email", $event.target.value)
+                        }
+                      }
+                    })
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "col-6 form-row align-content-center" },
+                  [
+                    _c(
+                      "label",
+                      {
+                        staticClass: "col-form-label mb-2",
+                        attrs: { for: "role_name" }
+                      },
+                      [_vm._v("Группа пользователя: ")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "select",
+                      {
+                        staticClass: "form-control",
+                        attrs: { id: "role_name", name: _vm.userAdd.role_id }
+                      },
+                      _vm._l(_vm.roles, function(role) {
+                        return _c("option", { domProps: { value: role.id } }, [
+                          _vm._v(
+                            _vm._s(role.name) +
+                              "\n                                "
+                          )
+                        ])
+                      }),
+                      0
+                    )
+                  ]
+                )
+              ]),
               _vm._v(" "),
-              _vm._m(3),
+              _c("div", { staticClass: "form-group d-flex" }, [
+                _c(
+                  "div",
+                  { staticClass: "col-6 form-row align-content-center" },
+                  [
+                    _c(
+                      "label",
+                      {
+                        staticClass: "col-form-label mb-2",
+                        attrs: { for: "password" }
+                      },
+                      [_vm._v("Пароль пользователя: ")]
+                    ),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.userAdd.password,
+                          expression: "userAdd.password"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "password", id: "password" },
+                      domProps: { value: _vm.userAdd.password },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.userAdd, "password", $event.target.value)
+                        }
+                      }
+                    })
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "col-6 form-row align-content-center" },
+                  [
+                    _c(
+                      "label",
+                      {
+                        staticClass: "col-form-label mb-2",
+                        attrs: { for: "password-confirm" }
+                      },
+                      [_vm._v("Пароль пользователя: ")]
+                    ),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.userAdd.password_confirmation,
+                          expression: "userAdd.password_confirmation"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "password", id: "password-confirm" },
+                      domProps: { value: _vm.userAdd.password_confirmation },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.userAdd,
+                            "password_confirmation",
+                            $event.target.value
+                          )
+                        }
+                      }
+                    })
+                  ]
+                )
+              ]),
               _vm._v(" "),
-              _vm._m(4),
+              _c("div", { staticStyle: { "margin-top": "42px" } }),
               _vm._v(" "),
-              _vm._m(5)
+              _c("div", { staticClass: "button-set" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-success",
+                    on: {
+                      click: function($event) {
+                        return _vm.addUser()
+                      }
+                    }
+                  },
+                  [_vm._v("Сохранить")]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  staticClass: "btn btn-dark",
+                  attrs: { type: "button", value: "Отменить" },
+                  on: {
+                    click: function($event) {
+                      return _vm.$modal.hide("add")
+                    }
+                  }
+                })
+              ])
             ])
           ])
         ])
-      : _vm._e()
-  ])
+      ])
+    ]
+  )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "spinner-border", attrs: { role: "status" } },
-      [_c("span", { staticClass: "sr-only" }, [_vm._v("Loading...")])]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-header py-3  d-flex" }, [
-      _c(
-        "h6",
-        {
-          staticClass:
-            "m-0 col-12 font-weight-bold text-primary align-self-center"
-        },
-        [_vm._v("Создание пользователя")]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group d-flex" }, [
-      _c("div", { staticClass: "col-6 form-row align-content-center" }, [
-        _c(
-          "label",
-          { staticClass: "col-form-label mb-2", attrs: { for: "name" } },
-          [_vm._v("Имя пользователя : ")]
-        ),
-        _vm._v(" "),
-        _c("input", {
-          staticClass: "form-control",
-          attrs: { type: "text", id: "name", name: "name" }
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-6 form-row align-content-center" }, [
-        _c(
-          "label",
-          { staticClass: "col-form-label mb-2", attrs: { for: "email" } },
-          [_vm._v("email : ")]
-        ),
-        _vm._v(" "),
-        _c("input", {
-          staticClass: "form-control",
-          attrs: { type: "email", id: "email", name: "email" }
-        })
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group d-flex" }, [
-      _c("div", { staticClass: "col-6 form-row align-content-center" }, [
-        _c(
-          "label",
-          { staticClass: "col-form-label mb-2", attrs: { for: "password" } },
-          [_vm._v("Пароль : ")]
-        ),
-        _vm._v(" "),
-        _c("input", {
-          staticClass: "form-control",
-          attrs: { type: "password", id: "password", name: "password" }
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-6 form-row align-content-center" }, [
-        _c(
-          "label",
-          {
-            staticClass: "col-form-label mb-2",
-            attrs: { for: "password-confirm" }
-          },
-          [_vm._v("повторите пароль\n                            : ")]
-        ),
-        _vm._v(" "),
-        _c("input", {
-          staticClass: "form-control",
-          attrs: {
-            type: "password",
-            id: "password-confirm",
-            name: "password_confirmation"
-          }
-        })
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "col-auto form-row align-content-center" },
-      [
-        _c("label", { attrs: { for: "roles" } }, [_vm._v("Группа")]),
-        _vm._v(" "),
-        _c(
-          "select",
-          {
-            staticClass: "form-control",
-            attrs: { name: "role_id", id: "roles" }
-          },
-          [
-            _c("option", { attrs: { selected: "", disabled: "" } }, [
-              _vm._v("Выберите группу")
-            ]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "0" } }, [_vm._v("1")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "1" } }, [_vm._v("2")]),
-            _vm._v(" "),
-            _c("option", { attrs: { value: "2" } }, [_vm._v("3")])
-          ]
-        )
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-row col-auto d-flex" }, [
-      _c(
-        "button",
-        { staticClass: "btn btn-primary mt-3", attrs: { type: "submit" } },
-        [_vm._v("добавить")]
-      )
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -38711,27 +38864,22 @@ var render = function() {
     [
       !_vm.loading
         ? _c("div", { staticClass: "card shadow mb-4 ml-2 container" }, [
-            _c(
-              "div",
-              { staticClass: "card-header py-3 d-flex" },
-              [
-                _c(
-                  "h6",
-                  { staticClass: "m-0 col-10 font-weight-bold text-primary" },
-                  [_vm._v("Таблица ползователей")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "router-link",
-                  {
-                    staticClass: "btn col-2 m-auto btn-primary",
-                    attrs: { to: { name: "userAdd" } }
-                  },
-                  [_vm._v("Добавить\n            ")]
-                )
-              ],
-              1
-            ),
+            _c("div", { staticClass: "card-header py-3 d-flex" }, [
+              _c(
+                "h6",
+                { staticClass: "m-0 col-10 font-weight-bold text-primary" },
+                [_vm._v("Таблица ползователей")]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary",
+                  on: { click: _vm.$refs.userAdd.openAdd }
+                },
+                [_vm._v("Добавить")]
+              )
+            ]),
             _vm._v(" "),
             _c("div", { staticClass: "card-body" }, [
               _c("div", { staticClass: "table-responsive" }, [
@@ -38784,7 +38932,9 @@ var render = function() {
           ])
         : _vm._e(),
       _vm._v(" "),
-      _c("UserEditComponent", { ref: "userEdit" })
+      _c("UserEditComponent", { ref: "userEdit" }),
+      _vm._v(" "),
+      _c("UserAddComponent", { ref: "userAdd" })
     ],
     1
   )

@@ -79,14 +79,16 @@
                 userEdit: {},
             }
         },
+        beforeCreate() {
+            axios.get('/api/roles').then((resp) => {
+                this.roles = resp.data;
+            })
+        },
         methods: {
             openEdit(data) {
                 this.userData = data;
                 this.userId = data.id;
                 this.$modal.show('edit');
-                axios.get('/api/roles').then((resp) => {
-                    this.roles = resp.data;
-                })
             },
             RoleId(e) {
                 this.userEdit.role_id = e.target.value;

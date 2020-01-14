@@ -1,7 +1,7 @@
 <!--
-  - Copyright (c) 10.1.2020.
+  - Copyright (c) 14.1.2020.
   - File - UsersListComponents.vue
-  - Author - snigerev
+  - Author - admin
   -->
 
 <template>
@@ -9,9 +9,7 @@
         <div v-if="!loading" class="card shadow mb-4 ml-2 container">
             <div class="card-header py-3 d-flex">
                 <h6 class="m-0 col-10 font-weight-bold text-primary">Таблица ползователей</h6>
-                <router-link :to="{name: 'userAdd'}"
-                             class="btn col-2 m-auto btn-primary">Добавить
-                </router-link>
+                <button class="btn btn-primary" @click="$refs.userAdd.openAdd">Добавить</button>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -48,14 +46,16 @@
             </div>
         </div>
         <UserEditComponent ref="userEdit"/>
+        <UserAddComponent ref="userAdd"/>
     </div>
 </template>
 
 <script>
     import UserEditComponent from './UserEditComponent';
+    import UserAddComponent from "./UserAddComponent";
     export default {
         name: "UsersListComponents",
-        components: {UserEditComponent},
+        components: {UserEditComponent, UserAddComponent},
         data() {
             return {
                 usersList: [],
